@@ -1,2 +1,2 @@
-paper
-=====
+scikit-image-paper
+==================
