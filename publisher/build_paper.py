@@ -8,6 +8,8 @@ import tempfile
 import glob
 import shutil
 
+from copytree import copytree
+
 from writer import writer
 from conf import papers_dir, output_dir
 import options
@@ -36,7 +38,10 @@ def rst2tex(in_path, out_path):
 
     options.mkdir_p(out_path)
     for file in glob.glob(os.path.join(in_path, '*')):
-        shutil.copy(file, out_path)
+        if os.path.isdir(file):
+            copytree(file, out_path)
+        else:
+            shutil.copy(file, out_path)
 
     base_dir = os.path.dirname(__file__)
     scipy_status = os.path.join(base_dir, '_static/status.sty')

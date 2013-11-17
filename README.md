@@ -1,33 +1,14 @@
-SciPy Proceedings
-=================
+scikit-image paper
+==================
 
-Paper Format
-------------
-Papers are formatted using reStructuredText and the compiled version should be
-no longer than 7 pages, including figures.  Here are the steps to produce a
-paper:
+Getting started
+---------------
 
-- Fork the `scipy_proceedings <https://github.com/scipy/scipy_proceedings>`__
-  repository on GitHub.
+1. Run ``make figures`` to generate all figures.
+2. Run ``make`` to produce  ``output/skimage/paper.pdf``.
 
-- Check out the 2013 branch (`git checkout 2013`).
-
-- An example paper is provided in ``papers/00_vanderwalt``.  Create a new
-  directory ``papers/firstname_surname``, copy the example paper into it, and
-  modify to your liking.
-
-- Run ``./make_paper.sh papers/firstname_surname`` to compile your paper to PDF
-  (requires LaTeX, docutils, Python--see below).  The output appears in
-  ``output/firstname_surname/paper.pdf``.
-
-- Once you are ready to submit your paper, file a pull request on GitHub.
-  **Please ensure that you file against the correct branch**--your branch should
-  be named 2013, and the pull-request should be against our 2013 branch.
-
-- Please do not modify any files outside of your paper directory.
-
-Pull requests are to be submitted by **May 19th**, but modifications are
-allowed during the review period until June 14th.
+Other targets are ``clean`` (remove built files) and ``view`` (open PDF with
+``xdg-open``).
 
 General Guidelines
 ------------------
@@ -40,8 +21,8 @@ General Guidelines
 
 Other markup
 ------------
-Please refer to the example paper in ``papers/00_vanderwalt`` for
-examples of how to:
+Please refer to this [example paper](https://github.com/scipy/scipy_proceedings/blob/master/papers/00_vanderwalt/00_vanderwalt.rst)
+for examples of how to:
 
  - Label figures, equations and tables
  - Use math markup
