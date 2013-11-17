@@ -81,11 +81,6 @@ def rst2tex(in_path, out_path):
     tex = dc.publish_string(source=content, writer=writer,
                             settings_overrides=settings)
 
-    stats_file = os.path.join(out_path, 'paper_stats.json')
-    d = options.cfg2dict(stats_file)
-    d.update(writer.document.stats)
-    options.dict2cfg(d, stats_file)
-
     tex_file = os.path.join(out_path, 'paper.tex')
     with open(tex_file, 'w') as f:
         f.write(tex)
@@ -139,7 +134,7 @@ def page_count(pdflatex_stdout, paper_dir):
     regexp = re.compile('Output written on paper.pdf \((\d+) pages')
     cfgname = os.path.join(paper_dir, 'paper_stats.json')
 
-    d = options.cfg2dict(cfgname)
+    d = options.cfg2dict(cfgname, quiet=True)
 
     for line in pdflatex_stdout.splitlines():
         m = regexp.match(line)

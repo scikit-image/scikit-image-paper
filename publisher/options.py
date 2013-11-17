@@ -9,24 +9,26 @@ import json
 import codecs
 
 import conf
-toc_conf   = conf.toc_conf
-proc_conf  = conf.proc_conf
-inst_conf  = conf.inst_conf
+paper_conf  = conf.paper_conf
+
 
 def get_config():
     config = cfg2dict(proc_conf)
     config.update(cfg2dict(toc_conf))
     return config
 
-def cfg2dict(filename):
+
+def cfg2dict(filename, quiet=False):
     """Return the content of a JSON config file as a dictionary.
 
     """
     if not os.path.exists(filename):
-        print '*** Warning: %s does not exist.' % filename
+        if not quiet:
+            print '*** Warning: %s does not exist.' % filename
         return {}
 
     return json.loads(codecs.open(filename, 'r', 'utf-8').read())
+
 
 def dict2cfg(d, filename):
     """Write dictionary out to config file.
@@ -34,10 +36,10 @@ def dict2cfg(d, filename):
     """
     json.dump(d, codecs.open(filename, 'w', 'utf-8'), ensure_ascii=False)
 
+
 def mkdir_p(dir):
     if os.path.isdir(dir):
         return
     os.makedirs(dir)
 
-options = cfg2dict(proc_conf)
-inst_table = cfg2dict(inst_conf)
+options = cfg2dict(paper_conf)
