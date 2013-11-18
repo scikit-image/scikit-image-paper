@@ -1,3 +1,4 @@
+*~
 *.acn
 *.acr
 *.alg
@@ -24,9 +25,11 @@
 *.out
 *.pdfsync
 *.ps
+*.pyc
 *.snm
 *.synctex.gz
 *.toc
 *.vrb
 *.xdy
 *.tdo
+output

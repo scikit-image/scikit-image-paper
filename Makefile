@@ -1,34 +1,18 @@
-BUILDDIR = build
-DOC = doc
-DOCS = $(DOC).tex
-SOURCES = sources.bib
-codelang = python
-codefile = script.py
+.PHONY: all view figures
 
-all: pdf sources pdf2 copy view clean
+FIGS = $(wildcard skimage/fig_*.py)
 
-pdf: $(DOCS)
-	-mkdir $(BUILDDIR)
-	pdflatex -output-directory=$(BUILDDIR) $(DOCS)
 
-pdf2: $(DOCS)
-	pdflatex -output-directory=$(BUILDDIR) $(DOCS)
-
-sources:
-	cp -f $(SOURCES) $(BUILDDIR)/$(SOURCES)
-	cd $(BUILDDIR); bibtex $(DOC)
+all:
+	./make_paper.sh skimage
 
 clean:
-	rm -rf $(BUILDDIR)
+	rm -rf output
 
-copy:
-	cp $(BUILDDIR)/$(DOC).pdf .
+figures: $(FIGS)
+	mkdir -p skimage/figures
+	$(foreach fig, $(FIGS), python $(fig))
 
-view:
-	open $(DOC).pdf
+view: all
+	xdg-open output/skimage/paper.pdf
 
-code:
-	@pygmentize -f latex -l $(codelang) -O linenos=1 $(codefile)
-
-codestyle:
-	pygmentize -f latex -l $(codelang) -O linenos=1,full=1 $(codefile)
