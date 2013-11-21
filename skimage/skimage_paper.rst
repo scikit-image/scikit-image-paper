@@ -51,29 +51,45 @@ scikit-image: Image processing in Python
 
    image processing, reproducible research, education, visualization
 
-Introduction and motivation
-===========================
+Introduction
+============
 
-Purpose
-=======
+.. include:: skimage/introduction.txt
+
+Usage examples
+==============
 
 Research
 --------
 
+.. include:: skimage/usage-research.txt
+
 Education
 ---------
+
+.. include:: skimage/usage-education.txt
 
 Industry
 --------
 
+.. include:: skimage/usage-industry.txt
+
 Gallery of examples
 ===================
+
+.. include:: skimage/gallery.txt
 
 Development practices
 =====================
 
+.. include:: skimage/development-practice.txt
+
 Roadmap
 =======
 
+.. include:: skimage/roadmap.txt
+
 Conclusion
 ==========
+
+.. include:: skimage/conclusion.txt
