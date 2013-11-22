@@ -1,0 +1,28 @@
+The purpose of scikit-image is to provide a high-quality library which is free of charge and restrictions.
+These inherent principles are the foundation for the conducted development practices in the scikit-image community.
+
+The entire library is licensed under the *Modified BSD license*, which allows unrestricted redistribution for any purpose as long as its copyright notices and the disclaimers of warranty are maintained [BSD]_.
+It is compatible with the GPL-licenses, but contrary it is a non-copyleft license and can therefore be incorporated into commercial products for use in industry.
+
+The development team of scikit-image is an open community which collaborates on the *GitHub* [GitHub]_ platform for issue tracking, code review and release management.
+*Google Groups* [GoogleGroups]_ is used as a public discussion forum for user support, bug reports and announcements.
+New contributors are welcomed to join the development team, which has seen a steady growth over the years (numbers to be inserted).
+
+scikit-image complies with the PEP8 coding style standard [PEP8]_ and the NumPy documentation style [NumpyDoc]_ in order to provide a consistent user experience across all parts of the library. The majority of the API is intentionally designed as a functional interface, which allows an intuitive creation of image processing pipelines by consecutively applying different functions on images.
+
+High code-quality is firstly ensured by a thorough review process for new features in the form of discussions inside pull requests on the GitHub platform.
+Secondly, scikit-image aims to achieve full unit test coverage, which is above 80% as of release 0.9.
+A continuous integration system ([TravisCI]_, [Coveralls]_) checks each commit automatically for unit test coverage and failures. Additionally, the code is analyzed by several tools to guarantee compliance with coding style standards.
+Finally, the properties of each public function must be documented thoroughly in an API reference, which is embedded as Python docstrings and accessible through the official project homepage and the command-line interface in interactive Python consoles. Short usage examples are typically directly included inside the docstrings, while for every new feature a longer, self-contained example script is added to the narrative documentation and its contents are automatically compiled to a gallery on the project website.
+
+Whereas the development version is fully functional and can be obtain from GitHub, the community typically releases major updates (0.X) with new functionality as stable versions every 6 months for the ordinary user, which are maintained by smaller bugfix releases throughout being the current stable version.
+
+References
+----------
+.. [BSD] http://www.gnu.org/licenses/license-list.html#ModifiedBSD
+.. [GitHub] https://github.com/scikit-image/scikit-image
+.. [GoogleGroups] https://groups.google.com/forum/?&fromgroups#!forum/scikit-image
+.. [TravisCI] https://travis-ci.org
+.. [Coveralls] https://coveralls.io
+.. [PEP8] http://www.python.org/dev/peps/pep-0008/
+.. [NumpyDoc] https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
