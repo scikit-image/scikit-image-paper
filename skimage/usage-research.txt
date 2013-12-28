@@ -22,6 +22,6 @@ the dynamic process.
    in a drying colloidal droplet. The sequence of pictures shows the temporal
    evolution of the system with in green, the drop contact line detected by the
    Hough transform and in white, the circle used to reslice the image stack.
-   The results is plotted and illustrates the angular position of cracks and
+   The result is plotted and illustrates the angular position of cracks and
    their time of appearance. :label:`cracks`
 
