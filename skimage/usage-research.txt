@@ -1,0 +1,27 @@
+
+In research, scikit-image can be used to extract information about morphologies
+in large stacks of images. For instance, let's consider the drying of a droplet
+containing nanoparticles (See Figure :ref:`cracks`). As the drying proceeds,
+cracks propagate from the drop edge to its center. The aim is to collect
+statistical information about the position of cracks, their time and order of
+appearance. To ease the data processing, each experiment, constituted of an
+image stack, is automatically treated without human intervention. The contact
+line is detected by a circle Hough transform providing the drop radius and its
+center.  Then, a second circle with a radius of a fraction of the droplet size
+is drawn to collect its pixels. Repeating the process of each image of the
+stack, collected pixels can be assembled to make a space-time diagram. As a
+result, a complex stack of images can be reduced to a single image summarizing
+the dynamic process.
+
+
+.. figure:: fig_cracks.png
+   :scale: 40%
+   :figclass: bht
+
+   Scikit-image is being used to track the propagation of crack (black lines)
+   in a drying colloidal droplet. The sequence of pictures shows the temporal
+   evolution of the system with in green, the drop contact line detected by the
+   Hough transform and in white, the circle used to reslice the image stack.
+   The results is plotted and illustrates the angular position of cracks and
+   their time of appearance. :label:`cracks`
+
