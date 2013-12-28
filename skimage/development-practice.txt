@@ -35,12 +35,13 @@ the command-line interface in interactive Python consoles. Short usage examples
 are typically directly included inside the docstrings, while for every new
 feature a longer, self-contained example script is added to the narrative
 documentation and its contents are automatically compiled to a gallery on the
-project website.
+project website. The project website and the documentation is created with the
+Python documentation generator Sphinx [Sphinx]_.
 
-Whereas the development version is fully functional and can be obtain from
+Whereas the development version is fully functional and can be obtained from
 GitHub, the community typically releases major updates (0.X) with new
-functionality as stable versions every 6 months for the ordinary user, which
-are maintained by smaller bugfix releases throughout being the current stable
+functionality as stable versions every 6 months for the end user, which are
+maintained by smaller bugfix releases throughout being the current stable
 version.
 
 References
@@ -52,3 +53,4 @@ References
 .. [Coveralls] https://coveralls.io
 .. [PEP8] http://www.python.org/dev/peps/pep-0008/
 .. [NumpyDoc] https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
+.. [Sphinx] http://sphinx-doc.org/
