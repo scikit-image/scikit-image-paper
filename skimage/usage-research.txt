@@ -14,8 +14,8 @@ result, a complex stack of images can be reduced to a single image summarizing
 the dynamic process.
 
 
-.. figure:: fig_cracks.png
-   :scale: 40%
+.. figure:: fig_cracks.pdf
+   :scale: 70%
    :figclass: bht
 
    Scikit-image is being used to track the propagation of crack (black lines)
