@@ -1,6 +1,6 @@
 
-In research, scikit-image can be used to extract information about morphologies
-in large stacks of images. For instance, let's consider the drying of a droplet
+In research, scikit-image is being used to extract information about patterns in
+large stacks of images. For instance, let us consider the drying of a droplet
 containing nanoparticles (See Figure :ref:`cracks`). As the drying proceeds,
 cracks propagate from the drop edge to its center. The aim is to understand
 crack patterns by collecting statistical information about their positions,
@@ -19,10 +19,10 @@ process.
    :scale: 70%
    :figclass: bht
 
-   Scikit-image is being used to track the propagation of crack (black lines)
+   Scikit-image is being used to track the propagation of cracks (black lines)
    in a drying colloidal droplet. The sequence of pictures shows the temporal
-   evolution of the system with in green, the drop contact line detected by the
-   Hough transform and in white, the circle used to reslice the image stack.
+   evolution of the system with, in green, the drop contact line detected by the
+   Hough transform and, in white, the circle used to reslice the image stack.
    The result is plotted and illustrates the angular position of cracks and
    their time of appearance. :label:`cracks`
 
