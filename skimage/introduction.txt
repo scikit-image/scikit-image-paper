@@ -1,0 +1,90 @@
+Scikit-image is a collection of image processing algorithms implemented in the
+Python programming language.  The library is available free of charge under a
+liberal Open Source license and is maintained by an active community of
+volunteers.
+
+The project aims are:
+
+1. To provide high quality, well-documented and cleanly interfaced
+   implementations of common image processing algorithms.
+
+   Such algorithms are an essential building block in reproducible science,
+   algorithmic comparisons and data exploration.
+
+2. To facilitate education in image processing.
+
+   The library allows students in image processing to learn algorithms in a
+   hands-on-fashion by adjusting parameters and modifying code.  In addition, a
+   ``novice`` module is provided, not only for teaching programming in the
+   "turtle" paradigm, but also to familiarize users with image concepts such as
+   color, dimensionality, etc.
+
+3. To address industry challenges.
+
+   High quality reference implementations of trusted algorithms provide
+   industry with a reliable way of attacking problems, without having to expend
+   significant energy in re-implementing algorithms already available in
+   commercial packages.  Companies may use the library free of charge, and has
+   the option of contributing changes back, should they so wish.
+
+Content
+=======
+
+The scikit-image project started in August of 2009 and has received
+contributions from more than 100 individuals [ohloh]_.  The package currently
+contains the following sub-modules:
+
+- color : Color space conversion.
+- data : Test images and example data.
+- draw : Drawing primitives (lines, text, etc.) that operate on NumPy arrays.
+- exposure :  Image intensity adjustment (e.g., histogram equalization).
+- feature : Feature detection (e.g. texture analysis, corners, etc.).
+- filter : Sharpening, edge finding, denoising, etc.
+- graph : Graph-theoretic operations, e.g. dynamic programming (shortest paths).
+- io : Reading, saving, and displaying images and video.
+- measure : Measurement of image properties, e.g., similarity and contours.
+- morphology : Morphological operations, e.g. opening or skeletonization.
+- novice : Simplified interface for teaching purposes.
+- restoration : Deconvolution algorithms.
+- segmentation : Splitting an image into self-similar regions.
+- transform : Geometric and other transforms, e.g. rotation or the Radon transform.
+- viewer : A simple graphical user interface for visualizing results and exploring parameters.
+
+Data format
+===========
+
+Scikit-image uses NumPy arrays [numpy]_ to represent images.  Each array has a
+shape, e.g. ``(M, N)`` for grey-level images and ``(M, N, P)`` for
+multi-channel images, as well as a data-type such as ``float`` or ``uint8``.
+Since NumPy arrays are a standard representation for homogeneous data in
+Python, data can be passed along as-is to most other tools such as numpy,
+scipy, matplotlib, [scikit-learn]_, opencv, etc.
+
+An image collection class (see `skimage.io.ImageCollection`) is provided for
+loading multiple images, also from different directories.  For automatically
+visualization in the IPython notebook [ipython]_, lightweight wrapper classes
+are provided (see `skimage.io.Image`).
+
+Pipelining
+==========
+
+Images of differing data-types can complicate the construction of pipelines.
+Scikit-image follows an "Anything In, Anything Out" approach, whereby all
+functions are expected to allow input of arbitrary data-type but, for
+efficiency, also get to choose their own output format.  Utility functions such
+as `img_from_float` provide easy ways of converting between image data-types.
+The most common image representation is in floating-point format (data-type
+`float`), with values between 0 and 1 (unsigned image) or -1 and 1 (signed
+image).
+
+
+.. [ohloh] Scikit-image on Ohloh, https://www.ohloh.net/p/scikit-image
+.. [numpy] S van der Walt, CS Colbert, G Varoquaux. "The NumPy array: a
+   structure for efficient numerical computation", Computing in
+   Science & Engineering 13 (2), 22-30.
+.. [ipython] Fernando Pérez, Brian E. Granger, IPython: A System for
+   Interactive Scientific Computing, Computing in Science and Engineering,
+   vol. 9, no. 3, pp. 21-29, May/June 2007, doi:10.1109/MCSE.2007.53. URL:
+   http://ipython.org
+.. [scikit-learn] Pedregosa et al., "Scikit-learn: Machine Learning in
+   Python", JMLR 12, pp. 2825-2830, 2011.
