@@ -1,51 +1,57 @@
-The purpose of scikit-image is to provide a high-quality library which is free
-of charge and restrictions. These inherent principles are also the foundation
-for the development practices in the scikit-image community.
+The purpose of scikit-image is to provide a high-quality library of powerful,
+diverse image processing tools free of charge and restrictions. These
+principles are the foundation for the development practices in the scikit-image
+community.
 
-The entire library is licensed under the *Modified BSD license*, which allows
-unrestricted redistribution for any purpose as long as its copyright notices
-and the disclaimers of warranty are maintained [BSD]_. It is compatible with
-the popular GPL licenses, so users of scikit-image can choose to make their
-code available under the GPL. However, unlike the GPL, it does not require
-users to open-source derivative work (BSD is not a so-called copyleft license);
-so scikit-image can be readily used in closed-source, commercial environments.
+The library is licensed under the *Modified BSD license*, which allows
+unrestricted redistribution for any purpose as long as copyright notices
+and disclaimers of warranty are maintained [BSD]_. It is compatible with GPL
+licenses, so users of scikit-image can choose to make their code available
+under the GPL. However, unlike the GPL, it does not require users to
+open-source derivative work (BSD is not a so-called copyleft license). Thus,
+scikit-image can be utilized in closed-source, commercial environments.
 
 The development team of scikit-image is an open community which collaborates on
-the *GitHub* [GitHub]_ platform for issue tracking, code review and release
+the *GitHub* [GitHub]_ platform for issue tracking, code review, and release
 management. *Google Groups* [GoogleGroups]_ is used as a public discussion
-forum for user support, bug reports and announcements. New contributors are
-welcome to join the development team, which has seen a steady growth over the
-years (numbers to be inserted).
+forum for user support, community development, and announcements. New
+contributors are welcome to join the development team, which has seen steady
+growth over the years (numbers to be inserted).
 
 scikit-image complies with the PEP8 coding style standard [PEP8]_ and the NumPy
-documentation style [NumpyDoc]_ in order to provide a consistent user
-experience across all parts of the library as well as across the scientific
-Python toolsets. The majority of the API is intentionally designed as a
-functional interface, which allows an intuitive creation of image processing
-pipelines by applying different functions in sequence to an input image. In
-order to guarantee this universal applicability of image processing routines in
-sequence, the library uses n-dimensional NumPy arrays to represent images.
+documentation style [NumpyDoc]_ in order to provide a consistent, familiar user
+experience across the library similar to other scientific Python toolsets. The
+data representation used to represent images in scikit-image is *n*-dimensional
+NumPy arrays, which guarantees universal applicability and interoperability with
+the scientific Python community. The majority of the scikit-image API is
+intentionally designed as a functional interface. A functional interface allows
+natural, intuitive creation of image processing pipelines by applying different
+functions in sequence to an input image. This modular approach lowers the
+barrier of entry for new contributors to hack in additional features, as one
+need not be an expert on the entire library to meaningfully contribute.
 
 We ensure high code quality by a thorough review process using the pull request
 interface on GitHub. scikit-image aims to achieve full unit test coverage,
-which is above 80% as of release 0.9. A continuous integration system
-([TravisCI]_, [Coveralls]_) checks each commit automatically for unit test
-coverage and failures on Python 2 and Python 3. Additionally, the code is
-analyzed by several tools to guarantee compliance with coding style standards.
-Finally, the properties of each public function must be documented thoroughly
-in an API reference, which is embedded as Python docstrings and accessible
-through the official project homepage and the command-line interface in
-interactive Python consoles. Short usage examples are typically directly
-included inside the docstrings, while for every new feature a longer, self-
-contained example script is added to the narrative documentation and its
-contents are automatically compiled to a gallery on the project website. We use
-the Sphinx tool to automatically generate documentation and the website from
-the docstrings [Sphinx]_.
+which is above 80% as of release 0.9 and continues to rise. A continuous
+integration system ([TravisCI]_, [Coveralls]_) automatically checks each commit
+for unit test coverage and failures on Python 2 and Python 3. Additionally, the
+code is analyzed by flake8 [flake8]_ to ensure compliance with the PEP8 coding
+style standards [PEP8]_. Finally, the properties of each public function are
+documented thoroughly in an API reference, which is embedded as Python
+docstrings and accessible through the official project homepage and the
+command-line interface in interactive Python consoles. Short usage examples are
+typically included inside the docstrings, while new features include a longer,
+self-contained example script added to the narrative documentation and
+automatically compiled to a gallery on the project website. We use Sphinx
+[Sphinx]_ to automatically generate library documentation and the project
+website from function docstrings.
 
-At all times, the development version is fully functional and can be obtained
-from GitHub. The community releases major updates as stable versions typically
-every six months [Versioning]_. Bug fixes contribute to minor updates, which
-are released meanwhile.
+The development master branch is fully functional at all times and may be
+obtained from GitHub [SourceCode]_. The community releases major updates as
+stable versions approximately every six months [Versioning]_. Major releases
+include new features, while minor releases typically contain only bug fixes.
+Users are notified about API breaking changes by deprecation warnings one full
+major release before they are applied.
 
 References
 ----------
@@ -56,5 +62,7 @@ References
 .. [Coveralls] https://coveralls.io
 .. [PEP8] http://www.python.org/dev/peps/pep-0008/
 .. [NumpyDoc] https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt
+.. [flake8] https://pypi.python.org/pypi/flake8
 .. [Sphinx] http://sphinx-doc.org/
 .. [Versioning] http://en.wikipedia.org/wiki/Software_versioning
+.. [SourceCode] https://github.com/scikit-image/scikit-image
