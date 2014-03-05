@@ -80,11 +80,13 @@ Data format
 ===========
 
 scikit-image uses NumPy arrays [numpy]_ to represent images.  Each array has a
-shape, e.g. ``(M, N)`` for grey-level images and ``(M, N, P)`` for
-multi-channel images, as well as a data-type such as ``float`` or ``uint8``.
-Since NumPy arrays are a standard representation for homogeneous data in
-Python, data can be passed along as-is to most other tools such as numpy,
-scipy, matplotlib, [scikit-learn]_, opencv, etc.
+shape, e.g. ``(M, N)`` for grey-level images, ``(M, N, P)`` for multi-channel
+images, or ``(M, N, P, Q)`` for temporal and other multi-dimensional data.  In
+addition, it has a data-type such as ``float`` or ``uint8``, that describes the
+numerical type of the elements stored.  Since NumPy arrays are a standard
+representation for homogeneous data in Python, data can be passed along as-is
+to most other tools such as NumPy, SciPy, matplotlib, [scikit-learn]_, OpenCV,
+etc.
 
 An image collection class (see `skimage.io.ImageCollection`) is provided for
 loading multiple images, also from different directories.  For automatic
