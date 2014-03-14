@@ -3,22 +3,16 @@ color representations, and file types. scikit-image offers researchers robust,
 standards-compliant tools for converting between image datatypes and file
 input/output (I/O) operations ([DirectX]_, [OpenGL]_, [GraphicsGemsI]_). These
 tools, exposed in ``skimage.util`` and ``skimage.io``, are a powerful asset to
-researchers in this field. Investigators new to Python may focus directly on
-their work, maximizing productivity, instead of worrying about these tasks. Of
-course, these are only a small fraction of what scikit-image offers.
+researchers in this field. Investigators using scikit-image may focus directly
+on their work, maximizing productivity, rathern than expending time and effort
+on these tasks.
 
-scikit-image includes many algorithms with broad application across imaging
+scikit-image includes many algorithms with broad applications across imaging
 research, from computer vision to medical image analysis, and the tools
-available are continually increasing in number and capability. Researchers in
-computer vision and machine learning will appreciate the feature extraction
-toolset in ``skimage.feature``; those studying segmentation will find both
-unsupervised and supervised algorithms in ``skimage.segmentation``, and for
-image restoration and denoising we have ``skimage.restoration`` and
-``skimage.filter.denoise_*``. These are just a few examples of common tasks
-researchers face, and an exhaustive listing is beyond the scope of this
-manuscript. We refer the reader to the current API documentation for a full
-listing of current capabilities [APIdocs]_. The remainder of this section will
-illustrate real-world examples of scikit-image uses in research.
+available are continually increasing in number and capability. This section
+illustrates a few examples of real problems researchers faced, and how they
+were addressed using tools in scikit-image. We refer the reader to the current
+API documentation for a full listing of current capabilities [APIdocs]_.
 
 scikit-image may be used to extract information about patterns in large stacks
 of images. For instance, let us consider the drying of a droplet containing
