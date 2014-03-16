@@ -1,0 +1,47 @@
+scikit-image is well suited for industrial applications due to the 
+breadth and maturity of its code base, and its use of the 
+commercial-friendly BSD license. 
+
+BT Imaging designs and builds tools that use photoluminescence (PL) 
+imaging for photovoltaic applications [BTImaging]_. PL imaging can characterize 
+the quality of multicrystalline silicon wafers by illuminating defects 
+that are not visible under standard viewing conditions. Figure :ref:`PL1` shows an optical image of a 
+silicon wafer, while Figure :ref:`PL2` shows the same wafer using PL imaging. 
+Figure :ref:`PL3` contains the results of image analysis. The image 
+processing steps are as follows: foreground segmentation, rotation 
+correction, cropping, and feature extraction. scikit-image plays a 
+key role in this workflow. For example, ``transform.hough_line`` 
+finds the wafer edges, and ``morphology.skeletonize`` determines the 
+location of grain boundaries.
+
+.. figure:: fig_pl1.png
+   :scale: 35%
+   :figclass: bht
+
+   An image of an as-cut silicon wafer before it has been processed into a solar cell. :label:`PL1`
+
+.. figure:: fig_pl2.png
+   :scale: 35%
+   :figclass: bht
+
+   A PL image of the wafer from Figure :ref:`PL1`. Wafer defects, which have a negative impact 
+   solar cell efficiency, are visible as dark regions. :label:`PL2`
+
+.. figure:: fig_pl3.png
+   :scale: 35%
+   :figclass: bht
+
+   Image processing results. Defects in the crystal growth are colored blue, while red indicates 
+   the presence of impurities. :label:`PL3`
+   
+
+scikit-image is also being used in a commercial setting for biometric security applications. 
+AICBT Ltd uses multispectral imaging to detect when a person 
+is attempting to conceal their identity using a mask [AICBT]_. 
+scikit-image is used for file I/O and histogram equalization. 
+Furthermore, ``transform.AffineTransform`` aligns a visible 
+wavelength image of a scene with a thermal image
+in order to determine the surface temperature of a subject's face. 
+
+.. [BTImaging] BT Imaging, http://www.btimaging.com
+.. [AICBT] Disguise Detection, http://www.aicbt.com/disguise-detection/
