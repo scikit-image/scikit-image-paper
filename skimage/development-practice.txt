@@ -9,7 +9,7 @@ and disclaimers of warranty are maintained [BSD]_. It is compatible with GPL
 licenses, so users of scikit-image can choose to make their code available
 under the GPL. However, unlike the GPL, it does not require users to
 open-source derivative work (BSD is not a so-called copyleft license). Thus,
-scikit-image can be utilized in closed-source, commercial environments.
+scikit-image can be used in closed-source, commercial environments.
 
 The development team of scikit-image is an open community which collaborates on
 the *GitHub* [GitHub]_ platform for issue tracking, code review, and release
@@ -22,17 +22,17 @@ scikit-image complies with the PEP8 coding style standard [PEP8]_ and the NumPy
 documentation style [NumpyDoc]_ in order to provide a consistent, familiar user
 experience across the library similar to other scientific Python toolsets. The
 data representation used to represent images in scikit-image is *n*-dimensional
-NumPy arrays, which guarantees universal applicability and interoperability with
-the scientific Python community. The majority of the scikit-image API is
+NumPy arrays, which guarantees universal applicability and interoperability
+with the scientific Python community. The majority of the scikit-image API is
 intentionally designed as a functional interface. A functional interface allows
 natural, intuitive creation of image processing pipelines by applying different
 functions in sequence to an input image. This modular approach lowers the
-barrier of entry for new contributors to hack in additional features, as one
-need not be an expert on the entire library to meaningfully contribute.
+barrier of entry for new contributors to incorporate additional features, as
+one need not be an expert on the entire library to contribute.
 
 We ensure high code quality by a thorough review process using the pull request
 interface on GitHub. scikit-image aims to achieve full unit test coverage,
-which is above 80% as of release 0.9 and continues to rise. A continuous
+which is above 84% as of release 0.10 and continues to rise. A continuous
 integration system ([TravisCI]_, [Coveralls]_) automatically checks each commit
 for unit test coverage and failures on Python 2 and Python 3. Additionally, the
 code is analyzed by flake8 [flake8]_ to ensure compliance with the PEP8 coding
