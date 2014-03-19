@@ -3,8 +3,8 @@ color representations, and file types. scikit-image offers researchers robust,
 standards-compliant tools for converting between image datatypes ([DirectX]_,
 [OpenGL]_, [GraphicsGemsI]_) and file input/output (I/O) operations. These
 tools, exposed in ``skimage.util`` and ``skimage.io``, are a powerful asset to
-researchers in this field. Investigators using scikit-image may focus directly
-on their work, maximizing productivity, rathern than expending time and effort
+researchers in this field. Investigators using scikit-image can focus directly
+on their work, maximizing productivity, rather than expending time and effort
 on these tasks.
 
 scikit-image includes many algorithms with broad applications across imaging
