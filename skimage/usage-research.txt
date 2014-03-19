@@ -1,7 +1,7 @@
 A major component of imaging research is dealing with various image datatypes,
 color representations, and file types. scikit-image offers researchers robust,
-standards-compliant tools for converting between image datatypes and file
-input/output (I/O) operations ([DirectX]_, [OpenGL]_, [GraphicsGemsI]_). These
+standards-compliant tools for converting between image datatypes ([DirectX]_,
+[OpenGL]_, [GraphicsGemsI]_) and file input/output (I/O) operations. These
 tools, exposed in ``skimage.util`` and ``skimage.io``, are a powerful asset to
 researchers in this field. Investigators using scikit-image may focus directly
 on their work, maximizing productivity, rathern than expending time and effort
@@ -9,9 +9,9 @@ on these tasks.
 
 scikit-image includes many algorithms with broad applications across imaging
 research, from computer vision to medical image analysis, and the tools
-available are continually increasing in number and capability. This section
-illustrates a few examples of real problems researchers faced, and how they
-were addressed using tools in scikit-image. We refer the reader to the current
+available continually increase in number and capability. This section
+illustrates a few examples of real problems researchers face, and how
+scikit-image provides elegant solutions. We refer the reader to the current
 API documentation for a full listing of current capabilities [APIdocs]_.
 
 scikit-image may be used to extract information about patterns in large stacks
