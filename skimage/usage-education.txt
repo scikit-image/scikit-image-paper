@@ -1,0 +1,40 @@
+scikit-image can be used for several educational purposes, either for
+self-learning or in regular training sessions. Several tutorials on image
+processing using scikit-image have been given during the SciPy
+conferences (Euroscipy 2013, PyData 2012, Scipy India 2012, ...). Course
+materials used in some of the sessions are found in [scipylecturenotes]_
+and are licensed under the permissive CC-by license. Such 2-h sessions
+offered an introduction to the package, but also an intuitive and
+hands-on introduction to image processing. Easy image visualization and
+the standardized API common to several functions facilitate the
+comparison of different algorithms, or the investigation of the effect of
+parameter tuning. Observing the difference between applying a median
+filter and a Gaussian filter for denoising purposes demonstrates for
+example that a median filter preserves straight lines much better. Due to
+their short duration, such training were mostly example- and
+intuition-based, with few mathematical considerations. However, designing
+an academic image processing course intertwining mathematical concepts and
+demonstrations with examples using scikit-image could be an exciting
+project for mathematicians, that could make use of use latex-compatible
+tools such as sphinx or the IPython notebook. The comprehensive set of
+functions implementing classical image processing tasks surely makes
+scikit-image a great tool for teaching image processing, with the
+additional benefit of the whole scientific Python ecosystem.
+
+On the self-learning side, the gallery of examples is a great
+application-based way to start learning about image processing. For
+beginners, a difficulty can sometimes be to name the kind of operations
+(denoising, segmentation) that are desired, let alone to know the name
+of algorithms. The visual presentation of examples lowers the energy
+barrier for learning by partly suppressing the need of being proficient
+with image processing jargon. For further learning, the documentation of
+the functions usually includes link to specialized documents about
+relevant algorithms, either Wikipedia pages or research articles for the
+most recent ones. Finally, the easy access to readable source code is a
+way to learn about the implementation of image processing algorithms with
+Python and Cython: for example, some indexing tricks used in scikit-image
+functions can prove useful in home-brewed image processing code as well,
+as can more advanced methods such as look-up tables (LUT), use of
+mathematical morphology for boilerplate operations, etc. 
+
+.. [scipylecturenotes] Scipy Lecture Notes, http://scipy-lectures.github.io/
