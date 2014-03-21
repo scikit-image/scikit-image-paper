@@ -13,6 +13,7 @@ images on disk.  Images are not read until accessed.
 
 .. code-block:: python
 
+    from skimage import io
     ic = io.ImageCollection('data/*')
 
 .. figure:: pano_4_0.png
@@ -40,15 +41,15 @@ downscaled to 25% of their original size.
 1. Feature detection and matching
 ---------------------------------
 
-"Oriented FAST and rotated BRIEF" features are detected in both images.  Each
-feature yields a binary descriptor; those are used to find the putative
-matches shown in Figure |nbsp| :ref:`putativematches`.
+"Oriented FAST and rotated BRIEF" (ORB) features [ORB]_ are detected in both
+images.  Each feature yields a binary descriptor; those are used to find the
+putative matches shown in Figure |nbsp| :ref:`putativematches`.
 
 .. code-block:: python
 
     from skimage.feature import ORB, match_descriptors
     
-    orb = ORB(n_keypoints=4000, fast_threshold=0.05)
+    orb = ORB(n_keypoints=1000, fast_threshold=0.05)
     
     orb.detect_and_extract(image0)
     keypoints1 = orb.keypoints
@@ -71,11 +72,11 @@ matches shown in Figure |nbsp| :ref:`putativematches`.
 2. Transform estimation
 -----------------------
 
-To filter the matches, we apply RANdom SAMple Consensus (RANSAC), a common
-method for outlier rejection. This iterative process estimates transformation
-models based on randomly chosen subsets of matches, finally selecting the model
-which corresponds best with the majority of matches.  The new matches are shown
-in Figure |nbsp| :ref:`matchesfiltered`.
+To filter the matches, we apply RANdom SAMple Consensus (RANSAC) [ransac]_, a
+common method for outlier rejection. This iterative process estimates
+transformation models based on randomly chosen subsets of matches, finally
+selecting the model which corresponds best with the majority of matches.  The
+new matches are shown in Figure |nbsp| :ref:`matchesfiltered`.
 
 .. code-block:: python
 
@@ -90,8 +91,7 @@ in Figure |nbsp| :ref:`matchesfiltered`.
     
     model_robust, inliers = \
         ransac((src, dst), ProjectiveTransform,
-               min_samples=4, residual_threshold=1,
-               max_trials=300)
+               min_samples=4, residual_threshold=2)
 
 .. figure:: pano_15_1.png
 
@@ -152,7 +152,8 @@ entirety. Note that ``warp`` takes the inverse mapping as an input.
     image1_ = warp(image1, (offset + model_robust).inverse,
                    output_shape=output_shape, cval=-1)
 
-An alpha channel is added to the warped images before they are merged together:
+An alpha channel is added to the warped images before merging them into a
+single image:
 
 .. code-block:: python
 
@@ -201,6 +202,14 @@ Figure |nbsp| :ref:`pano`.
    with Enblend. :label:`pano`.
 
 
+.. [ORB] Ethan Rublee, Vincent Rabaud, Kurt Konolige and Gary Bradski "ORB: An
+   efficient alternative to SIFT and SURF". Proceedings of the 2011
+   International Conference on Computer Vision (ICCV), pp.2564-2571.
+   doi: 10.1109/ICCV.2011.6126544
+.. [ransac] Martin A. Fischler and Robert C. Bolles. "Random Sample Consensus:
+   A Paradigm for Model Fitting with Applications to Image Analysis and
+   Automated Cartography". Comm. of the ACM 24 (6): 381–395, June 1981.
+   doi:10.1145/358669.358692
 .. [burt_adelson_0] P. Burt and E. Adelson. "A Multiresolution Spline With
    Application to Image Mosaics". ACM Transactions on Graphics, Vol. 2, No. 4,
    October 1983. Pg. 217-236.
