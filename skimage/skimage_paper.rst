@@ -48,6 +48,9 @@
 scikit-image: Image processing in Python
 ----------------------------------------
 
+.. |nbsp| unicode:: 0xA0
+   :trim:
+
 .. class:: abstract
 
    ``scikit-image`` is an image processing library which implements algorithms
@@ -87,6 +90,7 @@ Gallery of examples
 ===================
 
 .. include:: skimage/gallery.txt
+.. include:: skimage/pano.txt
 
 Development practices
 =====================
