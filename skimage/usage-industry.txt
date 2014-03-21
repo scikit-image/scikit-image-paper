@@ -2,8 +2,8 @@ scikit-image is well suited for industrial applications due to the
 breadth and maturity of its code base, and its use of the 
 commercial-friendly BSD license. 
 
-BT Imaging designs and builds tools that use photoluminescence (PL) 
-imaging for photovoltaic applications [BTImaging]_. PL imaging can characterize 
+BT Imaging [BTImaging]_ designs and builds tools that use photoluminescence (PL) 
+imaging for photovoltaic applications. PL imaging can characterize 
 the quality of multicrystalline silicon wafers by illuminating defects 
 that are not visible under standard viewing conditions. Figure :ref:`PL1` shows an optical image of a 
 silicon wafer, and Figure :ref:`PL2` shows the same wafer using PL imaging. 
