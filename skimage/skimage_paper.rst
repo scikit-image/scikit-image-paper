@@ -35,7 +35,10 @@
 :institution: Department of Mechanical and Aerospace Engineering,
               Princeton University, Princeton, New Jersey 08544, USA
 
-
+:author: Neil Yager
+:email: neil@aicbt.com
+:institution: AICBT Ltd
+              
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
 :institution: https://github.com/scikit-image/scikit-image/graphs/contributors

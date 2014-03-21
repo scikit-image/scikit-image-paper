@@ -1,0 +1,55 @@
+scikit-image is well suited for industrial applications due to the 
+breadth and maturity of its code base, and its use of the 
+commercial-friendly BSD license. 
+
+BT Imaging designs and builds tools that use photoluminescence (PL) 
+imaging for photovoltaic applications [BTImaging]_. PL imaging can characterize 
+the quality of multicrystalline silicon wafers by illuminating defects 
+that are not visible under standard viewing conditions. Figure :ref:`PL1` shows an optical image of a 
+silicon wafer, and Figure :ref:`PL2` shows the same wafer using PL imaging. 
+Figure :ref:`PL3` shows the wafer defects and impurities found through automated 
+image analysis. scikit-image plays a key role in the image processing
+pipeline. For example, a Hough transform (``transform.hough_line``) finds the wafer edges
+in order to segment the wafer from the background. scikit-image
+is also used for feature extraction. It is important to locate grain boundaries 
+(the interface between small crystals) and differentiate them from other defects.
+Grain boundaries are found by applying a thinning algorithm (``morphology.skeletonize``) 
+to the results of edge detection (``filter.sobel``) for the optical image.
+
+The image processing results are input to machine learning
+algorithms, which assess intrinsic wafer quality. Solar cell manufacturers
+can use this information to reject poor quality wafers and charge more 
+for cells that are expected to have high efficiency.
+
+.. figure:: fig_pl1.png
+   :scale: 35%
+   :figclass: bht
+
+   An image of an as-cut silicon wafer before it has been processed into a solar cell. :label:`PL1`
+
+.. figure:: fig_pl2.png
+   :scale: 35%
+   :figclass: bht
+
+   A PL image of the wafer from Figure :ref:`PL1`. Wafer defects, which have a negative impact 
+   solar cell efficiency, are visible as dark regions. :label:`PL2`
+
+.. figure:: fig_pl3.png
+   :scale: 35%
+   :figclass: bht
+
+   Image processing results. Defects in the crystal growth (dislocations) 
+   are colored blue, while red indicates the presence of impurities. :label:`PL3`
+   
+
+scikit-image is also being used in a commercial setting for biometric security applications. 
+AICBT Ltd uses multispectral imaging to detect when a person 
+is attempting to conceal their identity using a mask [AICBT]_. 
+scikit-image performs file I/O (``io.imread``), histogram equalization
+(``exposure.equalize_hist``), and aligns the visible wavelength image with
+the thermal image (``transform.AffineTransform``). The system determines
+the surface temperature of a subject's skin and detects situations where the
+face is being obscured. 
+
+.. [BTImaging] BT Imaging, http://www.btimaging.com
+.. [AICBT] Disguise Detection, http://www.aicbt.com/disguise-detection/
