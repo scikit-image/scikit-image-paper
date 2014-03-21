@@ -31,7 +31,11 @@ barrier of entry for new contributors to incorporate additional features, as
 one need not be an expert on the entire library to contribute.
 
 We ensure high code quality by a thorough review process using the pull request
-interface on GitHub. scikit-image aims to achieve full unit test coverage,
+interface on GitHub. The source code is mainly written in Python. Although
+NumPy arrays reduces the use of loops, certain algorithm implementations
+require them. To ensure a high efficiency, Cython ([Cython]_) provides a way to
+write low-level computational loops with an easy-to-read syntax similar to
+Python. scikit-image aims to achieve full unit test coverage,
 which is above 84% as of release 0.10 and continues to rise. A continuous
 integration system ([TravisCI]_, [Coveralls]_) automatically checks each commit
 for unit test coverage and failures on Python 2 and Python 3. Additionally, the
@@ -58,6 +62,7 @@ References
 .. [BSD] http://www.gnu.org/licenses/license-list.html#ModifiedBSD
 .. [GitHub] https://github.com/scikit-image/scikit-image
 .. [GoogleGroups] https://groups.google.com/forum/?&fromgroups#!forum/scikit-image
+.. [Cython] Behnel, S., Bradshaw, R., Citro, C., Dalcin, L., Seljebotn, D. S., & Smith, K. (2011). Cython: The best of both worlds. Computing in Science & Engineering, 13(2), 31-39.
 .. [TravisCI] https://travis-ci.org
 .. [Coveralls] https://coveralls.io
 .. [PEP8] http://www.python.org/dev/peps/pep-0008/
