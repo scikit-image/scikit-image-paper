@@ -1,22 +1,37 @@
+A major component of imaging research is dealing with various image datatypes,
+color representations, and file types. scikit-image offers researchers robust,
+standards-compliant tools for converting between image datatypes ([DirectX]_,
+[OpenGL]_, [GraphicsGemsI]_) and file input/output (I/O) operations. These
+tools, exposed in ``skimage.util`` and ``skimage.io``, are a powerful asset to
+researchers in this field. Investigators using scikit-image can focus directly
+on their work, maximizing productivity, rather than expending time and effort
+on these tasks.
 
-In research, scikit-image is being used to extract information about patterns in
-large stacks of images. For instance, let us consider the drying of a droplet
-containing nanoparticles (See Figure :ref:`cracks`). As the drying proceeds,
+scikit-image includes many algorithms with broad applications across imaging
+research, from computer vision to medical image analysis, and the tools
+available continually increase in number and capability. This section
+illustrates a few examples of real problems researchers face, and how
+scikit-image provides elegant solutions. We refer the reader to the current
+API documentation for a full listing of current capabilities [APIdocs]_.
+
+scikit-image may be used to extract information about patterns in large stacks
+of images. For instance, let us consider the drying of a droplet containing
+nanoparticles (See Figure :ref:`cracks`). As the drying proceeds,
 cracks propagate from the drop edge to its center. The aim is to understand
 crack patterns by collecting statistical information about their positions,
 their time and order of appearance. To ease the data processing, each
 experiment, constituted of an image stack, is automatically treated without
 human intervention. The contact line is detected by a circular Hough transform
-(``transform.hough_circle``) providing the drop radius and its center.  Then, a
+(``transform.hough_circle``) providing the drop radius and its center. Then, a
 second circle with a radius of a fraction of the droplet size is drawn to
-collect its pixels. Repeating the process of each image of the stack, collected
+collect its pixels. Repeating the process on each image in the stack, collected
 pixels can be assembled to make a space-time diagram. As a result, a complex
 stack of images can be reduced to a single image summarizing the dynamic
 process.
 
 
 .. figure:: fig_cracks.pdf
-   :scale: 70%
+   :scale: 60%
    :figclass: bht
 
    Scikit-image is being used to track the propagation of cracks (black lines)
@@ -26,3 +41,9 @@ process.
    The result is plotted and illustrates the angular position of cracks and
    their time of appearance. :label:`cracks`
 
+References
+----------
+.. [DirectX] http://msdn.microsoft.com/en-us/library/windows/desktop/dd607323%28v=vs.85%29.aspx
+.. [OpenGL] https://www.khronos.org/registry/gles/specs/2.0/es_full_spec_2.0.25.pdf
+.. [GraphicsGemsI] Paeth, Alan W., Proper Treatment of Pixels as Integers, p. 249-256, code: p. 719
+.. [APIdocs] http://scikit-image.org/docs/dev/
