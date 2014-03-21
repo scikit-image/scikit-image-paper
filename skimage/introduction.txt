@@ -64,23 +64,23 @@ contains the following sub-modules:
 - data : Test images and example data.
 - draw : Drawing primitives (lines, text, etc.) that operate on NumPy arrays.
 - exposure :  Image intensity adjustment (e.g., histogram equalization).
-- feature : Feature detection (e.g. texture analysis, corners, etc.).
+- feature : Feature detection (e.g., texture analysis, corners, etc.).
 - filter : Sharpening, edge finding, denoising, etc.
-- graph : Graph-theoretic operations, e.g. dynamic programming (shortest paths).
+- graph : Graph-theoretic operations, e.g., dynamic programming (shortest paths).
 - io : Reading, saving, and displaying images and video.
 - measure : Measurement of image properties, e.g., similarity and contours.
-- morphology : Morphological operations, e.g. opening or skeletonization.
+- morphology : Morphological operations, e.g., opening or skeletonization.
 - novice : Simplified interface for teaching purposes.
 - restoration : Deconvolution algorithms.
 - segmentation : Splitting an image into self-similar regions.
-- transform : Geometric and other transforms, e.g. rotation or the Radon transform.
+- transform : Geometric and other transforms, e.g., rotation or the Radon transform.
 - viewer : A simple graphical user interface for visualizing results and exploring parameters.
 
 Data format
 ===========
 
 scikit-image uses NumPy arrays [numpy]_ to represent images.  Each array has a
-shape, e.g. ``(M, N)`` for grey-level images, ``(M, N, P)`` for multi-channel
+shape, e.g., ``(M, N)`` for grey-level images, ``(M, N, P)`` for multi-channel
 images, or ``(M, N, P, Q)`` for temporal and other multi-dimensional data.  In
 addition, it has a data-type such as ``float`` or ``uint8``, that describes the
 numerical type of the elements stored.  Since NumPy arrays are a standard
