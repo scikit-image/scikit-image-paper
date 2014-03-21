@@ -1,0 +1,210 @@
+Panorama stitching
+==================
+
+This section gives a step-by-step outline of how to perform panorama stitching
+using the primitives found in scikit-image.  The full source code may be found
+at https://github.com/scikit-image/scikit-image-demos.
+
+0. Data loading
+---------------
+
+The ``ImageCollection`` class provides an easy way of representing multiple
+images on disk.  Images are not read until accessed.
+
+.. code-block:: python
+
+    ic = io.ImageCollection('data/*')
+
+.. figure:: pano_4_0.png
+
+   Credit: Photographs taken in Petra, Jordan by François Malan. License:
+   CC-BY. :label:`petra`
+
+Figure |nbsp| :ref:`petra` shows the Petra dataset. For this demonstration, we will
+estimate a projective transformation that relates the two images. Since the
+outer parts of these photographs do not comform well to such a model, we select
+only the central parts. To further speed up the demonstration, images are
+downscaled to 25% of their original size.
+
+.. code-block:: python
+
+    from skimage.color import rgb2gray
+    from skimage import transform
+
+    image0 = rgb2gray(ic[0][:, 500:500+1987, :])
+    image1 = rgb2gray(ic[1][:, 500:500+1987, :])
+    
+    image0 = transform.rescale(image0, 0.25)
+    image1 = transform.rescale(image1, 0.25)
+
+1. Feature detection and matching
+---------------------------------
+
+"Oriented FAST and rotated BRIEF" features are detected in both images.  Each
+feature yields a binary descriptor; those are used to find the putative
+matches shown in Figure |nbsp| :ref:`putativematches`.
+
+.. code-block:: python
+
+    from skimage.feature import ORB, match_descriptors
+    
+    orb = ORB(n_keypoints=4000, fast_threshold=0.05)
+    
+    orb.detect_and_extract(image0)
+    keypoints1 = orb.keypoints
+    descriptors1 = orb.descriptors
+    
+    orb.detect_and_extract(image1)
+    keypoints2 = orb.keypoints
+    descriptors2 = orb.descriptors
+    
+    matches12 = match_descriptors(descriptors1,
+                                  descriptors2,
+                                  cross_check=True)
+
+.. figure:: pano_11_1.png
+
+   Putative matches computed from ORB binary features.
+   :label:`putativematches`
+
+
+2. Transform estimation
+-----------------------
+
+To filter the matches, we apply RANdom SAMple Consensus (RANSAC), a common
+method for outlier rejection. This iterative process estimates transformation
+models based on randomly chosen subsets of matches, finally selecting the model
+which corresponds best with the majority of matches.  The new matches are shown
+in Figure |nbsp| :ref:`matchesfiltered`.
+
+.. code-block:: python
+
+    from skimage.transform import ProjectiveTransform
+    from skimage.measure import ransac
+    
+    # Select keypoints from the source (image to be
+    # registered) and target (reference image)
+
+    src = keypoints2[matches12[:, 1]][:, ::-1]
+    dst = keypoints1[matches12[:, 0]][:, ::-1]
+    
+    model_robust, inliers = \
+        ransac((src, dst), ProjectiveTransform,
+               min_samples=4, residual_threshold=1,
+               max_trials=300)
+
+.. figure:: pano_15_1.png
+
+   Matches filtered using RANSAC. :label:`matchesfiltered`
+
+3. Warping
+----------
+
+Next, we produce the panorama itself. The first step is to find the shape of
+the output image, by considering the extents of all warped images.
+
+.. code-block:: python
+
+    from skimage.transform import SimilarityTransform
+    
+    r, c = image1.shape[:2]
+    
+    # Note that transformations take coordinates in
+    # (x, y) format, not (row, column), in order to be
+    # consistent with most literature
+    corners = np.array([[0, 0],
+                        [0, r],
+                        [c, 0],
+                        [c, r]])
+    
+    # Warp the image corners to their new positions
+    warped_corners = model_robust(corners)
+    
+    # Find the extents of both the reference image and
+    # the warped target image
+    all_corners = np.vstack((warped_corners, corners))
+    
+    corner_min = np.min(all_corners, axis=0)
+    corner_max = np.max(all_corners, axis=0)
+    
+    output_shape = (corner_max - corner_min)
+    output_shape += np.abs(corner_min)
+    output_shape = output_shape[::-1]
+
+The images are now warped according to the estimated transformation
+model. Values outside the input images are set to -1 to distinguish the
+"background".
+
+A shift is added to ensure that both images are visible in their
+entirety. Note that ``warp`` takes the inverse mapping as an input.
+
+.. code-block:: python
+
+    from skimage.color import gray2rgb
+    from skimage.exposure import rescale_intensity
+    from skimage.transform import warp
+    
+    offset = SimilarityTransform(translation=-corner_min)
+    
+    image0_ = warp(image0, offset.inverse,
+                   output_shape=output_shape, cval=-1)
+    
+    image1_ = warp(image1, (offset + model_robust).inverse,
+                   output_shape=output_shape, cval=-1)
+
+An alpha channel is added to the warped images before they are merged together:
+
+.. code-block:: python
+
+    def add_alpha(image, background=-1):
+        """Add an alpha layer to the image.
+        
+        The alpha layer is set to 1 for foreground
+        and 0 for background.
+        """
+        return np.dstack(
+               (gray2rgb(image), (image != background))
+               )
+    
+    image0_alpha = add_alpha(image0_)
+    image1_alpha = add_alpha(image1_)
+    
+    merged = (image0_alpha + image1_alpha)
+    alpha = merged[..., 3]
+    
+    # The summed alpha layers give us an indication of
+    # how many images were combined to make up each
+    # pixel.  Divide by the number of images to get
+    # an average.
+    merged /= np.maximum(alpha, 1)[..., np.newaxis]
+
+The merged image is shown in Figure |nbsp| :ref:`merged`. Note that, while
+the columns are well aligned, the color intensities at the boundaries are not
+well matched.
+
+.. figure:: pano_23_0.png
+
+   The second input frame (middle) is warped to align with the first input
+   frame (left).  The averaged image is shown on the right. :label:`merged`.
+
+4. Blending
+-----------
+
+To blend images smoothly we make use of the open source package Enblend
+[Enblend]_, which in turn employs multi-resolution splines and Laplacian
+pyramids [burt_adelson_0]_, [burt_adelson_1]_.  The final panorama is shown in
+Figure |nbsp| :ref:`pano`.
+
+.. figure:: pano_28_0.png
+
+   The final panorama image, registered and warped using scikit-image, blended
+   with Enblend. :label:`pano`.
+
+
+.. [burt_adelson_0] P. Burt and E. Adelson. "A Multiresolution Spline With
+   Application to Image Mosaics". ACM Transactions on Graphics, Vol. 2, No. 4,
+   October 1983. Pg. 217-236.
+.. [burt_adelson_1] "The Laplacian Pyramid as a Compact Image Code".
+   IEEE Transactions on Communications, April 1983.
+.. [Enblend] Enblend 4.0 documentation, August 2010,
+   http://enblend.sourceforge.net.
