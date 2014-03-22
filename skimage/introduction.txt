@@ -53,9 +53,9 @@ The scikit-image project started in August of 2009 and has received
 contributions from more than 100 individuals [ohloh]_.  The package can be
 installed from, amongst other sources, the Python Package Index, Continuum
 Anaconda [anaconda]_, Enthought Canopy [canopy]_, Python(x,y) [pythonxy]_,
-NeuroDebian [neurodebian]_ and Ubuntu [ubuntu]_. In January 2014 alone, the
-package was downloaded more than 4000 times from the Python Package Index
-[pypi]_.
+NeuroDebian [neurodebian]_ and GNU/Linux distributions such as Ubuntu [ubuntu]_.
+In January 2014 alone, the package was downloaded more than 4000 times from the
+Python Package Index [pypi]_.
 
 The package currently
 contains the following sub-modules:
