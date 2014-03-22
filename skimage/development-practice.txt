@@ -34,7 +34,7 @@ We ensure high code quality by a thorough review process using the pull request
 interface on GitHub. The source code is mainly written in Python.  Although
 scikit-image is mostly written in Python, certain performance  critical code
 sections are outsourced in Cython, an optimising static compiler for Python
-[cython]_.  scikit-image aims to achieve full unit test coverage, which is above
+[Cython]_.  scikit-image aims to achieve full unit test coverage, which is above
 84% as of release 0.10 and continues to rise. A continuous integration system
 ([TravisCI]_, [Coveralls]_) automatically checks each commit for unit test
 coverage and failures on Python 2 and Python 3. Additionally, the code is
