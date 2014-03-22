@@ -34,7 +34,7 @@ downscaled to 25% of their original size.
 
     image0 = rgb2gray(ic[0][:, 500:500+1987, :])
     image1 = rgb2gray(ic[1][:, 500:500+1987, :])
-    
+
     image0 = transform.rescale(image0, 0.25)
     image1 = transform.rescale(image1, 0.25)
 
@@ -48,17 +48,17 @@ putative matches shown in Figure |nbsp| :ref:`putativematches`.
 .. code-block:: python
 
     from skimage.feature import ORB, match_descriptors
-    
+
     orb = ORB(n_keypoints=1000, fast_threshold=0.05)
-    
+
     orb.detect_and_extract(image0)
     keypoints1 = orb.keypoints
     descriptors1 = orb.descriptors
-    
+
     orb.detect_and_extract(image1)
     keypoints2 = orb.keypoints
     descriptors2 = orb.descriptors
-    
+
     matches12 = match_descriptors(descriptors1,
                                   descriptors2,
                                   cross_check=True)
@@ -82,13 +82,13 @@ new matches are shown in Figure |nbsp| :ref:`matchesfiltered`.
 
     from skimage.transform import ProjectiveTransform
     from skimage.measure import ransac
-    
+
     # Select keypoints from the source (image to be
-    # registered) and target (reference image)
+    # registered) and target (reference image).
 
     src = keypoints2[matches12[:, 1]][:, ::-1]
     dst = keypoints1[matches12[:, 0]][:, ::-1]
-    
+
     model_robust, inliers = \
         ransac((src, dst), ProjectiveTransform,
                min_samples=4, residual_threshold=2)
@@ -106,27 +106,27 @@ the output image, by considering the extents of all warped images.
 .. code-block:: python
 
     from skimage.transform import SimilarityTransform
-    
+
     r, c = image1.shape[:2]
-    
+
     # Note that transformations take coordinates in
     # (x, y) format, not (row, column), in order to be
-    # consistent with most literature
+    # consistent with most literature.
     corners = np.array([[0, 0],
                         [0, r],
                         [c, 0],
                         [c, r]])
-    
-    # Warp the image corners to their new positions
+
+    # Warp the image corners to their new positions.
     warped_corners = model_robust(corners)
-    
+
     # Find the extents of both the reference image and
-    # the warped target image
+    # the warped target image.
     all_corners = np.vstack((warped_corners, corners))
-    
+
     corner_min = np.min(all_corners, axis=0)
     corner_max = np.max(all_corners, axis=0)
-    
+
     output_shape = (corner_max - corner_min)
     output_shape += np.abs(corner_min)
     output_shape = output_shape[::-1]
@@ -143,12 +143,12 @@ entirety. Note that ``warp`` takes the inverse mapping as an input.
     from skimage.color import gray2rgb
     from skimage.exposure import rescale_intensity
     from skimage.transform import warp
-    
+
     offset = SimilarityTransform(translation=-corner_min)
-    
+
     image0_ = warp(image0, offset.inverse,
                    output_shape=output_shape, cval=-1)
-    
+
     image1_ = warp(image1, (offset + model_robust).inverse,
                    output_shape=output_shape, cval=-1)
 
@@ -159,20 +159,20 @@ single image:
 
     def add_alpha(image, background=-1):
         """Add an alpha layer to the image.
-        
+
         The alpha layer is set to 1 for foreground
         and 0 for background.
         """
         return np.dstack(
                (gray2rgb(image), (image != background))
                )
-    
+
     image0_alpha = add_alpha(image0_)
     image1_alpha = add_alpha(image1_)
-    
+
     merged = (image0_alpha + image1_alpha)
     alpha = merged[..., 3]
-    
+
     # The summed alpha layers give us an indication of
     # how many images were combined to make up each
     # pixel.  Divide by the number of images to get
