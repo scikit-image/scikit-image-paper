@@ -41,9 +41,34 @@ process.
    The result is plotted and illustrates the angular position of cracks and
    their time of appearance. :label:`cracks`
 
+
+In regenerative medicine research, scikit-image is being used to monitor the
+regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
+This process has important implications for the treatment of spinal cord
+injuries in humans.
+
+An injured spinal column is subjected to different treatments, and
+fluorescently-labeled cells are observed moving back into the wound. By finding
+the center and width of the column at the edges of the picture, we can define a
+region of interest, and fluorescence recovery can then be monitored over time
+using the `measure.profile_line` function.
+
+.. figure: fig-lesion.png
+   :scale: 100%
+   :figclass: bht
+   
+   The `measure.profile_line` function being used to track recovery in spinal
+   cord injuries. Left: an image of fluorescently-labeled nerve cells in an
+   injured zebrafish embryo. Middle: the automatically determined region of
+   interest. The SciPy library was used to determine the region and functions
+   from the scikit-image `draw` module were used to draw it. Right: the image
+   intensity along the line of interest, averaged over the displayed width.
+   :label:`profile`
+
 References
 ----------
 .. [DirectX] http://msdn.microsoft.com/en-us/library/windows/desktop/dd607323%28v=vs.85%29.aspx
 .. [OpenGL] https://www.khronos.org/registry/gles/specs/2.0/es_full_spec_2.0.25.pdf
 .. [GraphicsGemsI] Paeth, Alan W., Proper Treatment of Pixels as Integers, p. 249-256, code: p. 719
 .. [APIdocs] http://scikit-image.org/docs/dev/
+
