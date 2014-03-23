@@ -23,8 +23,9 @@
 :institution: Your Institute
 
 :author: Juan Nunez-Iglesias
-:email: your@email.com
-:institution: Your Institute
+:email: juan.n@unimelb.edu.au
+:institution: Victorian Life Sciences Computation Initiative
+              Carlton, VIC, 3010, Australia
 
 :author: Other active core member
 :email: your@email.com
