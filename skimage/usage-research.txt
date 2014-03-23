@@ -47,11 +47,16 @@ regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
 This process has important implications for the treatment of spinal cord
 injuries in humans.
 
-An injured spinal column is subjected to different treatments, and
-fluorescently-labeled cells are observed moving back into the wound. By finding
-the center and width of the column at the edges of the picture, we can define a
-region of interest, and fluorescence recovery can then be monitored over time
-using the `measure.profile_line` function.
+To understand how spinal cords regenerate in these animals, injured cords are
+subjected to different treatments. Neural stem cells (labeled green) are
+normally uniformly distributed across the spinal cord. At the wound site, they
+have been removed. We wish to monitor the arrival of new stem cells at the
+start site over time. In Figure :ref:`profile`, we see an embryo 2 days after
+wounding, with neurons beginning to move back into the wound site (the site of
+minimum fluorescence). The `measure.profile_line` function measures the
+fluorescence along the cord, directly proportional to the number of cells. We
+can thus monitor the recovery process and determine which treatments prevent or
+accelerate recovery.
 
 .. figure:: fig-lesion.png
    :scale: 40%
@@ -60,9 +65,10 @@ using the `measure.profile_line` function.
    The `measure.profile_line` function being used to track recovery in spinal
    cord injuries. Left: an image of fluorescently-labeled nerve cells in an
    injured zebrafish embryo. Middle: the automatically determined region of
-   interest. The SciPy library was used to determine the region and functions
-   from the scikit-image `draw` module were used to draw it. Right: the image
-   intensity along the line of interest, averaged over the displayed width.
+   interest. The SciPy library was used to determine the region extent, and
+   functions from the scikit-image `draw` module were used to draw it. Right:
+   the image intensity along the line of interest, averaged over the displayed
+   width.
    :label:`profile`
 
 References
