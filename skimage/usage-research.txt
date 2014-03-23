@@ -51,7 +51,7 @@ To understand how spinal cords regenerate in these animals, injured cords are
 subjected to different treatments. Neural stem cells (labeled green) are
 normally uniformly distributed across the spinal cord. At the wound site, they
 have been removed. We wish to monitor the arrival of new stem cells at the
-start site over time. In Figure :ref:`profile`, we see an embryo 2 days after
+start site over time. In Figure :ref:`profile`, we see an embryo two days after
 wounding, with neurons beginning to move back into the wound site (the site of
 minimum fluorescence). The `measure.profile_line` function measures the
 fluorescence along the cord, directly proportional to the number of cells. We
