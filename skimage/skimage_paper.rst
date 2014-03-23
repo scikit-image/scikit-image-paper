@@ -2,21 +2,22 @@
 :email: stefan@sun.ac.za
 :institution: Stellenbosch University
 
-:author: Emmanuelle Gouillart
-:email: your@email.com
-:institution: Your Institute
-
-:author: Tony Yu
-:email: your@email.com
-:institution: Your Institute
-
 :author: Johannes L. Schönberger
 :email: jsch@cs.unc.edu
 :institution: Department of Computer Science,
               University of North Carolina at Chapel Hill,
               Chapel Hill, NC 27599, USA
 
-:author: Andreas Mueller
+:author: François Boulogne
+:email: boulogne@princeton.edu
+:institution: Department of Mechanical and Aerospace Engineering,
+              Princeton University, Princeton, New Jersey 08544, USA
+
+:author: Neil Yager
+:email: neil@aicbt.com
+:institution: AICBT Ltd
+
+:author: Emmanuelle Gouillart
 :email: your@email.com
 :institution: Your Institute
 
@@ -27,19 +28,6 @@
 :author: Juan Nunez-Iglesias
 :email: your@email.com
 :institution: Your Institute
-
-:author: Other active core member
-:email: your@email.com
-:institution: Your Institute
-
-:author: François Boulogne
-:email: boulogne@princeton.edu
-:institution: Department of Mechanical and Aerospace Engineering,
-              Princeton University, Princeton, New Jersey 08544, USA
-
-:author: Neil Yager
-:email: neil@aicbt.com
-:institution: AICBT Ltd
 
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
@@ -70,6 +58,11 @@ Introduction
 
 .. include:: skimage/introduction.txt
 
+Development practices
+=====================
+
+.. include:: skimage/development-practice.txt
+
 Usage examples
 ==============
 
@@ -91,18 +84,7 @@ Industry
 Gallery of examples
 ===================
 
-.. include:: skimage/gallery.txt
 .. include:: skimage/pano.txt
-
-Development practices
-=====================
-
-.. include:: skimage/development-practice.txt
-
-Roadmap
-=======
-
-.. include:: skimage/roadmap.txt
 
 Conclusion
 ==========

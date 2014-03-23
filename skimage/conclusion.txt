@@ -1,0 +1,5 @@
+scikit-image provides easy access to a powerful array of image processing
+functionality.  Over the past few years, it has seen significant growth in both
+adoption and contribution, and the team is excited to collaborate with others
+to see it grow even further, and to establish it the de facto library for image
+processing in Python.
