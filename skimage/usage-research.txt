@@ -45,7 +45,7 @@ process.
 In regenerative medicine research, scikit-image is being used to monitor the
 regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
 This process has important implications for the treatment of spinal cord
-injuries in humans.
+injuries in humans ([Bhatt04]_ [Thuret06]_).
 
 To understand how spinal cords regenerate in these animals, injured cords are
 subjected to different treatments. Neural stem cells (labeled green) are
@@ -77,4 +77,7 @@ References
 .. [OpenGL] https://www.khronos.org/registry/gles/specs/2.0/es_full_spec_2.0.25.pdf
 .. [GraphicsGemsI] Paeth, Alan W., Proper Treatment of Pixels as Integers, p. 249-256, code: p. 719
 .. [APIdocs] http://scikit-image.org/docs/dev/
+.. [Bhatt04] Dimple H. Bhatt, Stefanie J. Otto, Brett Depoister, and Joseph R. Fetcho. (2004) Cyclic AMP-Induced Repair of Zebrafish Spinal Circuits. Science, 305:254-258. doi:10.1126/science.1098439
+.. [Thuret06] Sandrine Thuret, Lawrence D. F. Moon, and Fred H. Gage. (2006) Therapeutic interventions after spinal cord injury. Nature Rev Neurosci, 7:628-643. doi:10.1038/nrn1955
+
 
