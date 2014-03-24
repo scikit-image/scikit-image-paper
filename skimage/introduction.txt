@@ -72,7 +72,7 @@ contains the following sub-modules:
 - morphology: Morphological operations, e.g., opening or skeletonization.
 - novice: Simplified interface for teaching purposes.
 - restoration: Restoration algorithms, e.g., deconvolution algorithms, denoising, etc.
-- segmentation: Splitting an image into self-similar regions.
+- segmentation: Partitioning an image into multiple regions.
 - transform: Geometric and other transforms, e.g., rotation or the Radon transform.
 - viewer: A simple graphical user interface for visualizing results and exploring parameters.
 
