@@ -109,3 +109,8 @@ Conclusion
 ==========
 
 .. include:: skimage/conclusion.txt
+
+Acknowledgements
+================
+
+.. include:: skimage/acknowledgements.txt
