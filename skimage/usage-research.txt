@@ -23,7 +23,7 @@ their time and order of appearance. To ease the data processing, each
 experiment, constituted of an image stack, is automatically treated without
 human intervention. The contact line is detected by a circular Hough transform
 (``transform.hough_circle``) providing the drop radius and its center. Then, a
-second circle with a radius of a fraction of the droplet size is drawn to
+second circle with a radius of a fraction of the droplet size is drawn (``draw.circle_perimeter``) to
 collect its pixels. Repeating the process on each image in the stack, collected
 pixels can be assembled to make a space-time diagram. As a result, a complex
 stack of images can be reduced to a single image summarizing the dynamic
