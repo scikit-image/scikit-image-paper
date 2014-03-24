@@ -21,10 +21,6 @@
 :institution: Victorian Life Sciences Computation Initiative
               Carlton, VIC, 3010, Australia
 
-:author: Other active core member
-:email: your@email.com
-:institution: Your Institute
-
 :author: François Boulogne
 :email: boulogne@princeton.edu
 :institution: Department of Mechanical and Aerospace Engineering,
@@ -33,6 +29,10 @@
 :author: Neil Yager
 :email: neil@aicbt.com
 :institution: AICBT Ltd
+
+:author: Other active core member
+:email: your@email.com
+:institution: Your Institute
 
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
