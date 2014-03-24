@@ -42,7 +42,7 @@ process.
    their time of appearance. :label:`cracks`
 
 
-In regenerative medicine research, scikit-image is being used to monitor the
+In regenerative medicine research, scikit-image is used to monitor the
 regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
 This process has important implications for the treatment of spinal cord
 injuries in humans ([Bhatt04]_ [Thuret06]_).
