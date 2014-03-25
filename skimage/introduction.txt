@@ -99,6 +99,7 @@ Getting started
 
     plt.subplot(3, 2, 4)
     plt.imshow(img, cmap=plt.cm.gray)
+    plt.autoscale(False)
     plt.plot([p[1] for p in coordinates],
              [p[0] for p in coordinates], 'r.')
     plt.axis('off')
