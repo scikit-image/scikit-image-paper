@@ -63,15 +63,15 @@ The package currently contains the following sub-modules:
 - data: Test images and example data.
 - draw: Drawing primitives (lines, text, etc.) that operate on NumPy arrays.
 - exposure:  Image intensity adjustment (e.g., histogram equalization).
-- feature: Feature detection (e.g., texture analysis, corners, etc.).
-- filter: Sharpening, edge finding, denoising, etc.
+- feature: Feature detection and extraction (e.g., texture analysis, corners, etc.).
+- filter: Sharpening, edge finding, rank filters, thresholding, etc.
 - graph: Graph-theoretic operations, e.g., dynamic programming (shortest paths).
 - io: Reading, saving, and displaying images and video.
 - measure: Measurement of image properties, e.g., similarity and contours.
 - morphology: Morphological operations, e.g., opening or skeletonization.
 - novice: Simplified interface for teaching purposes.
-- restoration: Deconvolution algorithms.
-- segmentation: Splitting an image into self-similar regions.
+- restoration: Restoration algorithms, e.g., deconvolution algorithms, denoising, etc.
+- segmentation: Partitioning an image into multiple regions.
 - transform: Geometric and other transforms, e.g., rotation or the Radon transform.
 - viewer: A simple graphical user interface for visualizing results and exploring parameters.
 

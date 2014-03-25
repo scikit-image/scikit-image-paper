@@ -19,7 +19,7 @@ data is processed,
 each experiment, constituting an image stack, is automatically analysed without
 human intervention. The contact line is detected by a circular Hough transform
 (``transform.hough_circle``) providing the drop radius and its center. Then, a
-second circle with a radius of a fraction of the droplet size is drawn to
+second circle with a radius of a fraction of the droplet size is drawn (``draw.circle_perimeter``) to
 collect its pixels. Repeating the process on each image in the stack, collected
 pixels can be assembled to make a space-time diagram. As a result, a complex
 stack of images is reduced to a single image summarizing the dynamic
@@ -37,9 +37,41 @@ underlying process.
    The shown result illustrates the angular position of cracks and
    their time of appearance. :label:`cracks`
 
+
+In regenerative medicine research, scikit-image is used to monitor the
+regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
+This process has important implications for the treatment of spinal cord
+injuries in humans ([Bhatt04]_ [Thuret06]_).
+
+To understand how spinal cords regenerate in these animals, injured cords are
+subjected to different treatments. Neuronal precursor cells (labeled green in Figure :ref:`profile`, left panel) are
+normally uniformly distributed across the spinal cord. At the wound site, they
+have been removed. We wish to monitor the arrival of new cells at the
+wound site over time. In Figure :ref:`profile`, we see an embryo two days after
+wounding, with precursor cells beginning to move back into the wound site (the site of
+minimum fluorescence). The `measure.profile_line` function measures the
+fluorescence along the cord, directly proportional to the number of cells. We
+can thus monitor the recovery process and determine which treatments prevent or
+accelerate recovery.
+
+.. figure:: fig-lesion.png
+   :scale: 40%
+   :figclass: bht
+
+   The `measure.profile_line` function being used to track recovery in spinal
+   cord injuries. Left: an image of fluorescently-labeled nerve cells in an
+   injured zebrafish embryo. Middle: the automatically determined region of
+   interest. The SciPy library was used to determine the region extent, and
+   functions from the scikit-image `draw` module were used to draw it. Right:
+   the image intensity along the line of interest, averaged over the displayed
+   width.
+   :label:`profile`
+
 References
 ----------
 .. [DirectX] http://msdn.microsoft.com/en-us/library/windows/desktop/dd607323%28v=vs.85%29.aspx
 .. [OpenGL] https://www.khronos.org/registry/gles/specs/2.0/es_full_spec_2.0.25.pdf
 .. [GraphicsGemsI] Paeth, Alan W., Proper Treatment of Pixels as Integers, p. 249-256, code: p. 719
 .. [APIdocs] http://scikit-image.org/docs/dev/
+.. [Bhatt04] Dimple H. Bhatt, Stefanie J. Otto, Brett Depoister, and Joseph R. Fetcho. (2004) Cyclic AMP-Induced Repair of Zebrafish Spinal Circuits. Science, 305:254-258. doi:10.1126/science.1098439
+.. [Thuret06] Sandrine Thuret, Lawrence D. F. Moon, and Fred H. Gage. (2006) Therapeutic interventions after spinal cord injury. Nature Rev Neurosci, 7:628-643. doi:10.1038/nrn1955

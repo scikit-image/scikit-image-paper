@@ -11,10 +11,9 @@ Figure :ref:`PL3` shows the wafer defects and impurities found through automated
 image analysis. scikit-image plays a key role in the image processing
 pipeline. For example, a Hough transform (``transform.hough_line``) finds the wafer edges
 in order to segment the wafer from the background. scikit-image
-is also used for feature extraction. It is important to locate grain boundaries 
-(the interface between small crystals) and differentiate them from other defects.
-Grain boundaries are found by applying a thinning algorithm (``morphology.skeletonize``) 
-to the results of edge detection (``filter.sobel``) for the optical image.
+is also used for feature extraction. Crystal defects 
+(dislocations) are detected using a band-pass filter, which is implemented as a 
+Difference of Gaussians (``filter.gaussian_filter``).
 
 The image processing results are input to machine learning
 algorithms, which assess intrinsic wafer quality. Solar cell manufacturers
