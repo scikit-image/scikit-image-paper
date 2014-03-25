@@ -42,17 +42,17 @@ process.
    their time of appearance. :label:`cracks`
 
 
-In regenerative medicine research, scikit-image is being used to monitor the
+In regenerative medicine research, scikit-image is used to monitor the
 regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
 This process has important implications for the treatment of spinal cord
 injuries in humans ([Bhatt04]_ [Thuret06]_).
 
 To understand how spinal cords regenerate in these animals, injured cords are
-subjected to different treatments. Neural stem cells (labeled green) are
+subjected to different treatments. Neuronal precursor cells (labeled green in Figure :ref:`profile`, left panel) are
 normally uniformly distributed across the spinal cord. At the wound site, they
-have been removed. We wish to monitor the arrival of new stem cells at the
-start site over time. In Figure :ref:`profile`, we see an embryo two days after
-wounding, with neurons beginning to move back into the wound site (the site of
+have been removed. We wish to monitor the arrival of new cells at the
+wound site over time. In Figure :ref:`profile`, we see an embryo two days after
+wounding, with precursor cells beginning to move back into the wound site (the site of
 minimum fluorescence). The `measure.profile_line` function measures the
 fluorescence along the cord, directly proportional to the number of cells. We
 can thus monitor the recovery process and determine which treatments prevent or

@@ -1,0 +1,1 @@
+We thank Timo Friedrich and Jan Kaslin for providing the zebrafish lesion data.
