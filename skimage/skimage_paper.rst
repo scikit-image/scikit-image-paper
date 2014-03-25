@@ -1,6 +1,7 @@
 :author: Stéfan van der Walt
 :email: stefan@sun.ac.za
-:institution: Stellenbosch University
+:institution: Stellenbosch University,
+              Stellenbosch, South Africa
 
 :author: Johannes L. Schönberger
 :email: jsch@cs.unc.edu
