@@ -54,7 +54,8 @@ Getting started
 
 .. figure:: getting_started.png
 
-    Output. :label:`gettingstarted`
+    Illustration of several features availlable in scikit-image: thresholding,
+    local maxima, edge detection and labels. :label:`gettingstarted`
 
 
 .. code-block:: python
@@ -129,14 +130,19 @@ Getting started
     ax.imshow(img, cmap=plt.cm.gray)
     ax.set_title('Labeled items')
 
-    for region in regionprops(label_image, ['Area', 'BoundingBox']):
+    for region in regionprops(label_image,
+                              ['Area', 'BoundingBox']):
         # skip small images
         if region['Area'] < 70:
             continue
         # draw rectangle around segmented coins
         minr, minc, maxr, maxc = region['BoundingBox']
-        rect = mpatches.Rectangle((minc, minr), maxc - minc, maxr - minr,
-                                  fill=False, edgecolor='red', linewidth=2)
+        rect = mpatches.Rectangle((minc, minr),
+                                  maxc - minc,
+                                  maxr - minr,
+                                  fill=False,
+                                  edgecolor='red',
+                                  linewidth=2)
         ax.add_patch(rect)
 
     plt.show()
