@@ -46,14 +46,14 @@ plt.title('Peak local maxima', fontsize=30)
 # Detect edges
 from skimage import filter
 
-edges = filter.canny(img, sigma=3.5, low_threshold=10, high_threshold=50)
+edges = filter.canny(img, sigma=3, low_threshold=10, high_threshold=80)
 
 plt.subplot(3, 2, 5)
 plt.imshow(edges, cmap=plt.cm.gray)
 plt.title('Edges', fontsize=30)
 plt.axis('off')
 
-# label image regions
+# Label image regions
 from skimage.measure import regionprops
 import matplotlib.patches as mpatches
 from skimage.morphology import label
@@ -65,9 +65,6 @@ ax.imshow(img, cmap=plt.cm.gray)
 ax.set_title('Labeled items', fontsize=30)
 
 for region in regionprops(label_image, ['Area', 'BoundingBox']):
-    # skip small images
-    if region['Area'] < 70:
-        continue
     # draw rectangle around segmented coins
     minr, minc, maxr, maxc = region['BoundingBox']
     rect = mpatches.Rectangle((minc, minr), maxc - minc, maxr - minr,
