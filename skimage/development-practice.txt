@@ -14,11 +14,7 @@ scikit-image can be used in closed-source, commercial environments.
 The development team of scikit-image is an open community which collaborates on
 the *GitHub* [GitHub]_ platform for issue tracking, code review, and release
 management. *Google Groups* [GoogleGroups]_ is used as a public discussion
-forum for user support, community development, and announcements. New
-contributors are welcome to join the development team, which has seen steady
-growth over the years (XXX numbers to be inserted XXX).
-
-**TODO ABOVE**
+forum for user support, community development, and announcements.
 
 scikit-image complies with the PEP8 coding style standard [PEP8]_ and the NumPy
 documentation format [NumpyDoc]_ in order to provide a consistent, familiar user
@@ -35,7 +31,7 @@ We ensure high code quality by a thorough review process using the pull request
 interface on GitHub. The source code is mainly written in Python, although
 certain performance critical sections are implemented in Cython, an
 optimising static compiler for Python
-[cython]_.  scikit-image aims to achieve full unit test coverage, which is above
+[Cython]_.  scikit-image aims to achieve full unit test coverage, which is above
 85% as of release 0.10 and continues to rise. A continuous integration system
 ([TravisCI]_, [Coveralls]_) automatically checks each commit for unit test
 coverage and failures on Python 2 and Python 3. Additionally, the code is
