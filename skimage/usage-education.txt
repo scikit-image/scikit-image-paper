@@ -19,7 +19,7 @@ demonstrating that a median filter preserves straight lines much better.
 
 Since scikit-image operates on standard NumPy arrays, it benefits and
 integrates with other tools commonly used to teach Python, such as the IPython
-notebook [IPython]_.
+notebook [ipython]_.
 
 For self-taught exploration, the online gallery of examples not only provides
 an overview of the functionality available in the package but also
