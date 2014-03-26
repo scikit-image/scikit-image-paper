@@ -1,12 +1,13 @@
 
 
 In addition to regular training sessions, scikit-image is ideal for education
-through self-taught exploration. Several
-tutorials on image processing using scikit-image have already been given during
-the annual scientific Python conferences (e.g. [euroscipy2013]_, [pydata2012]_, SciPy India
-2012, etc.). Course materials for some of these sessions are found in
+through self-taught exploration. We have delivered
+image processing tutorials using scikit-image at various
+annual scientific Python conferences, e.g. EuroSciPy [euroscipy2013]_, PyData
+2012 [pydata2012]_ and SciPy India
+2012). Course materials for some of these sessions are found in
 [scipylecturenotes]_ and are licensed under the permissive [cc-by]_
-license, and typically include an introduction to the package and provide
+license.  These typically include an introduction to the package and provide
 intuitive, hands-on introductions to image processing concepts. The well
 documented application programming interface (API) along with tools that
 facilitate visualization contribute to the learning experience, and make it
