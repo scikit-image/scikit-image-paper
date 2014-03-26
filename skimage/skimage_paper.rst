@@ -3,8 +3,8 @@
 :institution: Stellenbosch University
 
 :author: Emmanuelle Gouillart
-:email: your@email.com
-:institution: Your Institute
+:email: emmanuelle.gouillart@saint-gobain.com
+:institution: Joint Unit CNRS / Saint-Gobain
 
 :author: Johannes L. Schönberger
 :email: jsch@cs.unc.edu
