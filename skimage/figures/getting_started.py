@@ -64,9 +64,9 @@ ax = plt.subplot(3, 2, 6)
 ax.imshow(img, cmap=plt.cm.gray)
 ax.set_title('Labeled items', fontsize=30)
 
-for region in regionprops(label_image, ['Area', 'BoundingBox']):
+for region in regionprops(label_image):
     # draw rectangle around segmented coins
-    minr, minc, maxr, maxc = region['BoundingBox']
+    minr, minc, maxr, maxc = region.bbox
     rect = mpatches.Rectangle((minc, minr), maxc - minc, maxr - minr,
                               fill=False, edgecolor='red', linewidth=2)
     ax.add_patch(rect)

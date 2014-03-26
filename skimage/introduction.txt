@@ -54,10 +54,10 @@ Getting started
 
 .. figure:: getting_started.png
 
-    Illustration of several features available in scikit-image: thresholding,
+    Illustration of several fonctions available in scikit-image: thresholding,
     local maxima, edge detection and labels. :label:`gettingstarted`
 
-We first import numpy and matplotlib libraries, respectively for numpy array manipulations and for plotting.
+We first import Numpy and Matplotlib libraries, respectively for array manipulations and for plotting.
 At each step, we add the picture or the plot to a matplotlib figure shown in figure :ref:`gettingstarted`.
 An image is loaded from ``data.coins`` shipped with scikit-image for the purpose of the demonstration.
 
@@ -156,10 +156,9 @@ Then, we attribute to each coin a label (``morphology.label``) that can be use t
     ax.imshow(img, cmap=plt.cm.gray)
     ax.set_title('Labeled items')
 
-    for region in regionprops(label_image,
-                              ['Area', 'BoundingBox']):
+    for region in regionprops(label_image):
         # draw rectangle around segmented coins
-        minr, minc, maxr, maxc = region['BoundingBox']
+        minr, minc, maxr, maxc = region.bbox
         rect = mpatches.Rectangle((minc, minr),
                                   maxc - minc,
                                   maxr - minr,
