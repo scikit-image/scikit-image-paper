@@ -3,7 +3,7 @@ various image datatypes, color representations, and file formation
 conversion. scikit-image offers robust tools for converting between image
 datatypes ([DirectX]_, [OpenGL]_, [GraphicsGemsI]_) and to do file input/output
 (I/O) operations.  Our purpose is to allow investigators to focus their time on
-research, instead of expending effort on mundane administrative tasks.
+research, instead of expending effort on mundane low-level tasks.
 
 The package includes a number of algorithms with broad applications across
 image processing research, from computer vision to medical image analysis. We
