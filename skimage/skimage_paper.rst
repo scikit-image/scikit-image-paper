@@ -9,27 +9,27 @@
               University of North Carolina at Chapel Hill,
               Chapel Hill, NC 27599, USA
 
+:author: Juan Nunez-Iglesias
+:email: juan.n@unimelb.edu.au
+:institution: Victorian Life Sciences Computation Initiative
+              Carlton, VIC, 3010, Australia
+
 :author: François Boulogne
 :email: boulogne@princeton.edu
 :institution: Department of Mechanical and Aerospace Engineering,
               Princeton University, Princeton, New Jersey 08544, USA
+
+:author: Joshua Warner
+:email: your@email.com
+:institution: Your Institute
 
 :author: Neil Yager
 :email: neil@aicbt.com
 :institution: AICBT Ltd
 
 :author: Emmanuelle Gouillart
-:email: your@email.com
-:institution: Your Institute
-
-:author: Joshua Warner
-:email: your@email.com
-:institution: Your Institute
-
-:author: Juan Nunez-Iglesias
-:email: juan.n@unimelb.edu.au
-:institution: Victorian Life Sciences Computation Initiative
-              Carlton, VIC, 3010, Australia
+:email: emmanuelle.gouillart@saint-gobain.com
+:institution: Joint Unit CNRS / Saint-Gobain
 
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
