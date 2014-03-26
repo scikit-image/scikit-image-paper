@@ -6,19 +6,11 @@
 :email: your@email.com
 :institution: Your Institute
 
-:author: Tony Yu
-:email: your@email.com
-:institution: Your Institute
-
 :author: Johannes L. Schönberger
 :email: jsch@cs.unc.edu
 :institution: Department of Computer Science,
               University of North Carolina at Chapel Hill,
               Chapel Hill, NC 27599, USA
-
-:author: Andreas Mueller
-:email: your@email.com
-:institution: Your Institute
 
 :author: Joshua Warner
 :email: your@email.com
@@ -29,10 +21,6 @@
 :institution: Victorian Life Sciences Computation Initiative
               Carlton, VIC, 3010, Australia
 
-:author: Other active core member
-:email: your@email.com
-:institution: Your Institute
-
 :author: François Boulogne
 :email: boulogne@princeton.edu
 :institution: Department of Mechanical and Aerospace Engineering,
@@ -41,6 +29,10 @@
 :author: Neil Yager
 :email: neil@aicbt.com
 :institution: AICBT Ltd
+
+:author: Other active core member
+:email: your@email.com
+:institution: Your Institute
 
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
