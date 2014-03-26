@@ -19,7 +19,7 @@ demonstrating that a median filter preserves straight lines much better.
 
 Since scikit-image operates on standard NumPy arrays, it benefits and
 integrates with other tools commonly used to teach Python, such as the IPython
-notebook [IPython]_.
+notebook [ipython]_.
 
 For self-taught exploration, the online gallery of examples not only provides
 an overview of the functionality available in the package but also
@@ -42,8 +42,3 @@ and look-up tables.
 .. [pydata2012] PyData 2012 https://www.youtube.com/watch?v=Wvvxazwi2IY
 
 .. [cc-by] CC-BY license http://creativecommons.org/licenses/by/4.0/
-
-.. [IPython] Fernando Pérez, Brian E. Granger, IPython: A System for
-   Interactive Scientific Computing, Computing in Science and Engineering,
-   vol. 9, no. 3, pp. 21-29, May/June 2007, doi:10.1109/MCSE.2007.53. URL:
-   http://ipython.org
