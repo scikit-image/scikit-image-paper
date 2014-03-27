@@ -58,7 +58,7 @@ Getting started
     local maxima, edge detection and labels. :label:`gettingstarted`
 
 We first import Numpy and Matplotlib libraries, respectively for array manipulations and for plotting.
-At each step, we add the picture or the plot to a matplotlib figure shown in figure :ref:`gettingstarted`.
+At each step, we add the picture or the plot to a Matplotlib figure shown in figure :ref:`gettingstarted`.
 For the purpose of the demonstration, an image shipped with scikit-image, is loaded from ``data.coins``.
 
 
@@ -138,7 +138,7 @@ A Canny filter (``filter.canny``) allows to detect the edge of each coin.
     ax[2, 0].axis('off')
 
 
-Then, we attribute to each coin a label (``morphology.label``) that can be use to extract sub-picture and, though ``measure.regionprops``, physical informations about the position, the area, the eccentricity, the perimeter, the moments, etc.
+Then, we attribute to each coin a label (``morphology.label``) that can be use to extract a sub-picture and, though ``measure.regionprops``, physical informations about the position, the area, the eccentricity, the perimeter, the moments, etc.
 
 .. code-block:: python
 
