@@ -34,7 +34,7 @@ underlying process.
    in a drying colloidal droplet. The sequence of pictures shows the temporal
    evolution of the system with, in green, the drop contact line detected by the
    Hough transform and, in white, the circle used to reslice the image stack.
-   The shown result illustrates the angular position of cracks and
+   The result shown illustrates the angular position of cracks and
    their time of appearance. :label:`cracks`
 
 

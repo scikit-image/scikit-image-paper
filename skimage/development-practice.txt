@@ -23,7 +23,7 @@ mentioned earlier, the data representation used is *n*-dimensional
 NumPy arrays, which guarantees universal interoperability
 within the scientific Python ecosystem. The majority of the scikit-image API is
 intentionally designed as a functional interface which allows one to simply
-apply one function on the output of another. This modular approach also lowers the
+apply one function to the output of another. This modular approach also lowers the
 barrier of entry for new contributors, since one only needs to master a small
 part of the entire library in order to make an addition.
 
