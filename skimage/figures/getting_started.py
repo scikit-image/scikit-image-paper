@@ -35,7 +35,7 @@ coordinates = peak_local_max(image, min_distance=20)
 
 ax[1, 1].imshow(image, cmap=plt.cm.gray)
 ax[1, 1].autoscale(False)
-ax[1, 1].plot([p[1] for p in coordinates], [p[0] for p in coordinates], 'r.')
+ax[1, 1].plot(coordinates[:, 1], coordinates[:, 0], 'r.')
 ax[1, 1].set_title('Peak local maxima', fontsize=20)
 ax[1, 1].axis('off')
 
