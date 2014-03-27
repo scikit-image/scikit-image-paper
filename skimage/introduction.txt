@@ -71,7 +71,8 @@ For the purpose of the demonstration, an image shipped with scikit-image, is loa
     from skimage import data
     image = data.coins()[0:95, 70:370]
 
-    fig, ax = plt.subplots(ncols=2, nrows=3, figsize=(8, 4))
+    fig, ax = plt.subplots(ncols=2, nrows=3,
+                           figsize=(8, 4))
     ax[0][0].imshow(image, cmap=plt.cm.gray)
     ax[0][0].set_title('Original', fontsize=20)
     ax[0][0].axis('off')
@@ -82,7 +83,8 @@ Since the image is represented by a numpy-array, we can easily compute operation
 .. code-block:: python
 
     # Histogram.
-    values, bins = np.histogram(image, bins=np.arange(256))
+    values, bins = np.histogram(image,
+                                bins=np.arange(256))
 
     ax[0][1].plot(bins[:-1], values)
     ax[0][1].set_xlim(xmax=256)
@@ -115,7 +117,8 @@ The function ``feature.peak_local_max`` can be used to return the coordinates of
 
     ax[1][1].imshow(image, cmap=plt.cm.gray)
     ax[1][1].autoscale(False)
-    ax[1][1].plot([p[1] for p in coordinates], [p[0] for p in coordinates], 'r.')
+    ax[1][1].plot([p[1] for p in coordinates],
+                  [p[0] for p in coordinates], 'r.')
     ax[1][1].set_title('Peak local maxima', fontsize=20)
     ax[1][1].axis('off')
 
@@ -126,7 +129,9 @@ A Canny filter (``filter.canny``) allows to detect the edge of each coin.
     # Detect edges.
     from skimage import filter
 
-    edges = filter.canny(image, sigma=3, low_threshold=10, high_threshold=80)
+    edges = filter.canny(image, sigma=3,
+                         low_threshold=10,
+                         high_threshold=80)
 
     ax[2][0].imshow(edges, cmap=plt.cm.gray)
     ax[2][0].set_title('Edges', fontsize=20)
@@ -150,8 +155,12 @@ Then, we attribute to each coin a label (``morphology.label``) that can be use t
     for region in regionprops(label_image):
         # Draw rectangle around segmented coins.
         minr, minc, maxr, maxc = region.bbox
-        rect = mpatches.Rectangle((minc, minr), maxc - minc, maxr - minr,
-                                  fill=False, edgecolor='red', linewidth=2)
+        rect = mpatches.Rectangle((minc, minr),
+                                  maxc - minc,
+                                  maxr - minr,
+                                  fill=False,
+                                  edgecolor='red',
+                                  linewidth=2)
         ax[2][1].add_patch(rect)
 
     plt.show()
