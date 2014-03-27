@@ -121,7 +121,7 @@ The function ``feature.peak_local_max`` can be used to return the coordinates of
     ax[1, 1].set_title('Peak local maxima', fontsize=20)
     ax[1, 1].axis('off')
 
-A Canny filter (``filter.canny``) detects the edge of each coin.
+A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
 
 .. code-block:: python
 
@@ -243,3 +243,5 @@ data-types.
    http://packages.ubuntu.com/search?keywords=python-skimage
 .. [gsoc] Google Summer of Code.
    https://developers.google.com/open-source/soc
+.. [Canny] Canny, J., A Computational Approach To Edge Detection, IEEE Trans.
+    Pattern Analysis and Machine Intelligence, 8:679-714, 1986
