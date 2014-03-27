@@ -1,7 +1,8 @@
 In the data-rich world we live in, images represent a significant subset of all
 measurements made.  Examples include DNA microarrays, microscopy slides,
-telescopic observations, satellite maps, robotic vision capture and synthetic
-aperture radar images.
+telescopic observations, satellite maps, robotic vision capture, synthetic
+aperture radar images, larger-dimension images such as 3-D medical resonance
+imaging or computed tomography images, etc.
 
 To explore this rich data source and to fully understand and interpret its
 meaning requires sophisticated software tools--tools that, for reasons
