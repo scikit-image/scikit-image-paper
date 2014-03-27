@@ -14,7 +14,7 @@ ax[0, 0].axis('off')
 # Histogram.
 values, bins = np.histogram(image, bins=np.arange(256))
 
-ax[0, 1].plot(bins[:-1], values)
+ax[0, 1].plot(bins[:-1], values, lw=2)
 ax[0, 1].set_xlim(xmax=256)
 ax[0, 1].set_aspect(.2)
 ax[0, 1].set_title('Histogram', fontsize=24)
