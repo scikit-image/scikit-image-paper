@@ -74,7 +74,7 @@ For this demonstration, we load ``data.coins``, an example image shipped with sc
     fig, ax = plt.subplots(ncols=2, nrows=3,
                            figsize=(8, 4))
     ax[0, 0].imshow(image, cmap=plt.cm.gray)
-    ax[0, 0].set_title('Original', fontsize=20)
+    ax[0, 0].set_title('Original', fontsize=24)
     ax[0, 0].axis('off')
 
 
@@ -88,7 +88,7 @@ Since the image is represented by a numpy-array, we can easily compute operation
 
     ax[0, 1].plot(bins[:-1], values)
     ax[0, 1].set_xlim(xmax=256)
-    ax[0, 1].set_title('Histogram', fontsize=20)
+    ax[0, 1].set_title('Histogram', fontsize=24)
 
 
 Thresholding divides an image into foreground and background. This is often referred as a binary image.
@@ -102,7 +102,7 @@ Several threshold algorithm are available. Here, we employ ``filter.threshold_ad
     bw = threshold_adaptive(image, 95, offset=-15)
 
     ax[1, 0].imshow(bw, cmap=plt.cm.gray)
-    ax[1, 0].set_title('Adaptive threshold', fontsize=20)
+    ax[1, 0].set_title('Adaptive threshold', fontsize=24)
     ax[1, 0].axis('off')
 
 The function ``feature.peak_local_max`` can be used to return the coordinates of local maxima in an image.
@@ -118,7 +118,7 @@ The function ``feature.peak_local_max`` can be used to return the coordinates of
     ax[1, 1].autoscale(False)
     ax[1, 1].plot(coordinates[:, 1],
                   coordinates[:, 0], 'r.')
-    ax[1, 1].set_title('Peak local maxima', fontsize=20)
+    ax[1, 1].set_title('Peak local maxima', fontsize=24)
     ax[1, 1].axis('off')
 
 A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
@@ -133,7 +133,7 @@ A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
                          high_threshold=80)
 
     ax[2, 0].imshow(edges, cmap=plt.cm.gray)
-    ax[2, 0].set_title('Edges', fontsize=20)
+    ax[2, 0].set_title('Edges', fontsize=24)
     ax[2, 0].axis('off')
 
 
@@ -149,7 +149,7 @@ Then, we attribute to each coin a label (``morphology.label``) that can be use t
     label_image = label(edges)
 
     ax[2, 1].imshow(image, cmap=plt.cm.gray)
-    ax[2, 1].set_title('Labeled items', fontsize=20)
+    ax[2, 1].set_title('Labeled items', fontsize=24)
     ax[2, 1].axis('off')
 
     for region in regionprops(label_image):
@@ -163,6 +163,7 @@ Then, we attribute to each coin a label (``morphology.label``) that can be use t
                                   linewidth=2)
         ax[2, 1].add_patch(rect)
 
+    plt.tight_layout()
     plt.show()
 
 
