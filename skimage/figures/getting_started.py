@@ -11,7 +11,7 @@ ax[0, 0].imshow(image, cmap=plt.cm.gray)
 ax[0, 0].set_title('Original', fontsize=20)
 ax[0, 0].axis('off')
 
-# Histogram.
+# Histogram.
 values, bins = np.histogram(image, bins=np.arange(256))
 
 ax[0, 1].plot(bins[:-1], values)
@@ -20,7 +20,6 @@ ax[0, 1].set_title('Histogram', fontsize=20)
 
 # Apply threshold.
 from skimage.filter import threshold_adaptive
-from skimage.morphology import closing, square
 
 bw = threshold_adaptive(image, 95, offset=-15)
 
