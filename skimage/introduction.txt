@@ -57,10 +57,12 @@ Getting started
     Illustration of several functions available in scikit-image: adaptive threshold,
     local maxima, edge detection and labels. :label:`gettingstarted`
 
-We first import Numpy and Matplotlib libraries, respectively for array manipulations and for plotting.
-At each step, we add the picture or the plot to a Matplotlib figure shown in figure :ref:`gettingstarted`.
-For this demonstration, we load ``data.coins``, an example image shipped with scikit-image.
 
+We first import the NumPy and matplotlib libraries for array manipulation and
+plotting, respectively. At each step, we add the picture or the plot to a
+matplotlib figure shown in figure :ref:`gettingstarted`.  For this
+demonstration, we load ``data.coins``, an example image shipped with
+scikit-image.
 
 .. code-block:: python
 
@@ -78,7 +80,8 @@ For this demonstration, we load ``data.coins``, an example image shipped with sc
     ax[0, 0].axis('off')
 
 
-Since the image is represented by a numpy-array, we can easily compute operations like building an histogram of the intensity values.
+Since the image is represented by a Numpy array, we can easily compute
+operations like building an histogram of the intensity values.
 
 .. code-block:: python
 
@@ -91,8 +94,10 @@ Since the image is represented by a numpy-array, we can easily compute operation
     ax[0, 1].set_title('Histogram', fontsize=24)
 
 
-Thresholding divides an image into foreground and background. This is often referred as a binary image.
-Several threshold algorithm are available. Here, we employ ``filter.threshold_adaptive`` where the threshold value is the weighted mean for the local neighborhood of a pixel.
+Thresholding divides an image into foreground and background. This is often
+referred as a binary image.  Several threshold algorithm are available. Here, we
+employ ``filter.threshold_adaptive`` where the threshold value is the weighted
+mean for the local neighborhood of a pixel.
 
 .. code-block:: python
 
@@ -105,7 +110,8 @@ Several threshold algorithm are available. Here, we employ ``filter.threshold_ad
     ax[1, 0].set_title('Adaptive threshold', fontsize=24)
     ax[1, 0].axis('off')
 
-The function ``feature.peak_local_max`` can be used to return the coordinates of local maxima in an image.
+The function ``feature.peak_local_max`` can be used to return the coordinates of
+local maxima in an image.
 
 .. code-block:: python
 
@@ -137,7 +143,10 @@ A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
     ax[2, 0].axis('off')
 
 
-Then, we attribute to each coin a label (``morphology.label``) that can be use to extract a sub-picture and, though ``measure.regionprops``, physical information such as the position, area, eccentricity, perimeter, and moments, among others.
+Then, we attribute to each coin a label (``morphology.label``) that can be use
+to extract a sub-picture and, though ``measure.regionprops``, physical
+information such as the position, area, eccentricity, perimeter, and moments,
+among others.
 
 .. code-block:: python
 
