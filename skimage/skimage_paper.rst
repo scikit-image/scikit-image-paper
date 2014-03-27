@@ -1,20 +1,13 @@
 :author: Stéfan van der Walt
 :email: stefan@sun.ac.za
-:institution: Stellenbosch University
-
-:author: Emmanuelle Gouillart
-:email: emmanuelle.gouillart@saint-gobain.com
-:institution: Joint Unit CNRS / Saint-Gobain
+:institution: Stellenbosch University,
+              Stellenbosch, South Africa
 
 :author: Johannes L. Schönberger
 :email: jsch@cs.unc.edu
 :institution: Department of Computer Science,
               University of North Carolina at Chapel Hill,
               Chapel Hill, NC 27599, USA
-
-:author: Joshua Warner
-:email: your@email.com
-:institution: Your Institute
 
 :author: Juan Nunez-Iglesias
 :email: juan.n@unimelb.edu.au
@@ -26,13 +19,17 @@
 :institution: Department of Mechanical and Aerospace Engineering,
               Princeton University, Princeton, New Jersey 08544, USA
 
+:author: Joshua Warner
+:email: your@email.com
+:institution: Your Institute
+
 :author: Neil Yager
 :email: neil@aicbt.com
 :institution: AICBT Ltd
 
-:author: Other active core member
-:email: your@email.com
-:institution: Your Institute
+:author: Emmanuelle Gouillart
+:email: emmanuelle.gouillart@saint-gobain.com
+:institution: Joint Unit CNRS / Saint-Gobain
 
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
@@ -63,6 +60,11 @@ Introduction
 
 .. include:: skimage/introduction.txt
 
+Development practices
+=====================
+
+.. include:: skimage/development-practice.txt
+
 Usage examples
 ==============
 
@@ -84,18 +86,7 @@ Industry
 Gallery of examples
 ===================
 
-.. include:: skimage/gallery.txt
 .. include:: skimage/pano.txt
-
-Development practices
-=====================
-
-.. include:: skimage/development-practice.txt
-
-Roadmap
-=======
-
-.. include:: skimage/roadmap.txt
 
 Conclusion
 ==========

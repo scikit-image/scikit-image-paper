@@ -36,8 +36,8 @@ The project aims are:
    "turtle graphics" paradigm, but also to familiarize users with image
    concepts such as color, dimensionality, etc.  The project often takes part
    in the yearly Google Summer of Code [gsoc]_ program, where students get to
-   learn about image processing and software engineering through implementing
-   new features themselves.
+   learn about image processing and software engineering through contributing
+   to the project.
 
 3. To address industry challenges.
 
@@ -58,8 +58,7 @@ NeuroDebian [neurodebian]_ and GNU/Linux distributions such as Ubuntu [ubuntu]_.
 In March 2014 alone, the package was downloaded more than 5000 times from the
 Python Package Index [pypi]_.
 
-The package currently
-contains the following sub-modules:
+The package currently contains the following sub-modules:
 
 - color: Color space conversion.
 - data: Test images and example data.
@@ -89,22 +88,17 @@ representation for homogeneous data in Python, data can be passed along as-is
 to most other tools such as NumPy, SciPy, matplotlib, [scikit-learn]_, OpenCV,
 etc.
 
-An image collection class (see `skimage.io.ImageCollection`) is provided for
-loading multiple images, also from different directories.  For automatic
-visualization in the IPython notebook [ipython]_, lightweight wrapper classes
-are provided (see `skimage.io.Image`).
-
 Pipelining
 ==========
 
 Images of differing data-types can complicate the construction of pipelines.
 scikit-image follows an "Anything In, Anything Out" approach, whereby all
 functions are expected to allow input of an arbitrary data-type but, for
-efficiency, also get to choose their own output format.  Utility functions like
-`img_as_float` provide an easy way of converting between image data-types.  The
-most common image representation is in floating-point format (data-type
-`float`), with values between 0 and 1 (unsigned image) or -1 and 1 (signed
-image).
+efficiency, also get to choose their own output format.  That said, data-type
+ranges are clearly defined, e.g., floating point images are expected to have
+values between 0 and 1 (signed images) or -1 and 1 (unsigned image).  Utility
+functions like ``img_as_float`` provide an easy way of converting between
+data-types.
 
 
 .. [ohloh] Scikit-image on Ohloh, https://www.ohloh.net/p/scikit-image
