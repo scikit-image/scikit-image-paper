@@ -60,7 +60,7 @@ Getting started
 
 We first import the NumPy and matplotlib libraries for array manipulation and
 plotting, respectively. At each step, we add the picture or the plot to a
-matplotlib figure shown in figure :ref:`gettingstarted`.  For this
+matplotlib figure shown in Figure :ref:`gettingstarted`.  For this
 demonstration, we load ``data.coins``, an example image shipped with
 scikit-image.
 
