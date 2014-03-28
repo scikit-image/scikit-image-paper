@@ -51,6 +51,21 @@ The project aims are:
 Getting started
 ===============
 
+One of the main goals of scikit-image is to make it easy for any user to get
+started quickly---especially users who are already familiar with Python's
+scientific tools. To that end, the basic image is just a standard NumPy array,
+which exposes pixel data directly to the user. A new user can simply the load
+an image from disk (or use one of scikit-image's sample images), process that
+image with one or more image filters, and quickly display the results:
+
+.. code-block:: python
+
+   from skimage import data, io, filter
+
+   image = data.coins()  # or any NumPy array!
+   edges = filter.sobel(image)
+   io.imshow(edges)
+
 
 .. figure:: getting_started.png
 

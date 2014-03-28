@@ -31,6 +31,10 @@
 :email: emmanuelle.gouillart@saint-gobain.com
 :institution: Joint Unit CNRS / Saint-Gobain
 
+:author: Tony Yu
+:email: tyu@enthought.com
+:institution: Enthought Inc.
+
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
 :institution: https://github.com/scikit-image/scikit-image/graphs/contributors
