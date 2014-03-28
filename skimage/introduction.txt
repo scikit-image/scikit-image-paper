@@ -72,12 +72,10 @@ image with one or more image filters, and quickly display the results:
     Illustration of several functions available in scikit-image: adaptive threshold,
     local maxima, edge detection and labels. :label:`gettingstarted`
 
-
-We first import the NumPy and matplotlib libraries for array manipulation and
-plotting, respectively. At each step, we add the picture or the plot to a
-matplotlib figure shown in Figure :ref:`gettingstarted`.  For this
-demonstration, we load ``data.coins``, an example image shipped with
-scikit-image.
+We first import two libraries: NumPy for array manipulation and matplotlib for
+plotting.  At each step, we add the picture or the plot to a matplotlib figure
+shown in Figure :ref:`gettingstarted`.  For this demonstration, we load
+``data.coins``, an example image shipped with scikit-image.
 
 .. code-block:: python
 
