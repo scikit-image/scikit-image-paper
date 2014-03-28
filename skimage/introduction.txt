@@ -10,7 +10,7 @@ motivated below, should be easy to use, free of charge and restrictions and
 able to address the challenges posed by such a diverse field of analysis.
 
 With the rising popularity of Python as a scientific programming language
-[citation?] as well as the increasing availability of a large eco-system of
+as well as the increasing availability of a large eco-system of
 complementary tools, it seems like the ideal environment in which to produce
 an image processing toolkit.
 
