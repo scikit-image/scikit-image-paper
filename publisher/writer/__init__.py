@@ -103,7 +103,7 @@ class Translator(LaTeXTranslator):
             the corresponding author.
             """
             return ('\\setcounter{footnotecounter}{%d}' % n,
-                    '\\fnsymbol{footnotecounter}')
+                    '%d' % n)
 
         # Build one footmark for each institution
         institute_footmark = {}
@@ -123,7 +123,7 @@ class Translator(LaTeXTranslator):
             if n == 0:
                 authors += [r'%(author)s$^{%(footmark)s}$' %
                             {'author': auth,
-                             'footmark': ''.join(footmark(1)) +
+                             'footmark': ''.join(footmark(1)) + ',' +
                                          ''.join(institute_footmark[inst])}]
 
                 fm_counter, fm = footmark(1)
