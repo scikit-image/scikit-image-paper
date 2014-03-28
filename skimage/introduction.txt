@@ -47,6 +47,149 @@ The project aims are:
    commercial packages.  Companies may use the library entirely free of charge,
    and have the option of contributing changes back, should they so wish.
 
+
+Getting started
+===============
+
+One of the main goals of scikit-image is to make it easy for any user to get
+started quickly---especially users who are already familiar with Python's
+scientific tools. To that end, the basic image is just a standard NumPy array,
+which exposes pixel data directly to the user. A new user can simply the load
+an image from disk (or use one of scikit-image's sample images), process that
+image with one or more image filters, and quickly display the results:
+
+.. code-block:: python
+
+   from skimage import data, io, filter
+
+   image = data.coins()  # or any NumPy array!
+   edges = filter.sobel(image)
+   io.imshow(edges)
+
+
+.. figure:: getting_started.png
+
+    Illustration of several functions available in scikit-image: adaptive threshold,
+    local maxima, edge detection and labels. :label:`gettingstarted`
+
+We first import two libraries: NumPy for array manipulation and matplotlib for
+plotting.  At each step, we add the picture or the plot to a matplotlib figure
+shown in Figure :ref:`gettingstarted`.  For this demonstration, we load
+``data.coins``, an example image shipped with scikit-image.
+
+.. code-block:: python
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    # Load picture.
+    from skimage import data
+    image = data.coins()[0:95, 70:370]
+
+    fig, ax = plt.subplots(ncols=2, nrows=3,
+                           figsize=(8, 4))
+    ax[0, 0].imshow(image, cmap=plt.cm.gray)
+    ax[0, 0].set_title('Original', fontsize=24)
+    ax[0, 0].axis('off')
+
+
+Since the image is represented by a Numpy array, we can easily compute
+operations like building an histogram of the intensity values.
+
+.. code-block:: python
+
+    # Histogram.
+    values, bins = np.histogram(image,
+                                bins=np.arange(256))
+
+    ax[0, 1].plot(bins[:-1], values, lw=2)
+    ax[0, 1].set_xlim(xmax=256)
+    ax[0, 1].set_aspect(.2)
+    ax[0, 1].set_title('Histogram', fontsize=24)
+
+
+Thresholding divides an image into foreground and background. This is often
+referred as a binary image.  Several threshold algorithm are available. Here, we
+employ ``filter.threshold_adaptive`` where the threshold value is the weighted
+mean for the local neighborhood of a pixel.
+
+.. code-block:: python
+
+    # Apply threshold.
+    from skimage.filter import threshold_adaptive
+
+    bw = threshold_adaptive(image, 95, offset=-15)
+
+    ax[1, 0].imshow(bw, cmap=plt.cm.gray)
+    ax[1, 0].set_title('Adaptive threshold', fontsize=24)
+    ax[1, 0].axis('off')
+
+The function ``feature.peak_local_max`` can be used to return the coordinates of
+local maxima in an image.
+
+.. code-block:: python
+
+    # Find maxima.
+    from skimage.feature import peak_local_max
+
+    coordinates = peak_local_max(image, min_distance=20)
+
+    ax[1, 1].imshow(image, cmap=plt.cm.gray)
+    ax[1, 1].autoscale(False)
+    ax[1, 1].plot(coordinates[:, 1],
+                  coordinates[:, 0], 'r.')
+    ax[1, 1].set_title('Peak local maxima', fontsize=24)
+    ax[1, 1].axis('off')
+
+A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
+
+.. code-block:: python
+
+    # Detect edges.
+    from skimage import filter
+
+    edges = filter.canny(image, sigma=3,
+                         low_threshold=10,
+                         high_threshold=80)
+
+    ax[2, 0].imshow(edges, cmap=plt.cm.gray)
+    ax[2, 0].set_title('Edges', fontsize=24)
+    ax[2, 0].axis('off')
+
+
+Then, we attribute to each coin a label (``morphology.label``) that can be use
+to extract a sub-picture and, though ``measure.regionprops``, physical
+information such as the position, area, eccentricity, perimeter, and moments,
+among others.
+
+.. code-block:: python
+
+    # Label image regions.
+    from skimage.measure import regionprops
+    import matplotlib.patches as mpatches
+    from skimage.morphology import label
+
+    label_image = label(edges)
+
+    ax[2, 1].imshow(image, cmap=plt.cm.gray)
+    ax[2, 1].set_title('Labeled items', fontsize=24)
+    ax[2, 1].axis('off')
+
+    for region in regionprops(label_image):
+        # Draw rectangle around segmented coins.
+        minr, minc, maxr, maxc = region.bbox
+        rect = mpatches.Rectangle((minc, minr),
+                                  maxc - minc,
+                                  maxr - minr,
+                                  fill=False,
+                                  edgecolor='red',
+                                  linewidth=2)
+        ax[2, 1].add_patch(rect)
+
+    plt.tight_layout()
+    plt.show()
+
+
 Content
 =======
 
@@ -124,3 +267,5 @@ data-types.
    http://packages.ubuntu.com/search?keywords=python-skimage
 .. [gsoc] Google Summer of Code.
    https://developers.google.com/open-source/soc
+.. [Canny] Canny, J., A Computational Approach To Edge Detection, IEEE Trans.
+   Pattern Analysis and Machine Intelligence, 8:679-714, 1986
