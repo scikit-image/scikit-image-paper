@@ -86,11 +86,12 @@ the plot to a matplotlib figure shown in Figure :ref:`gettingstarted`.
     # Load a small section of the image.
     image = data.coins()[0:95, 70:370]
 
-    fig, ax = plt.subplots(ncols=2, nrows=3,
-                           figsize=(8, 4))
-    ax[0, 0].imshow(image, cmap=plt.cm.gray)
-    ax[0, 0].set_title('Original', fontsize=24)
-    ax[0, 0].axis('off')
+    fig, axes = plt.subplots(ncols=2, nrows=3,
+                             figsize=(8, 4))
+    ax0, ax1, ax2, ax3, ax4, ax5  = axes.flat
+    ax0.imshow(image, cmap=plt.cm.gray)
+    ax0.set_title('Original', fontsize=24)
+    ax0.axis('off')
 
 
 Since the image is represented by a Numpy array, we can easily compute
@@ -102,10 +103,10 @@ operations like building an histogram of the intensity values.
     values, bins = np.histogram(image,
                                 bins=np.arange(256))
 
-    ax[0, 1].plot(bins[:-1], values, lw=2)
-    ax[0, 1].set_xlim(xmax=256)
-    ax[0, 1].set_aspect(.2)
-    ax[0, 1].set_title('Histogram', fontsize=24)
+    ax1.plot(bins[:-1], values, lw=2)
+    ax1.set_xlim(xmax=256)
+    ax1.set_aspect(.2)
+    ax1.set_title('Histogram', fontsize=24)
 
 
 To divide the foreground and background, we threshold the image to produce
@@ -120,9 +121,9 @@ mean for the local neighborhood of a pixel.
 
     bw = threshold_adaptive(image, 95, offset=-15)
 
-    ax[1, 0].imshow(bw, cmap=plt.cm.gray)
-    ax[1, 0].set_title('Adaptive threshold', fontsize=24)
-    ax[1, 0].axis('off')
+    ax2.imshow(bw, cmap=plt.cm.gray)
+    ax2.set_title('Adaptive threshold', fontsize=24)
+    ax2.axis('off')
 
 We can easily detect interesting features, such as local maxima and edges. The
 function ``feature.peak_local_max`` can be used to return the coordinates of
@@ -135,12 +136,12 @@ local maxima in an image.
 
     coordinates = peak_local_max(image, min_distance=20)
 
-    ax[1, 1].imshow(image, cmap=plt.cm.gray)
-    ax[1, 1].autoscale(False)
-    ax[1, 1].plot(coordinates[:, 1],
-                  coordinates[:, 0], 'r.')
-    ax[1, 1].set_title('Peak local maxima', fontsize=24)
-    ax[1, 1].axis('off')
+    ax3.imshow(image, cmap=plt.cm.gray)
+    ax3.autoscale(False)
+    ax3.plot(coordinates[:, 1],
+             coordinates[:, 0], 'r.')
+    ax3.set_title('Peak local maxima', fontsize=24)
+    ax3.axis('off')
 
 Next, a Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
 
@@ -153,9 +154,9 @@ Next, a Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
                          low_threshold=10,
                          high_threshold=80)
 
-    ax[2, 0].imshow(edges, cmap=plt.cm.gray)
-    ax[2, 0].set_title('Edges', fontsize=24)
-    ax[2, 0].axis('off')
+    ax4.imshow(edges, cmap=plt.cm.gray)
+    ax4.set_title('Edges', fontsize=24)
+    ax4.axis('off')
 
 
 Then, we attribute to each coin a label (``morphology.label``) that can be used
@@ -172,9 +173,9 @@ area, eccentricity, perimeter, and moments can be extracted using
 
     label_image = label(edges)
 
-    ax[2, 1].imshow(image, cmap=plt.cm.gray)
-    ax[2, 1].set_title('Labeled items', fontsize=24)
-    ax[2, 1].axis('off')
+    ax5.imshow(image, cmap=plt.cm.gray)
+    ax5.set_title('Labeled items', fontsize=24)
+    ax5.axis('off')
 
     for region in regionprops(label_image):
         # Draw rectangle around segmented coins.
@@ -185,7 +186,7 @@ area, eccentricity, perimeter, and moments can be extracted using
                                   fill=False,
                                   edgecolor='red',
                                   linewidth=2)
-        ax[2, 1].add_patch(rect)
+        ax5.add_patch(rect)
 
     plt.tight_layout()
     plt.show()
