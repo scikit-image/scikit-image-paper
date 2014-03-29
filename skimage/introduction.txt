@@ -1,17 +1,17 @@
-In the data-rich world we live in, images represent a significant subset of all
+In our data-rich world, images represent a significant subset of all
 measurements made.  Examples include DNA microarrays, microscopy slides,
 telescope observations, satellite maps, robotic vision capture, synthetic
-aperture radar images, and higher-dimensional images such as 3-D magnetic resonance
-or computed tomography imaging.
+aperture radar images, and higher-dimensional images such as 3-D magnetic
+resonance or computed tomography imaging.
 
 To explore this rich data source and to fully understand and interpret its
-meaning requires sophisticated software tools--tools that, for reasons
+meaning requires sophisticated software tools—tools that, for reasons
 motivated below, should be easy to use, free of charge and restrictions and
 able to address the challenges posed by such a diverse field of analysis.
 
 With the rising popularity of Python as a scientific programming language
 as well as the increasing availability of a large eco-system of
-complementary tools, it seems like the ideal environment in which to produce
+complementary tools, it is an ideal environment in which to produce
 an image processing toolkit.
 
 This paper describes scikit-image, a collection of image processing algorithms
@@ -20,7 +20,7 @@ volunteers and available under a liberal Open Source license.
 
 The project aims are:
 
-1. To provide high quality, well-documented and cleanly interfaced
+1. To provide high quality, well-documented and easy-to-use
    implementations of common image processing algorithms.
 
    Such algorithms are an essential building block in reproducible scientific
@@ -34,10 +34,10 @@ The project aims are:
    hands-on-fashion by adjusting parameters and modifying code.  In addition, a
    ``novice`` module is provided, not only for teaching programming in the
    "turtle graphics" paradigm, but also to familiarize users with image
-   concepts such as color, dimensionality, etc.  The project often takes part
-   in the yearly Google Summer of Code [gsoc]_ program, where students get to
-   learn about image processing and software engineering through contributing
-   to the project.
+   concepts such as color, dimensionality, etc.  Furthermore, the project
+   takes part in the yearly Google Summer of Code [gsoc]_ program, where
+   students learn about image processing and software engineering through
+   contributing to the project.
 
 3. To address industry challenges.
 
