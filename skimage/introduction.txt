@@ -52,7 +52,7 @@ Getting started
 ===============
 
 One of the main goals of scikit-image is to make it easy for any user to get
-started quickly---especially users who are already familiar with Python's
+started quickly—especially users who are already familiar with Python's
 scientific tools. To that end, the basic image is just a standard NumPy array,
 which exposes pixel data directly to the user. A new user can simply the load
 an image from disk (or use one of scikit-image's sample images), process that
@@ -72,18 +72,18 @@ image with one or more image filters, and quickly display the results:
     Illustration of several functions available in scikit-image: adaptive threshold,
     local maxima, edge detection and labels. :label:`gettingstarted`
 
-We first import two libraries: NumPy for array manipulation and matplotlib for
-plotting.  At each step, we add the picture or the plot to a matplotlib figure
-shown in Figure :ref:`gettingstarted`.  For this demonstration, we load
-``data.coins``, an example image shipped with scikit-image.
+This demonstration loads ``data.coins``, an example image shipped with
+scikit-image.  For a more complete example, we import NumPy for array
+manipulation and matplotlib for plotting.  At each step, we add the picture or
+the plot to a matplotlib figure shown in Figure :ref:`gettingstarted`.
+
 
 .. code-block:: python
 
     import numpy as np
     import matplotlib.pyplot as plt
 
-    # Load picture.
-    from skimage import data
+    # Load a small section of the image.
     image = data.coins()[0:95, 70:370]
 
     fig, ax = plt.subplots(ncols=2, nrows=3,
@@ -108,8 +108,8 @@ operations like building an histogram of the intensity values.
     ax[0, 1].set_title('Histogram', fontsize=24)
 
 
-Thresholding divides an image into foreground and background. This is often
-referred as a binary image.  Several threshold algorithm are available. Here, we
+To divide the foreground and background, we threshold the image to produce
+a binary image.  Several threshold algorithms are available. Here, we
 employ ``filter.threshold_adaptive`` where the threshold value is the weighted
 mean for the local neighborhood of a pixel.
 
@@ -124,7 +124,7 @@ mean for the local neighborhood of a pixel.
     ax[1, 0].set_title('Adaptive threshold', fontsize=24)
     ax[1, 0].axis('off')
 
-The function ``feature.peak_local_max`` can be used to return the coordinates of
+We can easily detect interesting features, such as local maxima and edges. The function ``feature.peak_local_max`` can be used to return the coordinates of
 local maxima in an image.
 
 .. code-block:: python
@@ -141,7 +141,7 @@ local maxima in an image.
     ax[1, 1].set_title('Peak local maxima', fontsize=24)
     ax[1, 1].axis('off')
 
-A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
+Next, a Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
 
 .. code-block:: python
 
@@ -157,10 +157,10 @@ A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
     ax[2, 0].axis('off')
 
 
-Then, we attribute to each coin a label (``morphology.label``) that can be use
-to extract a sub-picture and, through ``measure.regionprops``, physical
-information such as the position, area, eccentricity, perimeter, and moments,
-among others.
+Then, we attribute to each coin a label (``morphology.label``) that can be used
+to extract a sub-picture. Finally, physical information such as the position,
+area, eccentricity, perimeter, and moments can be extracted using
+``measure.regionprops``.
 
 .. code-block:: python
 
