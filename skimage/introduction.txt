@@ -158,7 +158,7 @@ A Canny filter (``filter.canny``) [Canny]_ detects the edge of each coin.
 
 
 Then, we attribute to each coin a label (``morphology.label``) that can be use
-to extract a sub-picture and, though ``measure.regionprops``, physical
+to extract a sub-picture and, through ``measure.regionprops``, physical
 information such as the position, area, eccentricity, perimeter, and moments,
 among others.
 
