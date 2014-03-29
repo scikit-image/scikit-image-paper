@@ -206,10 +206,10 @@ The package currently contains the following sub-modules:
 - color: Color space conversion.
 - data: Test images and example data.
 - draw: Drawing primitives (lines, text, etc.) that operate on NumPy arrays.
-- exposure:  Image intensity adjustment (e.g., histogram equalization).
-- feature: Feature detection and extraction (e.g., texture analysis, corners, etc.).
+- exposure:  Image intensity adjustment, e.g., histogram equalization, etc.
+- feature: Feature detection and extraction, e.g., texture analysis, corners, etc.
 - filter: Sharpening, edge finding, rank filters, thresholding, etc.
-- graph: Graph-theoretic operations, e.g., dynamic programming (shortest paths).
+- graph: Graph-theoretic operations, e.g., shortest paths.
 - io: Reading, saving, and displaying images and video.
 - measure: Measurement of image properties, e.g., similarity and contours.
 - morphology: Morphological operations, e.g., opening or skeletonization.
