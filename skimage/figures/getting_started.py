@@ -70,5 +70,5 @@ for region in regionprops(label_image):
     ax5.add_patch(rect)
 
 plt.tight_layout()
-plt.savefig('getting_started.png')
+plt.savefig('getting_started.png', dpi=200)
 plt.show()
