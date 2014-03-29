@@ -19,11 +19,12 @@ data is processed,
 each experiment, constituting an image stack, is automatically analysed without
 human intervention. The contact line is detected by a circular Hough transform
 (``transform.hough_circle``) providing the drop radius and its center. Then, a
-smaller concentric circle is drawn (``draw.circle_perimeter``) and used as a
-to extract intensity values from the image. Repeating the process on each image
-in the stack, collected pixels can be assembled to make a space-time diagram.
-As a result, a complex stack of images is reduced to a single image summarizing
-the dynamic underlying process.
+smaller concentric circle is drawn (``draw.circle_perimeter``) and used as
+a mask to extract intensity values from the image.
+Repeating the process on each image in the stack, collected
+pixels can be assembled to make a space-time diagram. As a result, a complex
+stack of images is reduced to a single image summarizing the dynamic
+underlying process.
 
 
 .. figure:: fig_cracks.pdf
