@@ -30,8 +30,8 @@ desired, without being proficient with image processing jargon.  For many
 functions, the documentation includes links to research papers or Wikipedia
 pages to further guide the user.
 
-Finally, easy access to readable source code is another way to learn about
-the way algorithms are implemented, and gather further insight into some of the
+Finally, easy access to readable source code gives users an opportunity to
+learn how algorithms are implemented and gives further insight into some of the
 intricacies of a fast Python implementation, such as indexing tricks
 and look-up tables.
 
