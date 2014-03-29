@@ -72,7 +72,7 @@ image with one or more image filters, and quickly display the results:
     Illustration of several functions available in scikit-image: adaptive threshold,
     local maxima, edge detection and labels. :label:`gettingstarted`
 
-This demonstration loads ``data.coins``, an example image shipped with
+The above demonstration loads ``data.coins``, an example image shipped with
 scikit-image.  For a more complete example, we import NumPy for array
 manipulation and matplotlib for plotting.  At each step, we add the picture or
 the plot to a matplotlib figure shown in Figure :ref:`gettingstarted`.
@@ -124,7 +124,8 @@ mean for the local neighborhood of a pixel.
     ax[1, 0].set_title('Adaptive threshold', fontsize=24)
     ax[1, 0].axis('off')
 
-We can easily detect interesting features, such as local maxima and edges. The function ``feature.peak_local_max`` can be used to return the coordinates of
+We can easily detect interesting features, such as local maxima and edges. The
+function ``feature.peak_local_max`` can be used to return the coordinates of
 local maxima in an image.
 
 .. code-block:: python
