@@ -226,11 +226,11 @@ Data format
 scikit-image uses NumPy arrays [numpy]_ to represent images.  Each array has a
 shape, e.g., ``(M, N)`` for grey-level images, ``(M, N, P)`` for multi-channel
 images, or ``(M, N, P, Q)`` for temporal and other multi-dimensional data.  In
-addition, it has a data-type such as ``float`` or ``uint8``, that describes the
-numerical type of the stored elements Since NumPy arrays are a standard and
+addition, various data-types, such as ``float`` or ``uint8``, describe the
+numerical type of the stored elements. Since NumPy arrays are a standard and
 efficient representation for homogeneous data in Python, data can be passed
 along as-is to most other tools such as NumPy, SciPy, matplotlib,
-[scikit-learn]_, OpenCV, etc.
+scikit-learn [scikit-learn]_, OpenCV, etc.
 
 Pipelining
 ==========
@@ -240,7 +240,7 @@ scikit-image follows an "Anything In, Anything Out" approach, whereby all
 functions are expected to allow input of an arbitrary data-type but, for
 efficiency, also get to choose their own output format.  That said, data-type
 ranges are clearly defined, e.g., floating point images are expected to have
-values between 0 and 1 (signed images) or -1 and 1 (unsigned image).  Utility
+values between 0 and 1 (unsigned images) or -1 and 1 (signed images).  Utility
 functions like ``img_as_float`` provide an easy way of converting between
 data-types.
 
