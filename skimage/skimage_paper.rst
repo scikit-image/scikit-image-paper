@@ -19,9 +19,10 @@
 :institution: Department of Mechanical and Aerospace Engineering,
               Princeton University, Princeton, New Jersey 08544, USA
 
-:author: Joshua Warner
-:email: your@email.com
-:institution: Your Institute
+:author: Joshua D. Warner
+:email: joshua.dale.warner@gmail.com
+:institution: Department of Biomedical Engineering,
+              Mayo Clinic, Rochester, Minnesota 55905, USA
 
 :author: Neil Yager
 :email: neil@aicbt.com
