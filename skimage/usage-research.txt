@@ -1,7 +1,7 @@
 Often, a disproportionately large component of research involves dealing with
-various image datatypes, color representations, and file formation
+various image data-types, color representations, and file format
 conversion. scikit-image offers robust tools for converting between image
-datatypes ([DirectX]_, [OpenGL]_, [GraphicsGemsI]_) and to do file input/output
+data-types ([DirectX]_, [OpenGL]_, [GraphicsGemsI]_) and to do file input/output
 (I/O) operations.  Our purpose is to allow investigators to focus their time on
 research, instead of expending effort on mundane low-level tasks.
 
@@ -19,8 +19,9 @@ data is processed,
 each experiment, constituting an image stack, is automatically analysed without
 human intervention. The contact line is detected by a circular Hough transform
 (``transform.hough_circle``) providing the drop radius and its center. Then, a
-second circle with a radius of a fraction of the droplet size is drawn (``draw.circle_perimeter``) to
-collect its pixels. Repeating the process on each image in the stack, collected
+smaller concentric circle is drawn (``draw.circle_perimeter``) and used as
+a mask to extract intensity values from the image.
+Repeating the process on each image in the stack, collected
 pixels can be assembled to make a space-time diagram. As a result, a complex
 stack of images is reduced to a single image summarizing the dynamic
 underlying process.
@@ -32,10 +33,10 @@ underlying process.
 
    Scikit-image is used to track the propagation of cracks (black lines)
    in a drying colloidal droplet. The sequence of pictures shows the temporal
-   evolution of the system with, in green, the drop contact line detected by the
-   Hough transform and, in white, the circle used to reslice the image stack.
-   The result shown illustrates the angular position of cracks and
-   their time of appearance. :label:`cracks`
+   evolution of the system with the drop contact line, in green, detected by the
+   Hough transform and the circle, in white, used to extract an annulus of
+   pixel intensities.  The result shown illustrates the angular position of
+   cracks and their time of appearance. :label:`cracks`
 
 
 In regenerative medicine research, scikit-image is used to monitor the
@@ -49,7 +50,7 @@ normally uniformly distributed across the spinal cord. At the wound site, they
 have been removed. We wish to monitor the arrival of new cells at the
 wound site over time. In Figure :ref:`profile`, we see an embryo two days after
 wounding, with precursor cells beginning to move back into the wound site (the site of
-minimum fluorescence). The `measure.profile_line` function measures the
+minimum fluorescence). The ``measure.profile_line`` function measures the
 fluorescence along the cord, directly proportional to the number of cells. We
 can thus monitor the recovery process and determine which treatments prevent or
 accelerate recovery.
@@ -58,7 +59,7 @@ accelerate recovery.
    :scale: 40%
    :figclass: bht
 
-   The `measure.profile_line` function being used to track recovery in spinal
+   The ``measure.profile_line`` function being used to track recovery in spinal
    cord injuries. Left: an image of fluorescently-labeled nerve cells in an
    injured zebrafish embryo. Middle: the automatically determined region of
    interest. The SciPy library was used to determine the region extent, and
