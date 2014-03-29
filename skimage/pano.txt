@@ -9,7 +9,7 @@ at https://github.com/scikit-image/scikit-image-demos.
 ---------------
 
 The ``ImageCollection`` class provides an easy way of representing multiple
-images on disk.  Images are not read until accessed.
+images on disk.  For efficiency, images are not read until accessed.
 
 .. code-block:: python
 
@@ -21,7 +21,8 @@ images on disk.  Images are not read until accessed.
    Credit: Photographs taken in Petra, Jordan by François Malan. License:
    CC-BY. :label:`petra`
 
-Figure |nbsp| :ref:`petra` shows the Petra dataset. For this demonstration, we will
+Figure |nbsp| :ref:`petra` shows the Petra dataset, which displays the same
+facade from two different angles. For this demonstration, we will
 estimate a projective transformation that relates the two images. Since the
 outer parts of these photographs do not comform well to such a model, we select
 only the central parts. To further speed up the demonstration, images are
@@ -72,7 +73,7 @@ putative matches shown in Figure |nbsp| :ref:`putativematches`.
 2. Transform estimation
 -----------------------
 
-To filter the matches, we apply RANdom SAMple Consensus (RANSAC) [ransac]_, a
+To filter the matches, we apply RANdom SAmple Consensus (RANSAC) [ransac]_, a
 common method for outlier rejection. This iterative process estimates
 transformation models based on randomly chosen subsets of matches, finally
 selecting the model which corresponds best with the majority of matches.  The
@@ -101,11 +102,9 @@ new matches are shown in Figure |nbsp| :ref:`matchesfiltered`.
 ----------
 
 Next, we produce the panorama itself. The first step is to find the shape of
-the output image, by considering the extents of all warped images.
+the output image by considering the extents of all warped images.
 
 .. code-block:: python
-
-    from skimage.transform import SimilarityTransform
 
     r, c = image1.shape[:2]
 
@@ -143,6 +142,7 @@ entirety. Note that ``warp`` takes the inverse mapping as an input.
     from skimage.color import gray2rgb
     from skimage.exposure import rescale_intensity
     from skimage.transform import warp
+    from skimage.transform import SimilarityTransform
 
     offset = SimilarityTransform(translation=-corner_min)
 
@@ -163,9 +163,9 @@ single image:
         The alpha layer is set to 1 for foreground
         and 0 for background.
         """
-        return np.dstack(
-               (gray2rgb(image), (image != background))
-               )
+        rgb = gray2rgb(image)
+        alpha = (image != background)
+        return np.dstack((rgb, alpha))
 
     image0_alpha = add_alpha(image0_)
     image1_alpha = add_alpha(image1_)
