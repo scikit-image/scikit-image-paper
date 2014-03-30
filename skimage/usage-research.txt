@@ -57,8 +57,8 @@ can thus monitor the recovery process and determine which treatments prevent or
 accelerate recovery.
 
 .. figure:: fig-lesion.png
-   :scale: 40%
-   :figclass: bht
+   :scale: 80%
+   :figclass: bhtw
 
    The ``measure.profile_line`` function being used to track recovery in spinal
    cord injuries. Left: an image of fluorescently-labeled nerve cells in an
