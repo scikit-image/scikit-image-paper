@@ -54,7 +54,7 @@ scikit-image: Image processing in Python
    and utilities for use in research, education and industry applications.  It
    is released under the liberal BSD open source license, provides a well-
    documented API in the Python programming language, and is developed by an
-   active international team of collaborators.
+   active, international team of collaborators.
 
 .. class:: keywords
 
