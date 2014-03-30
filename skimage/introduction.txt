@@ -69,7 +69,10 @@ image with one or more image filters, and quickly display the results:
 .. figure:: getting_started.png
 
     Illustration of several functions available in scikit-image: adaptive threshold,
-    local maxima, edge detection and labels. :label:`gettingstarted`
+    local maxima, edge detection and labels. The use of numpy arrays as our
+    data container also enables the use of numpy's built-in ``histogram``
+    function.
+    :label:`gettingstarted`
 
 The above demonstration loads ``data.coins``, an example image shipped with
 scikit-image.  For a more complete example, we import NumPy for array
