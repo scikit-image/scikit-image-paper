@@ -1,10 +1,10 @@
 {
   "proceedings": {
      "title": {
-       "short": "TRANS. ON IMAGE PROC. SOFTWARE",
-       "full": "Transactions on Image Processing Software"
+       "short": "PeerJ PrePrints",
+       "full": "PeerJ PrePrints"
      },
-     "year": "2013",
+     "year": "2014",
      "copyright": {
        "article": "This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.",
        "proceedings": ["The articles in the Proceedings of the Python in Science Conference are copyrighted and owned by their original authors",
