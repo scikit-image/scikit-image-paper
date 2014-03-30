@@ -15,7 +15,7 @@ pages to further guide the user.
 
 Demonstrating the utility and ease-of-use of scikit-image, thirteen-year-old
 Rishab Gargeya of the Harker School won the Synopsys Silicon
-Valley Science and Technology Championship using the library in
+Valley Science and Technology Championship using scikit-image in
 his project, "A software based approach for automated pathology diagnosis of
 diabetic retinopathy in the human retina" [sciencefair]_.
 
