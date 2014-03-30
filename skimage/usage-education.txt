@@ -1,9 +1,27 @@
 
 
-In addition to regular training sessions, scikit-image is ideal for education
-through self-taught exploration. We have delivered
+scikit-image's simple, well-documented application programming interface (API)
+makes it ideal for education, whether through self-taught exploration or
+regular training sessions.
+
+The online gallery of examples not only provides
+an overview of the functionality available in the package but also
+introduces many of the algorithms commonly used in image processing.
+This visual index also helps beginners overcome a common entry barrier:
+locating the class (denoising, segmentation, etc.) and name of operation
+desired, without being proficient with image processing jargon.  For many
+functions, the documentation includes links to research papers or Wikipedia
+pages to further guide the user.
+
+Demonstrating the utility and ease-of-use of scikit-image, thirteen-year-old
+Rishab Gargeya of the Harker School won the Synopsys Silicon
+Valley Science and Technology Championship using the library in
+his project, "A software based approach for automated pathology diagnosis of
+diabetic retinopathy in the human retina" [sciencefair]_.
+
+We have also delivered
 image processing tutorials using scikit-image at various
-annual scientific Python conferences, e.g. EuroSciPy [euroscipy2013]_, PyData
+annual scientific Python conferences, such as EuroSciPy [euroscipy2013]_, PyData
 2012 [pydata2012]_ and SciPy India
 2012). Course materials for some of these sessions are found in
 [scipylecturenotes]_ and are licensed under the permissive [cc-by]_
@@ -17,24 +35,12 @@ between applying a median filter (``filter.rank.median``) and a
 Gaussian filter (``filter.gaussian_filter``),
 demonstrating that a median filter preserves straight lines much better.
 
-Since scikit-image operates on standard NumPy arrays, it benefits and
-integrates with other tools commonly used to teach Python, such as the IPython
-notebook [ipython]_.
-
-For self-taught exploration, the online gallery of examples not only provides
-an overview of the functionality available in the package but also
-introduces many of the algorithms commonly used in image processing.
-This visual index also helps beginners overcome a common entry barrier:
-locating the class (denoising, segmentation, etc.) and name of operation
-desired, without being proficient with image processing jargon.  For many
-functions, the documentation includes links to research papers or Wikipedia
-pages to further guide the user.
-
 Finally, easy access to readable source code gives users an opportunity to
 learn how algorithms are implemented and gives further insight into some of the
 intricacies of a fast Python implementation, such as indexing tricks
 and look-up tables.
 
+.. [sciencefair] http://science-fair.org/database/project_awards.php?schoolname=Privately+Sponsored+Project&school_year=2014
 .. [scipylecturenotes] Scipy Lecture Notes, http://scipy-lectures.github.io/
 
 .. [euroscipy2013] EuroSciPy 2013 https://www.euroscipy.org/2013/schedule/presentation/3/
