@@ -1,13 +1,11 @@
 In our data-rich world, images represent a significant subset of all
-measurements made.  Examples include DNA microarrays, microscopy slides,
-telescope observations, satellite maps, robotic vision capture, synthetic
+measurements made. Examples include DNA microarrays, microscopy slides,
+astronomical observations, satellite maps, robotic vision capture, synthetic
 aperture radar images, and higher-dimensional images such as 3-D magnetic
-resonance or computed tomography imaging.
-
-To explore this rich data source and to fully understand and interpret its
-meaning requires sophisticated software tools—tools that, for reasons
-motivated below, should be easy to use, free of charge and restrictions and
-able to address the challenges posed by such a diverse field of analysis.
+resonance or computed tomography imaging. To explore these rich data sources
+requires sophisticated software tools that should be easy to use, free of
+charge and restrictions, and able to address all the challenges posed by such a
+diverse field of analysis.
 
 With the rising popularity of Python as a scientific programming language
 as well as the increasing availability of a large eco-system of
