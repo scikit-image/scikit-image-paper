@@ -199,8 +199,8 @@ scikit-image thus makes it possible to perform quite sophisticated image
 processing tasks with only a few function calls.
 
 
-Content
-=======
+Library contents
+================
 
 The scikit-image project started in August of 2009 and has received
 contributions from more than 100 individuals [ohloh]_.  The package can be
@@ -228,28 +228,28 @@ The package currently contains the following sub-modules:
 - transform: Geometric and other transforms, e.g., rotation or the Radon transform.
 - viewer: A simple graphical user interface for visualizing results and exploring parameters.
 
-Data format
-===========
+Data format and pipelining
+==========================
 
-scikit-image uses NumPy arrays [numpy]_ to represent images.  Each array has a
-shape, e.g., ``(M, N)`` for grey-level images, ``(M, N, P)`` for multi-channel
-images, or ``(M, N, P, Q)`` for temporal and other multi-dimensional data.  In
-addition, various data-types, such as ``float`` or ``uint8``, describe the
-numerical type of the stored elements. Since NumPy arrays are a standard and
-efficient representation for homogeneous data in Python, data can be passed
-along as-is to most other tools such as NumPy, SciPy, matplotlib,
-scikit-learn [scikit-learn]_, OpenCV, etc.
-
-Pipelining
-==========
+scikit-image represents images as NumPy arrays [numpy]_, the de facto standard
+for storage of multi-dimensional data in scientific Python. Each array has a
+dimensionality, such as 2 for a 2-D grayscale image, 3 for a 2-D multi-
+channel image, or 4 for a 3-D multi-channel image; a shape, such as $(M, N, 3)$
+for an RGB color image with $M$ vertical and $N$ horizontal pixels; and a
+numeric data type, such as ``float`` for continuous-valued pixels and ``uint8``
+for 8-bit pixels. Our use of NumPy arrays as the fundamental data structure
+maximizes compatibility with the rest of the scientific Python ecosystem.
+Data can be passed as-is to other tools such as NumPy, SciPy, matplotlib,
+scikit-learn [scikit-learn]_, Mahotas [Mahotas], OpenCV, and more.
 
 Images of differing data-types can complicate the construction of pipelines.
 scikit-image follows an "Anything In, Anything Out" approach, whereby all
 functions are expected to allow input of an arbitrary data-type but, for
-efficiency, also get to choose their own output format.  That said, data-type
-ranges are clearly defined, e.g., floating point images are expected to have
-values between 0 and 1 (unsigned images) or -1 and 1 (signed images).  Utility
-functions like ``img_as_float`` provide an easy way of converting between
+efficiency, also get to choose their own output format. Data-type
+ranges are clearly defined. Floating point images are expected to have
+values between 0 and 1 (unsigned images) or -1 and 1 (signed images), while
+8-bit images are expected to have values in {0, 1, 2, ..., 255}. We provide
+utility functions, such as ``img_as_float``, to easily convert between
 data-types.
 
 
@@ -263,6 +263,9 @@ data-types.
    http://ipython.org
 .. [scikit-learn] Pedregosa et al., "Scikit-learn: Machine Learning in
    Python", JMLR 12, pp. 2825-2830, 2011.
+.. [Mahotas] Coelho, L.P. 2013. Mahotas: Open source software for scriptable
+   computer vision. Journal of Open Research Software 1(1),
+   DOI: http://dx.doi.org/10.5334/4 
 .. [pypi] scikit-image 0.9.3 at the Python Package Index.
    https://pypi.python.org/pypi/scikit-image
 .. [anaconda] The Anaconda Scientific Python Distribution.
