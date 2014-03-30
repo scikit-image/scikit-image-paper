@@ -20,10 +20,12 @@ The project aims are:
 1. To provide high quality, well-documented and easy-to-use
    implementations of common image processing algorithms.
 
-   Such algorithms are an essential building block in reproducible scientific
-   research, algorithmic comparisons and data exploration.  Especially in the
+   Such algorithms are essential building blocks in many areas of scientific
+   research, algorithmic comparisons and data exploration. In the
    context of reproducible science, it is important to be able to inspect any
-   source code used for algorithmic flaws or mistakes.
+   source code used for algorithmic flaws or mistakes. Additionally, scientific
+   research often requires custom modification of standard algorithms, further
+   emphasizing the importance of open source.
 
 2. To facilitate education in image processing.
 
