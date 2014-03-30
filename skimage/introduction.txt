@@ -7,14 +7,13 @@ requires sophisticated software tools that should be easy to use, free of
 charge and restrictions, and able to address all the challenges posed by such a
 diverse field of analysis.
 
-With the rising popularity of Python as a scientific programming language
-as well as the increasing availability of a large eco-system of
-complementary tools, it is an ideal environment in which to produce
-an image processing toolkit.
-
 This paper describes scikit-image, a collection of image processing algorithms
 implemented in the Python programming language by an active community of
-volunteers and available under a liberal Open Source license.
+volunteers and available under the liberal BSD Open Source license.
+The rising popularity of Python as a scientific programming language,
+together with the increasing availability of a large eco-system of
+complementary tools, make it an ideal environment in which to produce
+an image processing toolkit.
 
 The project aims are:
 
