@@ -195,7 +195,7 @@ area, eccentricity, perimeter, and moments can be extracted using
     plt.show()
 
 
-scikit-image thus makes it possible to perform quite sophisticated image
+scikit-image thus makes it possible to perform sophisticated image
 processing tasks with only a few function calls.
 
 
