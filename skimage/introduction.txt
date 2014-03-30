@@ -254,18 +254,20 @@ data-types.
 
 
 .. [ohloh] Scikit-image on Ohloh, https://www.ohloh.net/p/scikit-image
-.. [numpy] S van der Walt, CS Colbert, G Varoquaux. "The NumPy array: a
-   structure for efficient numerical computation", Computing in
-   Science & Engineering 13 (2), 22-30.
-.. [ipython] Fernando Pérez, Brian E. Granger, IPython: A System for
+.. [numpy] van der Walt S, Colbert CS, and Varoquaux G, 2011. "The NumPy
+   array: a structure for efficient numerical computation", Computing in
+   Science & Engineering 13(2):22-30.
+.. [ipython] Pérez F, and Granger BE, 2007. IPython: A System for
    Interactive Scientific Computing, Computing in Science and Engineering,
-   vol. 9, no. 3, pp. 21-29, May/June 2007, doi:10.1109/MCSE.2007.53. URL:
-   http://ipython.org
-.. [scikit-learn] Pedregosa et al., "Scikit-learn: Machine Learning in
-   Python", JMLR 12, pp. 2825-2830, 2011.
+   9(3):21-29. doi:10.1109/MCSE.2007.53.
 .. [Mahotas] Coelho, L.P. 2013. Mahotas: Open source software for scriptable
    computer vision. Journal of Open Research Software 1(1),
    DOI: http://dx.doi.org/10.5334/4 
+.. [scikit-learn] Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B,
+   Grisel O, Blondel M, Prettenhofer P, Weiss R, Dubourg V, Vanderplas J,
+   Passos A, Cournapeau D, Brucher M, Perrot M, and Duchesnay E, 2011.
+   Scikit-learn: machine learning in Python. Journal of Machine Learning
+   Research 12:2825−2830.
 .. [pypi] scikit-image 0.9.3 at the Python Package Index.
    https://pypi.python.org/pypi/scikit-image
 .. [anaconda] The Anaconda Scientific Python Distribution.
@@ -279,5 +281,5 @@ data-types.
    http://packages.ubuntu.com/search?keywords=python-skimage
 .. [gsoc] Google Summer of Code.
    https://developers.google.com/open-source/soc
-.. [Canny] Canny, J., A Computational Approach To Edge Detection, IEEE Trans.
-   Pattern Analysis and Machine Intelligence, 8:679-714, 1986
+.. [Canny] Canny J, 1986. A Computational Approach To Edge Detection. IEEE
+   Trans. Pattern Analysis and Machine Intelligence 8:679-714
