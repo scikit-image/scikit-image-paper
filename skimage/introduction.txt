@@ -96,8 +96,8 @@ the plot to a matplotlib figure shown in Figure :ref:`gettingstarted`.
     ax0.axis('off')
 
 
-Since the image is represented by a Numpy array, we can easily compute
-operations like building an histogram of the intensity values.
+Since the image is represented by a Numpy array, we can easily perform
+operations such as building an histogram of the intensity values.
 
 .. code-block:: python
 
