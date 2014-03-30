@@ -59,7 +59,9 @@ References
 .. [BSD] http://www.gnu.org/licenses/license-list.html#ModifiedBSD
 .. [GitHub] https://github.com/scikit-image/scikit-image
 .. [GoogleGroups] https://groups.google.com/forum/?&fromgroups#!forum/scikit-image
-.. [Cython] Behnel, S., Bradshaw, R., Citro, C., Dalcin, L., Seljebotn, D. S., & Smith, K. (2011). Cython: The best of both worlds. Computing in Science & Engineering, 13(2), 31-39.
+.. [Cython] Behnel S, Bradshaw R, Citro C, Dalcin L, Seljebotn DS, and Smith K,
+   2011. Cython: The best of both worlds. Computing in Science & Engineering
+   13(2):31-39.
 .. [TravisCI] https://travis-ci.org
 .. [Coveralls] https://coveralls.io
 .. [PEP8] http://www.python.org/dev/peps/pep-0008/
