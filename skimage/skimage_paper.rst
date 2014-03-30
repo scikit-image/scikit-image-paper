@@ -50,11 +50,11 @@ scikit-image: Image processing in Python
 
 .. class:: abstract
 
-   ``scikit-image`` is an image processing library which implements algorithms
-   and utilities for use in research, education and industry application.  It
-   is released under a liberal open source license, provides a well-documented
-   API in the Python programming language, and is developed by an active
-   international team of collaborators.
+   scikit-image is an image processing library that implements algorithms
+   and utilities for use in research, education and industry applications.  It
+   is released under the liberal BSD open source license, provides a well-
+   documented API in the Python programming language, and is developed by an
+   active international team of collaborators.
 
 .. class:: keywords
 
