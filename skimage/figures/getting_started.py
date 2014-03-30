@@ -15,11 +15,11 @@ ax0.axis('off')
 # Histogram.
 values, bins = np.histogram(image, bins=np.arange(256))
 
-ax1.plot(bins[:-1], values, lw=2)
+ax1.plot(bins[:-1], values, lw=2, c='k')
 ax1.set_xlim(xmax=256)
+ax1.set_yticks([0, 400])
 ax1.set_aspect(.2)
 ax1.set_title('Histogram')
-ax1.set_yticks(np.arange(0, 500, 100))
 
 # Apply threshold.
 from skimage.filter import threshold_adaptive

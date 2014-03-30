@@ -1,40 +1,39 @@
 In our data-rich world, images represent a significant subset of all
-measurements made.  Examples include DNA microarrays, microscopy slides,
-telescope observations, satellite maps, robotic vision capture, synthetic
+measurements made. Examples include DNA microarrays, microscopy slides,
+astronomical observations, satellite maps, robotic vision capture, synthetic
 aperture radar images, and higher-dimensional images such as 3-D magnetic
-resonance or computed tomography imaging.
-
-To explore this rich data source and to fully understand and interpret its
-meaning requires sophisticated software tools—tools that, for reasons
-motivated below, should be easy to use, free of charge and restrictions and
-able to address the challenges posed by such a diverse field of analysis.
-
-With the rising popularity of Python as a scientific programming language
-as well as the increasing availability of a large eco-system of
-complementary tools, it is an ideal environment in which to produce
-an image processing toolkit.
+resonance or computed tomography imaging. Exploring these rich data sources
+requires sophisticated software tools that should be easy to use, free of
+charge and restrictions, and able to address all the challenges posed by such a
+diverse field of analysis.
 
 This paper describes scikit-image, a collection of image processing algorithms
 implemented in the Python programming language by an active community of
-volunteers and available under a liberal Open Source license.
+volunteers and available under the liberal BSD Open Source license.
+The rising popularity of Python as a scientific programming language,
+together with the increasing availability of a large eco-system of
+complementary tools, make it an ideal environment in which to produce
+an image processing toolkit.
 
 The project aims are:
 
 1. To provide high quality, well-documented and easy-to-use
    implementations of common image processing algorithms.
 
-   Such algorithms are an essential building block in reproducible scientific
-   research, algorithmic comparisons and data exploration.  Especially in the
+   Such algorithms are essential building blocks in many areas of scientific
+   research, algorithmic comparisons and data exploration. In the
    context of reproducible science, it is important to be able to inspect any
-   source code used for algorithmic flaws or mistakes.
+   source code used for algorithmic flaws or mistakes. Additionally, scientific
+   research often requires custom modification of standard algorithms, further
+   emphasizing the importance of open source.
 
 2. To facilitate education in image processing.
 
    The library allows students in image processing to learn algorithms in a
-   hands-on-fashion by adjusting parameters and modifying code.  In addition, a
+   hands-on fashion by adjusting parameters and modifying code. In addition, a
    ``novice`` module is provided, not only for teaching programming in the
    "turtle graphics" paradigm, but also to familiarize users with image
-   concepts such as color, dimensionality, etc.  Furthermore, the project
+   concepts such as color and dimensionality. Furthermore, the project
    takes part in the yearly Google Summer of Code [gsoc]_ program, where
    students learn about image processing and software engineering through
    contributing to the project.
@@ -52,7 +51,7 @@ Getting started
 ===============
 
 One of the main goals of scikit-image is to make it easy for any user to get
-started quickly—especially users who are already familiar with Python's
+started quickly—especially users already familiar with Python's
 scientific tools. To that end, the basic image is just a standard NumPy array,
 which exposes pixel data directly to the user. A new user can simply the load
 an image from disk (or use one of scikit-image's sample images), process that
@@ -70,7 +69,10 @@ image with one or more image filters, and quickly display the results:
 .. figure:: getting_started.png
 
     Illustration of several functions available in scikit-image: adaptive threshold,
-    local maxima, edge detection and labels. :label:`gettingstarted`
+    local maxima, edge detection and labels. The use of NumPy arrays as our
+    data container also enables the use of NumPy's built-in ``histogram``
+    function.
+    :label:`gettingstarted`
 
 The above demonstration loads ``data.coins``, an example image shipped with
 scikit-image.  For a more complete example, we import NumPy for array
@@ -94,8 +96,8 @@ the plot to a matplotlib figure shown in Figure :ref:`gettingstarted`.
     ax0.axis('off')
 
 
-Since the image is represented by a Numpy array, we can easily compute
-operations like building an histogram of the intensity values.
+Since the image is represented by a NumPy array, we can easily perform
+operations such as building an histogram of the intensity values.
 
 .. code-block:: python
 
@@ -103,8 +105,9 @@ operations like building an histogram of the intensity values.
     values, bins = np.histogram(image,
                                 bins=np.arange(256))
 
-    ax1.plot(bins[:-1], values, lw=2)
+    ax1.plot(bins[:-1], values, lw=2, c='k')
     ax1.set_xlim(xmax=256)
+    ax1.set_yticks([0, 400])
     ax1.set_aspect(.2)
     ax1.set_title('Histogram', fontsize=24)
 
@@ -192,8 +195,12 @@ area, eccentricity, perimeter, and moments can be extracted using
     plt.show()
 
 
-Content
-=======
+scikit-image thus makes it possible to perform sophisticated image
+processing tasks with only a few function calls.
+
+
+Library contents
+================
 
 The scikit-image project started in August of 2009 and has received
 contributions from more than 100 individuals [ohloh]_.  The package can be
@@ -221,41 +228,46 @@ The package currently contains the following sub-modules:
 - transform: Geometric and other transforms, e.g., rotation or the Radon transform.
 - viewer: A simple graphical user interface for visualizing results and exploring parameters.
 
-Data format
-===========
+Data format and pipelining
+==========================
 
-scikit-image uses NumPy arrays [numpy]_ to represent images.  Each array has a
-shape, e.g., ``(M, N)`` for grey-level images, ``(M, N, P)`` for multi-channel
-images, or ``(M, N, P, Q)`` for temporal and other multi-dimensional data.  In
-addition, various data-types, such as ``float`` or ``uint8``, describe the
-numerical type of the stored elements. Since NumPy arrays are a standard and
-efficient representation for homogeneous data in Python, data can be passed
-along as-is to most other tools such as NumPy, SciPy, matplotlib,
-scikit-learn [scikit-learn]_, OpenCV, etc.
-
-Pipelining
-==========
+scikit-image represents images as NumPy arrays [numpy]_, the de facto standard
+for storage of multi-dimensional data in scientific Python. Each array has a
+dimensionality, such as 2 for a 2-D grayscale image, 3 for a 2-D multi-
+channel image, or 4 for a 3-D multi-channel image; a shape, such as $(M, N, 3)$
+for an RGB color image with $M$ vertical and $N$ horizontal pixels; and a
+numeric data type, such as ``float`` for continuous-valued pixels and ``uint8``
+for 8-bit pixels. Our use of NumPy arrays as the fundamental data structure
+maximizes compatibility with the rest of the scientific Python ecosystem.
+Data can be passed as-is to other tools such as NumPy, SciPy, matplotlib,
+scikit-learn [scikit-learn]_, Mahotas [Mahotas], OpenCV, and more.
 
 Images of differing data-types can complicate the construction of pipelines.
 scikit-image follows an "Anything In, Anything Out" approach, whereby all
 functions are expected to allow input of an arbitrary data-type but, for
-efficiency, also get to choose their own output format.  That said, data-type
-ranges are clearly defined, e.g., floating point images are expected to have
-values between 0 and 1 (unsigned images) or -1 and 1 (signed images).  Utility
-functions like ``img_as_float`` provide an easy way of converting between
+efficiency, also get to choose their own output format. Data-type
+ranges are clearly defined. Floating point images are expected to have
+values between 0 and 1 (unsigned images) or -1 and 1 (signed images), while
+8-bit images are expected to have values in {0, 1, 2, ..., 255}. We provide
+utility functions, such as ``img_as_float``, to easily convert between
 data-types.
 
 
 .. [ohloh] Scikit-image on Ohloh, https://www.ohloh.net/p/scikit-image
-.. [numpy] S van der Walt, CS Colbert, G Varoquaux. "The NumPy array: a
-   structure for efficient numerical computation", Computing in
-   Science & Engineering 13 (2), 22-30.
-.. [ipython] Fernando Pérez, Brian E. Granger, IPython: A System for
+.. [numpy] van der Walt S, Colbert CS, and Varoquaux G, 2011. "The NumPy
+   array: a structure for efficient numerical computation", Computing in
+   Science & Engineering 13(2):22-30.
+.. [ipython] Pérez F, and Granger BE, 2007. IPython: A System for
    Interactive Scientific Computing, Computing in Science and Engineering,
-   vol. 9, no. 3, pp. 21-29, May/June 2007, doi:10.1109/MCSE.2007.53. URL:
-   http://ipython.org
-.. [scikit-learn] Pedregosa et al., "Scikit-learn: Machine Learning in
-   Python", JMLR 12, pp. 2825-2830, 2011.
+   9(3):21-29. doi:10.1109/MCSE.2007.53.
+.. [Mahotas] Coelho, L.P. 2013. Mahotas: Open source software for scriptable
+   computer vision. Journal of Open Research Software 1(1),
+   DOI: http://dx.doi.org/10.5334/4 
+.. [scikit-learn] Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B,
+   Grisel O, Blondel M, Prettenhofer P, Weiss R, Dubourg V, Vanderplas J,
+   Passos A, Cournapeau D, Brucher M, Perrot M, and Duchesnay E, 2011.
+   Scikit-learn: machine learning in Python. Journal of Machine Learning
+   Research 12:2825−2830.
 .. [pypi] scikit-image 0.9.3 at the Python Package Index.
    https://pypi.python.org/pypi/scikit-image
 .. [anaconda] The Anaconda Scientific Python Distribution.
@@ -269,5 +281,5 @@ data-types.
    http://packages.ubuntu.com/search?keywords=python-skimage
 .. [gsoc] Google Summer of Code.
    https://developers.google.com/open-source/soc
-.. [Canny] Canny, J., A Computational Approach To Edge Detection, IEEE Trans.
-   Pattern Analysis and Machine Intelligence, 8:679-714, 1986
+.. [Canny] Canny J, 1986. A Computational Approach To Edge Detection. IEEE
+   Trans. Pattern Analysis and Machine Intelligence 8:679-714
