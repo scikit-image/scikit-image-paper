@@ -8,9 +8,10 @@ research, instead of expending effort on mundane low-level tasks.
 The package includes a number of algorithms with broad applications across
 image processing research, from computer vision to medical image analysis. We
 refer the reader to the current API documentation for a full listing of current
-capabilities [APIdocs]_.
+capabilities [APIdocs]_. In this section we illustrate two real-world usage
+examples of scikit-image in scientific research.
 
-Here, we consider the analysis of a large stack of images, each representing
+First, we consider the analysis of a large stack of images, each representing
 drying droplets containing nanoparticles (see Figure :ref:`cracks`). As the drying proceeds,
 cracks propagate from the edge of the drop to its center. The aim is to understand
 crack patterns by collecting statistical information about their positions,
@@ -23,8 +24,8 @@ smaller concentric circle is drawn (``draw.circle_perimeter``) and used as
 a mask to extract intensity values from the image.
 Repeating the process on each image in the stack, collected
 pixels can be assembled to make a space-time diagram. As a result, a complex
-stack of images is reduced to a single image summarizing the dynamic
-underlying process.
+stack of images is reduced to a single image summarizing the underlying dynamic
+process.
 
 
 .. figure:: fig_cracks.pdf
@@ -39,7 +40,7 @@ underlying process.
    cracks and their time of appearance. :label:`cracks`
 
 
-In regenerative medicine research, scikit-image is used to monitor the
+Next, in regenerative medicine research, scikit-image is used to monitor the
 regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
 This process has important implications for the treatment of spinal cord
 injuries in humans ([Bhatt04]_ [Thuret06]_).
@@ -63,7 +64,7 @@ accelerate recovery.
    cord injuries. Left: an image of fluorescently-labeled nerve cells in an
    injured zebrafish embryo. Middle: the automatically determined region of
    interest. The SciPy library was used to determine the region extent, and
-   functions from the scikit-image `draw` module were used to draw it. Right:
+   functions from the scikit-image ``draw`` module were used to draw it. Right:
    the image intensity along the line of interest, averaged over the displayed
    width.
    :label:`profile`
@@ -72,7 +73,7 @@ References
 ----------
 .. [DirectX] http://msdn.microsoft.com/en-us/library/windows/desktop/dd607323%28v=vs.85%29.aspx
 .. [OpenGL] https://www.khronos.org/registry/gles/specs/2.0/es_full_spec_2.0.25.pdf
-.. [GraphicsGemsI] Paeth, Alan W., Proper Treatment of Pixels as Integers, p. 249-256, code: p. 719
+.. [GraphicsGemsI] Paeth, AW. Proper Treatment of Pixels as Integers, p. 249-256, code: p. 719
 .. [APIdocs] http://scikit-image.org/docs/dev/
-.. [Bhatt04] Dimple H. Bhatt, Stefanie J. Otto, Brett Depoister, and Joseph R. Fetcho. (2004) Cyclic AMP-Induced Repair of Zebrafish Spinal Circuits. Science, 305:254-258. doi:10.1126/science.1098439
-.. [Thuret06] Sandrine Thuret, Lawrence D. F. Moon, and Fred H. Gage. (2006) Therapeutic interventions after spinal cord injury. Nature Rev Neurosci, 7:628-643. doi:10.1038/nrn1955
+.. [Bhatt04] Bhatt DH, Otto SJ, Depoister B, and Fetcho JR, 2004. Cyclic AMP-Induced Repair of Zebrafish Spinal Circuits. Science, 305:254-258. doi:10.1126/science.1098439
+.. [Thuret06] Thuret S, Moon LDF, and Gage FH, 2006. Therapeutic interventions after spinal cord injury. Nature Rev Neurosci, 7:628-643. doi:10.1038/nrn1955
