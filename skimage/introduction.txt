@@ -267,7 +267,7 @@ data-types.
    Grisel O, Blondel M, Prettenhofer P, Weiss R, Dubourg V, Vanderplas J,
    Passos A, Cournapeau D, Brucher M, Perrot M, and Duchesnay E, 2011.
    Scikit-learn: machine learning in Python. Journal of Machine Learning
-   Research 12:2825−2830.
+   Research 12:2825-2830.
 .. [pypi] scikit-image 0.9.3 at the Python Package Index.
    https://pypi.python.org/pypi/scikit-image
 .. [anaconda] The Anaconda Scientific Python Distribution.
