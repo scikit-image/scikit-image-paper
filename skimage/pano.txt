@@ -2,7 +2,7 @@ Panorama stitching
 ==================
 
 This section gives a step-by-step outline of how to perform panorama stitching
-using the primitives found in scikit-image.  The full source code may be found
+using the primitives found in scikit-image.  The full source code is
 at https://github.com/scikit-image/scikit-image-demos.
 
 0. Data loading
@@ -16,15 +16,10 @@ images on disk.  For efficiency, images are not read until accessed.
     from skimage import io
     ic = io.ImageCollection('data/*')
 
-.. figure:: pano_4_0.png
-
-   Credit: Photographs taken in Petra, Jordan by François Malan. License:
-   CC-BY. :label:`petra`
-
-Figure |nbsp| :ref:`petra` shows the Petra dataset, which displays the same
+Figure |nbsp| :ref:`pano` A shows the Petra dataset, which displays the same
 facade from two different angles. For this demonstration, we will
 estimate a projective transformation that relates the two images. Since the
-outer parts of these photographs do not comform well to such a model, we select
+outer parts of these photographs do not conform well to such a model, we select
 only the central parts. To further speed up the demonstration, images are
 downscaled to 25% of their original size.
 
@@ -44,7 +39,7 @@ downscaled to 25% of their original size.
 
 "Oriented FAST and rotated BRIEF" (ORB) features [ORB]_ are detected in both
 images.  Each feature yields a binary descriptor; those are used to find the
-putative matches shown in Figure |nbsp| :ref:`putativematches`.
+putative matches shown in Figure |nbsp| :ref:`pano` B.
 
 .. code-block:: python
 
@@ -64,11 +59,6 @@ putative matches shown in Figure |nbsp| :ref:`putativematches`.
                                   descriptors2,
                                   cross_check=True)
 
-.. figure:: pano_11_1.png
-
-   Putative matches computed from ORB binary features.
-   :label:`putativematches`
-
 
 2. Transform estimation
 -----------------------
@@ -77,7 +67,7 @@ To filter the matches, we apply RANdom SAmple Consensus (RANSAC) [ransac]_, a
 common method for outlier rejection. This iterative process estimates
 transformation models based on randomly chosen subsets of matches, finally
 selecting the model which corresponds best with the majority of matches.  The
-new matches are shown in Figure |nbsp| :ref:`matchesfiltered`.
+new matches are shown in Figure |nbsp| :ref:`pano` C.
 
 .. code-block:: python
 
@@ -93,10 +83,6 @@ new matches are shown in Figure |nbsp| :ref:`matchesfiltered`.
     model_robust, inliers = \
         ransac((src, dst), ProjectiveTransform,
                min_samples=4, residual_threshold=2)
-
-.. figure:: pano_15_1.png
-
-   Matches filtered using RANSAC. :label:`matchesfiltered`
 
 3. Warping
 ----------
@@ -179,14 +165,9 @@ single image:
     # an average.
     merged /= np.maximum(alpha, 1)[..., np.newaxis]
 
-The merged image is shown in Figure |nbsp| :ref:`merged`. Note that, while
+The merged image is shown in Figure |nbsp| :ref:`pano` D. Note that, while
 the columns are well aligned, the color intensities at the boundaries are not
 well matched.
-
-.. figure:: pano_23_0.png
-
-   The second input frame (middle) is warped to align with the first input
-   frame (left).  The averaged image is shown on the right. :label:`merged`.
 
 4. Blending
 -----------
@@ -194,12 +175,22 @@ well matched.
 To blend images smoothly we make use of the open source package Enblend
 [Enblend]_, which in turn employs multi-resolution splines and Laplacian
 pyramids [burt_adelson_0]_, [burt_adelson_1]_.  The final panorama is shown in
-Figure |nbsp| :ref:`pano`.
+Figure |nbsp| :ref:`pano` E.
 
-.. figure:: pano_28_0.png
+.. figure:: pano-full.png
+   :scale: 100%
+   :figclass: bhtw
 
-   The final panorama image, registered and warped using scikit-image, blended
-   with Enblend. :label:`pano`.
+   An example application of scikit-image: image registration and warping.
+   A: Original photographs by François Malan, taken in Petra, Jordan. License:
+   CC-BY.
+   B: Putative matches computed from ORB binary features.
+   C: Matches filtered using RANSAC.
+   D: The second input frame (center) is warped to align with the first input
+   frame (left). The two are averaged for a simple blend (right).
+   E: The final panorama image, registered and warped using scikit-image,
+   blended with Enblend.
+   :label:`pano`
 
 
 .. [ORB] Ethan Rublee, Vincent Rabaud, Kurt Konolige and Gary Bradski "ORB: An
