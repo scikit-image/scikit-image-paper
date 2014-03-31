@@ -5,9 +5,9 @@ industrial applications.
 BT Imaging [BTImaging]_ designs and builds tools that use photoluminescence (PL) 
 imaging for photovoltaic applications. PL imaging can characterize 
 the quality of multicrystalline silicon wafers by illuminating defects 
-that are not visible under standard viewing conditions. Figure :ref:`PL1` shows an optical image of a 
-silicon wafer, and Figure :ref:`PL2` shows the same wafer using PL imaging. 
-Figure :ref:`PL3` shows the wafer defects and impurities found through automated 
+that are not visible under standard viewing conditions. The left panel of Figure :ref:`PL` shows an optical image of a 
+silicon wafer, and the center panel shows the same wafer using PL imaging. 
+In the right panel, the wafer defects and impurities have been detected through automated 
 image analysis. scikit-image plays a key role in the image processing
 pipeline. For example, a Hough transform (``transform.hough_line``) finds the wafer edges
 in order to segment the wafer from the background. scikit-image
@@ -20,25 +20,16 @@ algorithms, which assess intrinsic wafer quality. Solar cell manufacturers
 can use this information to reject poor quality wafers and charge more 
 for cells that are expected to have high efficiency.
 
-.. figure:: fig_pl1.png
-   :scale: 35%
-   :figclass: bht
+.. figure:: fig_pl.png
+   :scale: 80%
+   :figclass: wbht
 
-   An image of an as-cut silicon wafer before it has been processed into a solar cell. :label:`PL1`
-
-.. figure:: fig_pl2.png
-   :scale: 35%
-   :figclass: bht
-
-   A PL image of the wafer from Figure :ref:`PL1`. Wafer defects, which have a negative impact 
-   solar cell efficiency, are visible as dark regions. :label:`PL2`
-
-.. figure:: fig_pl3.png
-   :scale: 35%
-   :figclass: bht
-
-   Image processing results. Defects in the crystal growth (dislocations) 
-   are colored blue, while red indicates the presence of impurities. :label:`PL3`
+   Left: An image of an as-cut silicon wafer before it has been processed into a solar cell.  
+   Center: A PL image of the same wafer. Wafer defects, which have a negative impact 
+   solar cell efficiency, are visible as dark regions.
+   Right: Image processing results. Defects in the crystal growth (dislocations) 
+   are colored blue, while red indicates the presence of impurities.
+   :label:`PL`
    
 
 scikit-image is also applied in a commercial setting for biometric security applications. 
