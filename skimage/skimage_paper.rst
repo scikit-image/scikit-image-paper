@@ -11,7 +11,7 @@
 
 :author: Juan Nunez-Iglesias
 :email: juan.n@unimelb.edu.au
-:institution: Victorian Life Sciences Computation Initiative
+:institution: Victorian Life Sciences Computation Initiative,
               Carlton, VIC, 3010, Australia
 
 :author: François Boulogne
@@ -26,15 +26,18 @@
 
 :author: Neil Yager
 :email: neil@aicbt.com
-:institution: AICBT Ltd
+:institution: AICBT Ltd,
+              Oxford, UK
 
 :author: Emmanuelle Gouillart
 :email: emmanuelle.gouillart@saint-gobain.com
-:institution: Joint Unit CNRS / Saint-Gobain
+:institution: Joint Unit CNRS / Saint-Gobain,
+              Cavaillon, France
 
 :author: Tony Yu
 :email: tyu@enthought.com
-:institution: Enthought Inc.
+:institution: Enthought Inc.,
+              Austin, TX, USA
 
 :author: scikit-image contributors
 :email: scikit-image@googlegroups.com
