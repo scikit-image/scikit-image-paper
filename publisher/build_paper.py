@@ -85,6 +85,7 @@ def rst2tex(in_path, out_path):
     tex = dc.publish_string(source=content, writer=writer,
                             settings_overrides=settings)
 
+    tex = tex.replace('subsection{', 'section*{')
     tex_file = os.path.join(out_path, 'paper.tex')
     with open(tex_file, 'w') as f:
         f.write(tex)
