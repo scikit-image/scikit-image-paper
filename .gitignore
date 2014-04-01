@@ -33,3 +33,7 @@
 *.xdy
 *.tdo
 output
+*.pytxcode
+*_data.pkl
+*.pytxmcr
+*.pytxpyg

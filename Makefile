@@ -16,3 +16,8 @@ figures: $(FIGS)
 view: all
 	xdg-open output/skimage/paper.pdf
 
+latex: figures
+	cd latex; pdflatex skimage.tex; bibtex skimage.aux; pdflatex skimage.tex; pythontex skimage.tex; pdflatex skimage.tex; cd ..
+
+viewtex: latex
+	xdg-open ./latex/skimage.pdf
