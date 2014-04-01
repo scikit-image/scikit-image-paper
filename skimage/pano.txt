@@ -177,7 +177,7 @@ To blend images smoothly we make use of the open source package Enblend
 pyramids [burt_adelson_0]_, [burt_adelson_1]_.  The final panorama is shown in
 Figure |nbsp| :ref:`pano` E.
 
-.. figure:: pano-full.png
+.. figure:: pano.pdf
    :scale: 100%
    :figclass: bhtw
 
