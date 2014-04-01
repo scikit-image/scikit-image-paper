@@ -100,7 +100,9 @@ def tex2pdf(out_path):
 
     import subprocess
     command_line = 'cd %s ' % out_path + \
-                   ' ; pdflatex -halt-on-error paper.tex && bibtex paper'
+                   ' ; pdflatex -halt-on-error paper.tex && bibtex paper ' + \
+                   '&& pdflatex -halt-on-error paper.tex  ' + \
+                   '&& pdflatex -halt-on-error paper.tex'
 
     # -- dummy tempfile is a hacky way to prevent pdflatex
     #    from asking for any missing files via stdin prompts,
