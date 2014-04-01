@@ -34,7 +34,7 @@ The project aims are:
    ``novice`` module is provided, not only for teaching programming in the
    "turtle graphics" paradigm, but also to familiarize users with image
    concepts such as color and dimensionality. Furthermore, the project
-   takes part in the yearly Google Summer of Code [gsoc]_ program, where
+   takes part in the yearly Google Summer of Code program [gsoc]_, where
    students learn about image processing and software engineering through
    contributing to the project.
 
