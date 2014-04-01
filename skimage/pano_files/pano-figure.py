@@ -46,5 +46,6 @@ def format_axes(ax):
 map(format_axes, [ax0, ax1, ax2, ax3, ax4])
 
 
-plt.subplots_adjust(top=1, bottom=0, left=0, right=1, wspace=0, hspace=0)
+plt.subplots_adjust(top=0.99, bottom=0.01, left=0.01, right=0.99,
+                    wspace=0, hspace=0)
 plt.savefig('../figures/pano.pdf', dpi=300)
