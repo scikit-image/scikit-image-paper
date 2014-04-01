@@ -86,6 +86,11 @@ def rst2tex(in_path, out_path):
                             settings_overrides=settings)
 
     tex = tex.replace('subsection{', 'section*{')
+    # remove incorrect \labels
+    texlines = tex.split('\n')
+    texlines = filter(lambda x: not x.startswith(r'  \label{'), texlines)
+    tex = '\n'.join(texlines)
+
     tex_file = os.path.join(out_path, 'paper.tex')
     with open(tex_file, 'w') as f:
         f.write(tex)
