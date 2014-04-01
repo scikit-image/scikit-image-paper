@@ -9,7 +9,7 @@
 
     BT Imaging \citep{BTImaging} designs and builds tools that use photoluminescence (PL) imaging for photovoltaic applications. PL imaging can characterize the quality of multicrystalline silicon wafers by illuminating defects that are not visible under standard viewing conditions. The left panel of Figure \ref{fig:PL} shows an optical image of a silicon wafer, and the center panel shows the same wafer using PL imaging. In the right panel, the wafer defects and impurities have been detected through automated image analysis. scikit-image plays a key role in the image processing pipeline. For example, a Hough transform (\texttt{transform.hough\_line}) finds the wafer edges in order to segment the wafer from the background. scikit-image is also used for feature extraction. Crystal defects (dislocations) are detected using a band-pass filter, which is implemented as a Difference of Gaussians (\texttt{filter.gaussian\_filter}).
 
-    The image processing results are input to machine learning algorithms, which assess intrinsic wafer quality. Solar cell manufacturers can use this information to reject poor quality wafers and charge more for cells that are expected to have high efficiency.
+    The image processing results are input to machine learning algorithms, which assess intrinsic wafer quality. Solar cell manufacturers can use this information to reject poor quality wafers and thereby increase the fraction of solar cells that have high solar conversion efficiency.
 
     \begin{figure*}[bht]
 
