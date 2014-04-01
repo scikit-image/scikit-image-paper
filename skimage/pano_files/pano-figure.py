@@ -48,4 +48,4 @@ map(format_axes, [ax0, ax1, ax2, ax3, ax4])
 
 
 plt.subplots_adjust(top=1, bottom=0, left=0, right=1, wspace=0, hspace=0)
-plt.savefig('../figures/pano.pdf')
+plt.savefig('../figures/pano.pdf', dpi=300)
