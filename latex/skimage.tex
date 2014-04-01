@@ -1,0 +1,141 @@
+%---------
+% Preamble
+%---------
+\documentclass[fleqn,12pt]{wlpeerj}
+\usepackage{fixltx2e} % LaTeX patches, \textsubscript
+\usepackage{cmap} % fix search and cut-and-paste in Acrobat
+\usepackage{ifthen}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+\definecolor{darkorange}{rgb}{.71,0.21,0.01}
+\definecolor{darkblue}{rgb}{.01,0.21,0.71}
+\definecolor{darkgreen}{rgb}{.1,.52,.09}
+\hypersetup{pdftex,  % needed for pdflatex
+  breaklinks=true,  % so long urls are correctly broken across lines
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=darkblue,
+  citecolor=darkgreen,
+  }
+
+\setcounter{secnumdepth}{0}
+\graphicspath{{../output/skimage/}}
+
+% hyperlinks:
+\ifthenelse{\isundefined{\hypersetup}}{
+  \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+  \urlstyle{same} % normal text font (alternatives: tt, rm, sf)
+}{}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+\usepackage[gobble=auto]{pythontex}  % Must better syntax highlighting than listings
+
+\PassOptionsToPackage{pdftex}{graphicx}
+\usepackage{graphicx}  % Simplify graphics handling for figures
+
+
+%-------------------------
+% Begin scikit-image paper
+%-------------------------
+
+\begin{document}
+
+\title{scikit-image: Image processing in Python}
+
+% Author list affiliations
+\author[1,2]{Stéfan van der Walt}
+\affil[1]{Corresponding author: \protect\href{mailto:stefan@sun.ac.za}{stefan@sun.ac.za}}
+\affil[2]{Stellenbosch University,
+          Stellenbosch, South Africa}
+\author[3]{Johannes L. Schönberger}
+\affil[3]{Department of Computer Science,
+          University of North Carolina at Chapel Hill,
+          Chapel Hill, NC 27599, USA}
+\author[4]{Juan Nunez-Iglesias}
+\affil[4]{Victorian Life Sciences Computation Initiative,
+          Carlton, VIC, 3010, Australia}
+\author[5]{François Boulogne}
+\affil[5]{Department of Mechanical and Aerospace Engineering,
+          Princeton University,
+          Princeton, New Jersey 08544, USA}
+\author[6]{Joshua D. Warner}
+\affil[6]{Department of Biomedical Engineering,
+          Mayo Clinic,
+          Rochester, Minnesota 55905, USA}
+\author[7]{Neil Yager}
+\affil[7]{AICBT Ltd,
+          Oxford, UK}
+\author[8]{Emmanuelle Gouillart}
+\affil[8]{Joint Unit CNRS / Saint-Gobain,
+          Cavaillon, France}
+\author[9]{Tony Yu}
+\affil[9]{Enthought Inc.,
+          Austin, TX, USA}
+\author[10]{the scikit-image contributors}
+\affil[10]{\url{https://github.com/scikit-image/scikit-image/graphs/contributors}}
+
+% Key words to associate with the article
+\keywords{image processing, reproducible research, education, visualization}
+
+%---------
+% Abstract
+%---------
+
+\begin{abstract}
+  scikit-image is an image processing library that implements algorithms and utilities for use in research, education and industry applications. It is released under the liberal ``Modified BSD'' open source license, provides a well-documented API in the Python programming language, and is developed by an active, international team of collaborators. In this paper we highlight the advantages of open source to achieve the goals of the scikit-image library, and we showcase several real-world image processing applications that use scikit-image.
+\end{abstract}
+
+\flushbottom
+\maketitle
+\thispagestyle{empty}
+
+%-----------------------------------------------------------------
+% Sections of the paper are included in separate files with \input
+%-----------------------------------------------------------------
+
+% Introduction
+\input{introduction}
+
+% Getting started
+\input{getting_started}
+
+% Library contents
+\input{library_contents}
+
+% Data format and pipelining
+\input{data_format_pipelining}
+
+% Development practices
+\input{development_practices}
+
+% Large section broken into separate files for each sub-section
+\section*{Usage examples}
+  \label{sec:usage-examples}
+
+  % Usage in research
+  \input{usage_research}
+
+  % Usage in education
+  \input{usage_education}
+
+  % Usage in industry
+  \input{usage_industry}
+
+% Example: image registration and stitching
+\input{panorama_example}
+
+% Conclusion
+\input{conclusion}
+
+% Acknowledgements
+\input{acknowledgements}
+
+% Finally, create the bibliograpy
+\bibliography{skimage}
+
+\end{document}

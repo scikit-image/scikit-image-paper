@@ -1,0 +1,10 @@
+%---------------------------
+% Data format and pipelining
+%---------------------------
+
+\section*{Data format and pipelining}
+  \label{sec:data-format-and-pipelining}
+
+  scikit-image represents images as NumPy arrays \citep{numpy}, the de facto standard for storage of multi-dimensional data in scientific Python. Each array has a dimensionality, such as 2 for a 2-D grayscale image, 3 for a 2-D multi-channel image, or 4 for a 3-D multi-channel image; a shape, such as $(M, N, 3)$ for an RGB color image with $M$ vertical and $N$ horizontal pixels; and a numeric data type, such as \texttt{float} for continuous-valued pixels and \texttt{uint8} for 8-bit pixels. Our use of NumPy arrays as the fundamental data structure maximizes compatibility with the rest of the scientific Python ecosystem. Data can be passed as-is to other tools such as NumPy, SciPy, matplotlib, scikit-learn \citep{scikit-learn}, Mahotas \citep{Mahotas}, OpenCV, and more.
+
+  Images of differing data-types can complicate the construction of pipelines. scikit-image follows an \textquotedbl{}Anything In, Anything Out\textquotedbl{} approach, whereby all functions are expected to allow input of an arbitrary data-type but, for efficiency, also get to choose their own output format. Data-type ranges are clearly defined. Floating point images are expected to have values between 0 and 1 (unsigned images) or -1 and 1 (signed images), while 8-bit images are expected to have values in \{0, 1, 2, ..., 255\}. We provide utility functions, such as \texttt{img\_as\_float}, to easily convert between data-types.
