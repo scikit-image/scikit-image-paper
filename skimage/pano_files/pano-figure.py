@@ -5,7 +5,6 @@ from skimage import io
 images = map(io.imread, ['pano_4_0.png', 'pano_11_1.png', 'pano_15_1.png',
                          'pano_23_0.png', 'pano_28_0.png'])
 
-plt.rcParams['text.color'] = 'gray'
 plt.rcParams['axes.edgecolor'] = 'lightgray'
 plt.rcParams['image.interpolation'] = 'nearest'
 fig = plt.figure(figsize=(8, 6))
