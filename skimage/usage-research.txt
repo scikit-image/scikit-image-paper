@@ -43,7 +43,7 @@ process.
 Next, in regenerative medicine research, scikit-image is used to monitor the
 regeneration of spinal cord cells in zebrafish embryos (Figure :ref:`profile`).
 This process has important implications for the treatment of spinal cord
-injuries in humans ([Bhatt04]_ [Thuret06]_).
+injuries in humans ([Bhatt04]_, [Thuret06]_).
 
 To understand how spinal cords regenerate in these animals, injured cords are
 subjected to different treatments. Neuronal precursor cells (labeled green in Figure :ref:`profile`, left panel) are

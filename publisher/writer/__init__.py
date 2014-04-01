@@ -19,7 +19,7 @@ except ImportError:
     from ordereddict import OrderedDict
 
 PreambleCmds.float_settings = '''
-\\usepackage[font={small,it},labelfont=bf]{caption}
+\\usepackage{caption}
 \\usepackage{float}
 '''
 
@@ -89,6 +89,8 @@ class Translator(LaTeXTranslator):
         raise nodes.SkipNode
 
     def depart_document(self, node):
+        self.out.append(r'\bibliography{refs}')
+
         LaTeXTranslator.depart_document(self, node)
 
         ## Generate footmarks
@@ -111,7 +113,7 @@ class Translator(LaTeXTranslator):
             institute_footmark[inst] = footmark(i + 2)
 
         corresponding_auth_template = r'''%%
-          %(footmark_counter)s\thanks{%(footmark)s %%
+          \affil[%(footmark_counter)s]{%
           Corresponding author: \protect\href{mailto:%(email)s}{%(email)s}}'''
 
         title = self.paper_title
@@ -121,69 +123,18 @@ class Translator(LaTeXTranslator):
                                              self.author_institutions)):
             # Corresponding author
             if n == 0:
-                authors += [r'%(author)s$^{%(footmark)s}$' %
-                            {'author': auth,
-                             'footmark': ''.join(footmark(1)) + ',' +
-                                         ''.join(institute_footmark[inst])}]
-
-                fm_counter, fm = footmark(1)
-                authors[-1] += corresponding_auth_template % \
-                    {'footmark_counter': fm_counter,
-                     'footmark': fm,
-                     'email': self.author_emails[0]}
-
+                authors += [r'\author[%d,%d]{%s}' % (n, n + 1, auth)]
+                authors += [r'\affil[0]{%s}' % self.author_emails[0]]
             else:
-                authors += [r'%(author)s$^{%(footmark)s}$' %
-                            {'author': auth,
-                             'footmark': ''.join(institute_footmark[inst])}]
+                authors += [r'\author[%d]{%s}' % (n + 1, auth)]
 
-            if not inst in institutions_mentioned:
-                fm_counter, fm = institute_footmark[inst]
-                footmark_template = r'%(footmark_counter)s\thanks' \
-                                    '{%(footmark)s %(institution)s}'
-                authors[-1] += footmark_template % \
-                    {'footmark_counter': fm_counter,
-                     'footmark': fm,
-                     'institution': inst}
-
-            institutions_mentioned.add(inst)
-
-        ## Add copyright
-
-        copyright_holder = self.author_names[0] + \
-            ('.' if len(self.author_names) == 1 else ' et al.')
-        author_notes = r'''%%
-
-          \noindent%%
-          Copyright\,\copyright\,%(year)s %(copyright_holder)s %(copyright)s%%
-        ''' % \
-            {'email': self.author_emails[0],
-             'year': options['proceedings']['year'],
-             'copyright_holder': copyright_holder,
-             'copyright': options['proceedings']['copyright']['article']}
-
-        authors[-1] += r'\thanks{%s}' % author_notes
-
-        ## Set up title and page headers
-
-        if not self.video_url:
-            video_template = ''
-        else:
-            video_template = r'\\\vspace{5mm}\tt\url{%s}\vspace{-5mm}' % self.video_url
+            authors += [r'\affil[%d]{%s}' % (n + 1, inst)]
 
         title_template = r'\newcounter{footnotecounter}' \
-                r'\title{%s}\author{%s' \
-                r'%s}\maketitle'
-        title_template = title_template % (title, ', '.join(authors),
-                                           video_template)
+                r'\title{%s}%s\maketitle'
+        title_template = title_template % (title, '\n'.join(authors))
 
-        marks = r'''
-          \renewcommand{\leftmark}{%s}
-          \renewcommand{\rightmark}{%s}
-        ''' % (options['proceedings']['title']['short'], title.upper())
-        title_template += marks
-
-        self.body_pre_docinfo = [title_template]
+        self.body_pre_docinfo = ['\n'.join(self.abstract_text) + title_template]
 
         # Save paper stats
         self.document.stats = {'title': title,
@@ -192,13 +143,13 @@ class Translator(LaTeXTranslator):
                                'author_email': self.author_emails,
                                'author_institution': self.author_institutions,
                                'abstract': self.abstract_text,
-                               'keywords': self.keywords,
-                               'copyright_holder': copyright_holder}
+                               'keywords': self.keywords}
 
     def end_open_abstract(self, node):
         if 'abstract' not in node['classes'] and self.abstract_in_progress:
-            self.out.append('\\end{abstract}')
+            self.abstract_text.append('\\end{abstract}')
             self.abstract_in_progress = False
+
         elif self.abstract_in_progress:
             self.abstract_text.append(self.encode(node.astext()))
 
@@ -224,12 +175,12 @@ class Translator(LaTeXTranslator):
         self.end_open_abstract(node)
 
         if 'abstract' in node['classes'] and not self.abstract_in_progress:
-            self.out.append('\\begin{abstract}')
+            self.abstract_text.append('\\begin{abstract}')
             self.abstract_text.append(self.encode(node.astext()))
             self.abstract_in_progress = True
 
         elif 'keywords' in node['classes']:
-            self.out.append('\\begin{IEEEkeywords}')
+            self.latex_preamble.append(r'\keywords{%s}' % node.astext())
             self.keywords = self.encode(node.astext())
 
         elif self.non_breaking_paragraph:
@@ -239,8 +190,9 @@ class Translator(LaTeXTranslator):
             self.out.append('\n\n')
 
     def depart_paragraph(self, node):
-        if 'keywords' in node['classes']:
-            self.out.append('\\end{IEEEkeywords}')
+        pass
+        ## if 'keywords' in node['classes']:
+        ##     self.out.append('}')
 
     def visit_figure(self, node):
         self.requirements['float_settings'] = PreambleCmds.float_settings
@@ -385,6 +337,18 @@ class Translator(LaTeXTranslator):
                 self.requirements[package] = r'\usepackage{%s}' % package
         self.out.append("\n" + node['latex'] + "\n")
         raise nodes.SkipNode
+
+    def visit_citation(self, node):
+        # Using BiBTeX
+        raise nodes.SkipNode
+
+    def visit_citation_reference(self, node):
+        self.out.append(r"\citep{%s}" % node.astext())
+        raise nodes.SkipNode
+
+    def depart_citation_reference(self, node):
+        pass
+
 
 
 writer = Writer()

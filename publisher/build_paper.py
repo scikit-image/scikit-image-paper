@@ -21,7 +21,6 @@ header = r'''
 
 .. raw::  latex
 
-  \InputIfFileExists{page_numbers.tex}{}{}
   \newcommand*{\docutilsroleref}{\ref}
   \newcommand*{\docutilsrolelabel}{\label}
 
@@ -67,11 +66,11 @@ def rst2tex(in_path, out_path):
 
         preamble += LatexFormatter(style=SphinxStyle).get_style_defs()
 
-    settings = {'documentclass': 'IEEEtran',
+    settings = {'documentclass': 'wlpeerj',
                 'use_verbatim_when_possible': True,
                 'use_latex_citations': True,
                 'latex_preamble': preamble,
-                'documentoptions': 'letterpaper,compsoc,twoside',
+                'documentoptions': 'fleqn,12pt',
                 'halt_level': 3,  # 2: warn; 3: error; 4: severe
                 }
 
@@ -86,6 +85,12 @@ def rst2tex(in_path, out_path):
     tex = dc.publish_string(source=content, writer=writer,
                             settings_overrides=settings)
 
+    tex = tex.replace('subsection{', 'section*{')
+    # remove incorrect \labels
+    texlines = tex.split('\n')
+    texlines = filter(lambda x: not x.startswith(r'  \label{'), texlines)
+    tex = '\n'.join(texlines)
+
     tex_file = os.path.join(out_path, 'paper.tex')
     with open(tex_file, 'w') as f:
         f.write(tex)
@@ -95,7 +100,9 @@ def tex2pdf(out_path):
 
     import subprocess
     command_line = 'cd %s ' % out_path + \
-                   ' ; pdflatex -halt-on-error paper.tex'
+                   ' ; pdflatex -halt-on-error paper.tex && bibtex paper ' + \
+                   '&& pdflatex -halt-on-error paper.tex  ' + \
+                   '&& pdflatex -halt-on-error paper.tex'
 
     # -- dummy tempfile is a hacky way to prevent pdflatex
     #    from asking for any missing files via stdin prompts,

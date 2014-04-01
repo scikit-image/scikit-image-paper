@@ -34,7 +34,7 @@ The project aims are:
    ``novice`` module is provided, not only for teaching programming in the
    "turtle graphics" paradigm, but also to familiarize users with image
    concepts such as color and dimensionality. Furthermore, the project
-   takes part in the yearly Google Summer of Code [gsoc]_ program, where
+   takes part in the yearly Google Summer of Code program [gsoc]_, where
    students learn about image processing and software engineering through
    contributing to the project.
 
@@ -240,7 +240,7 @@ numeric data type, such as ``float`` for continuous-valued pixels and ``uint8``
 for 8-bit pixels. Our use of NumPy arrays as the fundamental data structure
 maximizes compatibility with the rest of the scientific Python ecosystem.
 Data can be passed as-is to other tools such as NumPy, SciPy, matplotlib,
-scikit-learn [scikit-learn]_, Mahotas [Mahotas], OpenCV, and more.
+scikit-learn [scikit-learn]_, Mahotas [Mahotas]_, OpenCV, and more.
 
 Images of differing data-types can complicate the construction of pipelines.
 scikit-image follows an "Anything In, Anything Out" approach, whereby all
