@@ -1,9 +1,10 @@
-.PHONY: all view figures
+.PHONY: all view figures rstbuild latex clean viewtex
 
 FIGS = $(wildcard skimage/fig_*.py)
 
+all: figures rstbuild latex
 
-all:
+rstbuild:
 	./make_paper.sh skimage
 
 clean:
@@ -16,8 +17,13 @@ figures: $(FIGS)
 view: all
 	xdg-open output/skimage/paper.pdf
 
-latex: all
-	cd latex; pdflatex skimage.tex; bibtex skimage.aux; pdflatex skimage.tex; pythontex skimage.tex; pdflatex skimage.tex; cd ..
+latex: figures rstbuild
+	cd latex && \
+	pdflatex skimage.tex && \
+	bibtex skimage.aux && \
+	python pythontex/pythontex.py skimage.tex && \
+	pdflatex skimage.tex && \
+	pdflatex skimage.tex
 
 viewtex: latex
 	xdg-open ./latex/skimage.pdf
