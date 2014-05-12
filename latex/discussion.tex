@@ -46,6 +46,19 @@
   modifying the code to specific purposes, which is a common necessity in
   scientific research.
 
+  OpenCV is an open-source computer vision library with a separate image
+  processing module, free for use under the BSD-license \citep{opencv}. It is
+  developed in C/C++ and the project's aim is to provide implementations for
+  real-time applications, which makes OpenCV a library with comparatively high
+  barrier of entry for code study and modification. The library provides
+  interfaces for several high-level programming languages, including Python
+  through the NumPy-array data-type for images. The Python interface is
+  essentially a one-to-one copy of the underlying C/C++ API, and thus image
+  processing pipelines have to follow an imperative programming style. As
+  opposed to scikit-image, which provides a Pythonic interface with the option
+  to follow an imperative or functional approach. Beyond that, OpenCV's image
+  processing module is traditionally limited to 2-dimensional imagery.
+
   The choice of image processing package depends on several factors, including
   speed, code quality and correctness, community support, ecosystem, feature
   richness, and users' ability to contribute. Sometimes, advantages in one
