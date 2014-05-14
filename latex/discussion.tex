@@ -20,17 +20,15 @@
   data format, users don't have to choose between them, and can simply use the
   best components of each.
 
-  The heavyweight force in open-source image analysis is ImageJ and its
-  batteries-included Fiji distribution \citep{Fiji}. Our library is
-  certainly not as feature complete as Fiji, and may never be, because Fiji's
-  extensive library of plugins continues to grow at a dramatic pace. We feel,
-  however, that we offer significant advantages over that software. First,
-  ImageJ and Fiji are designed for interactive, GUI use. Although they offer a
-  programmable macro mode supporting many scripting languages, many of the
+  ImageJ and its batteries-included Fiji distribution are probably the most
+  popular open-source tools for image analysis \citep{imagej,Fiji}. For many
+  developers, scikit-image offers several advantages compared to ImageJ and 
+  Fiji, which are centered around interactive, GUI use. Although Fiji offers a
+  programmable macro mode that supports many scripting languages, many of the
   macro functions activate GUI elements and cannot run in headless mode. This
-  is problematic for data analysis in high-performance computing cluster
-  environments. Additionally, Fiji's extremely inclusive plugin policy results
-  in a very inconsistent API and variable documentation quality. For example,
+  is problematic for data analysis in, for example, high-performance computing
+  cluster environments, or web backends. Additionally, Fiji's inclusive plugin
+  policy results in an inconsistent API and variable documentation quality. For example,
   some plugins take image file paths as input, while others work on the
   currently active image. Using scikit-image to develop new functionality or
   build batch applications for distributed computing is often much simpler,
