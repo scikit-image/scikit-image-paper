@@ -60,7 +60,7 @@ use in the educational sector.
 This is by design, because we do not wish for our paper to read like an
 instruction manual. We encourage interested readers to visit our online
 documentation for details on each module, and have added a suitable reference
-to this section.
+to this section (line XXX).
 
 > The matplotlib paper should be cited at least once
 
@@ -92,7 +92,7 @@ certainly add such corroborating evidence to the text.
 > release date to avoid having the paper become outdated and confusing very
 > fast.
 
-We have added a version number and date to this sentence.
+We have added a version number and date to this sentence (line XXX).
 
 > Page 7/18, line 146: I would prefer if "universal interoperability" was
 > rephrased to just "interoperability"
