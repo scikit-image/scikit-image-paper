@@ -14,7 +14,7 @@ we have replaced the more awkward URL citations with footnotes.
 
 ## Response to reviewer 1 (Jake Vanderplas)
 
-Jake repeatedly points out that the paper may not be in-scope for PeerJ, given
+Jake points out that the paper may not be in-scope for PeerJ, given
 reviewer instructions such as ensuring that the paper "clearly define[s] the
 research question", has adequate "experimental design", and that the "findings"
 are valid. Our academic editor, Shawn Gomez, confirmed that the paper fits
