@@ -64,7 +64,8 @@ to this section.
 
 > The matplotlib paper should be cited at least once
 
-This has been added (line XXX).
+This has been added (line XXX). We have also added citations to SciPy (line
+XXX).
 
 > The authors mention "the rising popularity of Python as a scientific
 > programming language". I wonder whether they have some data for this claim.
@@ -135,6 +136,12 @@ for the scikit-image project.
 > There is some character encoding errors for the Halchenko & Hanke reference.
 
 These have been fixed.
+
+## Additional differences
+
+In addition to the changes requested by the reviewers, we have added an
+entirely new section devoted to comparing other prominent packages for image
+analysis (lines XXX-YYY).
 
 ## References
 
