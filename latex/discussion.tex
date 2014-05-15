@@ -1,0 +1,69 @@
+%-----------
+% Discussion
+%-----------
+
+\section*{Discussion}
+  \label{sec:discussion}
+
+  \subsection*{Related work}
+
+  In this section, we describe other libraries with similar goals to ours.
+  
+  Within the scientific Python ecosystem, Mahotas contains many similar
+  functions, and is furthermore also designed to work with NumPy arrays
+  \citep{Mahotas}. The major philosophical difference between Mahotas and
+  scikit-image is that Mahotas is almost exclusively written in templated C++,
+  while scikit-image is written in Python and Cython. We feel that our choice
+  lowers the barrier of entry for new contributors. However,
+  thanks to the interoperability between the two provided by the NumPy array
+  data format, users don't have to choose between them, and can simply use the
+  best components of each.
+
+  ImageJ and its batteries-included Fiji distribution are probably the most
+  popular open-source tools for image analysis \citep{imagej,Fiji}. Although 
+  Fiji's breadth of functionality is unparalleled, it is centered around 
+  interactive, GUI use. For many developers, then, scikit-image offers several
+  advantages. Although Fiji offers a
+  programmable macro mode that supports many scripting languages, many of the
+  macro functions activate GUI elements and cannot run in headless mode. This
+  is problematic for data analysis in high-performance computing
+  cluster environments or web backends, for example. Additionally, Fiji's
+  inclusive plugin policy results in an inconsistent API and variable
+  documentation quality. Using scikit-image to develop new functionality or
+  to build batch applications for distributed computing is often much simpler,
+  thanks to its consistent API and the wide distribution of the scientific
+  Python stack.
+
+  In many respects, the image analysis toolbox of the Matlab environment is
+  quite similar to scikit-image. For example, its API is mostly functional and
+  applies to generic multidimensional numeric arrays. However, Matlab's
+  commercial licensing can be a significant nuisance to users. Additionally,
+  the licensing cost increases dramatically for parallel computing, with
+  per-worker pricing\footnote{\url{http://www.mathworks.com.au/products/distriben/description3.html}, Accessed 2014-05-09}.
+  Finally, the closed source nature of the toolbox prevents users from
+  learning from the code or modifying it for specific purposes, which is a
+  common necessity in scientific research. We refer readers back to the
+  Development Practices section for a summary of the practical and
+  philosophical advantages of our open-source licensing.
+
+  OpenCV is a BSD-licensed open-source library focused on computer vision, with
+  a separate module for image processing \citep{opencv}. It is
+  developed in C/C++ and the project's main aim is to provide implementations for
+  real-time applications. This results in fast implementations with a comparatively high
+  barrier of entry for code study and modification. The library provides
+  interfaces for several high-level programming languages, including Python
+  through the NumPy-array data-type for images. The Python interface is
+  essentially a one-to-one copy of the underlying C/C++ API, and thus image
+  processing pipelines have to follow an imperative programming style. In
+  contrast, scikit-image provides a Pythonic interface with the option
+  to follow an imperative or functional approach. Beyond that, OpenCV's image
+  processing module is traditionally limited to 2-dimensional imagery.
+
+  The choice of image processing package depends on several factors, including
+  speed, code quality and correctness, community support, ecosystem, feature
+  richness, and users' ability to contribute. Sometimes, advantages in one
+  factor come at the cost of another. For example, our approach of writing code
+  in a high-level language may affect performance, or our strict code review
+  guidelines may hamper the number of features we ultimately provide. We
+  motivate our design decisions for scikit-image in the Development Practices
+  section, and leave readers to decide which library is right for them.
