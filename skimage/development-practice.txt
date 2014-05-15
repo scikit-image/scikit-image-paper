@@ -28,7 +28,14 @@ barrier of entry for new contributors, since one only needs to master a small
 part of the entire library in order to make an addition.
 
 We ensure high code quality by a thorough review process using the pull request
-interface on GitHub. The source code is mainly written in Python, although
+interface on GitHub\footnote{\url{https://help.github.com/articles/using-pull-requests}, Accessed 2014-05-15.}.
+This enables the core developers to comment on specific lines of proposed code
+changes, and for the proponents of the changes to update their submission
+accordingly. Once all the changes have been approved, they can be automatically
+merged. This process applies not just to outside contributions, but also to the
+core developers.
+
+The source code is mainly written in Python, although
 certain performance critical sections are implemented in Cython, an
 optimising static compiler for Python
 [Cython]_.  scikit-image aims to achieve full unit test coverage, which is above
