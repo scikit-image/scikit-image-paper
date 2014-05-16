@@ -2,12 +2,12 @@
 % Library Contents
 %-----------------
 
-\section*{Library contents}
+\section*{Library overview}
   \label{library-contents}
 
   The scikit-image project started in August of 2009 and has received contributions from more than 100 individuals\footnote{\url{https://www.ohloh.net/p/scikit-image}}.  The package can be installed on all major platforms (e.g. BSD, GNU/Linux, OS X, Windows) from, amongst other sources, the Python Package Index (PyPI)\footnote{\url{http://pypi.python.org}}, Continuum Analytics Anaconda\footnote{\url{https://store.continuum.io/cshop/anaconda}}, Enthought Canopy\footnote{\url{https://www.enthought.com/products/canopy}}, Python(x,y)\footnote{\url{https://code.google.com/p/pythonxy}}, NeuroDebian \citep{neurodebian} and GNU/Linux distributions such as Ubuntu\footnote{\url{http://packages.ubuntu.com}}. In March 2014 alone, the package was downloaded more than 5000 times from PyPI\footnote{\url{http://pypi.python.org/pypi/scikit-image}, Accessed 2014-03-30}.
 
-  The package currently contains the following sub-modules:
+  As of version 0.10, the package contains the following sub-modules:
 
   \begin{itemize}
 
@@ -18,7 +18,7 @@
     \item feature: Feature detection and extraction, e.g., texture analysis, corners, etc.
     \item filter: Sharpening, edge finding, rank filters, thresholding, etc.
     \item graph: Graph-theoretic operations, e.g., shortest paths.
-    \item io: Reading, saving, and displaying images and video.
+    \item io: Wraps various libraries for reading, saving, and displaying images and video, such as Pillow\footnote{\url{http://pillow.readthedocs.org/en/latest/}, Accessed 2015-05-30} and FreeImage\footnote{\url{http://freeimage.sourceforge.net/}, Accessed 2015-05-15}.
     \item measure: Measurement of image properties, e.g., similarity and contours.
     \item morphology: Morphological operations, e.g., opening or skeletonization.
     \item novice: Simplified interface for teaching purposes.
@@ -28,3 +28,6 @@
     \item viewer: A simple graphical user interface for visualizing results and exploring parameters.
 
   \end{itemize}
+
+  For further details on each module, we refer readers to the API documentation
+  online\footnote{\url{http://scikit-image.org/docs/dev/api/api.html}}.
