@@ -86,7 +86,8 @@ certainly add such corroborating evidence to the text.
 > for this paragraph, it seems awkwardly placed after the "Library Contents"
 > section title.
 
-(We don't disagree, but still feel that this is an appropriate location.)
+We have renamed the section to "library overview", which we think makes the
+location less awkward.
 
 > Page 6/18, line 92: "currently" should mention a specific version and perhaps
 > release date to avoid having the paper become outdated and confusing very
