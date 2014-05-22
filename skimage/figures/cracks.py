@@ -2,6 +2,12 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rc('font', size=9)
+matplotlib.rc('xtick', labelsize=7)
+matplotlib.rc('ytick', labelsize=7)
+
 import glob
 
 import skimage
