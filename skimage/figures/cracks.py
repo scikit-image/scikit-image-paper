@@ -10,7 +10,7 @@ matplotlib.rc('ytick', labelsize=7)
 
 import glob
 
-import skimage
+import skimage.io
 from skimage import filter
 from skimage.transform import hough_circle
 from skimage.feature import peak_local_max
@@ -19,7 +19,7 @@ from skimage.draw import circle_perimeter
 
 # Load the first picture and detect the drop edge
 image = skimage.io.imread('data/im00070.png', as_grey=True)
-edges = filter.canny(image, sigma=2.0,)
+edges = filter.canny(image, sigma=2.0)
 
 # Hough transform
 hough_radii = np.arange(400, 500, 5)
@@ -67,4 +67,4 @@ ax1.set_xticks([0, 90, 180, 270, 360])
 ax1.set_ylabel('Time')
 ax1.set_yticks([0, 100, 200])
 ax1.set_aspect(0.5)
-plt.savefig('spacetime.pdf', dpi=150)
+plt.savefig('fig_cracks.pdf', dpi=600)

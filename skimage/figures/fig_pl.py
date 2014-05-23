@@ -1,15 +1,19 @@
+import matplotlib
 from matplotlib import pyplot as plt
-from skimage import (io, color)
+from skimage import io, color
 
-fig, axes = plt.subplots(1, 3, figsize=(8, 3))
+
+matplotlib.rc('font', size=7)
+
+
+fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(6, 3))
 images = [io.imread('fig_pl%i.png' % i) for i in range(1, 4)]
-titles = ['normal photograph', 'photoluminescence', 'processed']
+titles = ['Normal photograph', 'Photoluminescence', 'Processed']
 
 for ax, im, ti in zip(axes, images, titles):
     ax.imshow(color.gray2rgb(im), interpolation='nearest')
-    ax.set_xticks([])
-    ax.set_yticks([])
+    ax.axis('off')
     ax.set_title(ti)
 
 plt.tight_layout()
-plt.savefig('fig_pl.png', bbox_inches='tight', dpi=600)
+plt.savefig('fig_pl.pdf', dpi=600)
