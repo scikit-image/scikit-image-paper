@@ -60,12 +60,12 @@ use in the educational sector.
 This is by design, because we do not wish for our paper to read like an
 instruction manual. We encourage interested readers to visit our online
 documentation for details on each module, and have added a suitable reference
-to this section (line XXX).
+to this section (lines 111-112).
 
 > The matplotlib paper should be cited at least once
 
-This has been added (line XXX). We have also added citations to SciPy (line
-XXX).
+This has been added (line 66). We have also added citations to SciPy (Figure 3
+caption).
 
 > The authors mention "the rising popularity of Python as a scientific
 > programming language". I wonder whether they have some data for this claim.
@@ -93,7 +93,7 @@ location less awkward.
 > release date to avoid having the paper become outdated and confusing very
 > fast.
 
-We have added a version number and date to this sentence (line XXX).
+We have added a version number and date to this sentence (line 92).
 
 > Page 7/18, line 146: I would prefer if "universal interoperability" was
 > rephrased to just "interoperability"
@@ -106,7 +106,7 @@ As mentioned in our responses to Reviewer 1, we have changed this wording to
 > order.
 
 We have added some explanatory sentences and a link to the GitHub pull request
-help page (Lines XXX).
+help page (lines 154-159).
 
 > page 8/18, lines 168-173: I found it odd that the Wikipedia "Software
 > Version" article was referenced here. I do not understand what claim it is
@@ -119,12 +119,12 @@ practices such as semantic versioning.)
 
 We have updated our deprecation schedule in response to this comment. From
 version 0.10 onwards, we will maintain deprecation warnings over two minor
-versions. We have changed the text to reflect this (line XXX).
+versions. We have changed the text to reflect this (lines 176-177).
 
 > scikit-image only wraps IO operations from other packages. This fact should
 > be stated explicitly
 
-This is now done (line XXX).
+This is now done (lines 100-101).
 
 > page 16/18. I am sure that the authors could provide some data for the claim
 > that their package "has seen significant growth in both adoption and
@@ -140,9 +140,10 @@ These have been fixed.
 
 ## Additional differences
 
-In addition to the changes requested by the reviewers, we have added an
-entirely new section devoted to comparing other prominent packages for image
-analysis (lines XXX-YYY).
+In addition to the changes requested by the reviewers, we have added two
+entirely new sections: one devoted to comparing other prominent packages for
+image analysis (lines 309-358) and one briefly outlining the current roadmap
+for the library (lines 360-376).
 
 ## References
 
