@@ -86,3 +86,4 @@ for region in regionprops(label_image):
     ax5.add_patch(rect)
 
 plt.savefig('getting_started.eps', dpi=600)
+plt.savefig('getting_started.png', dpi=600)
