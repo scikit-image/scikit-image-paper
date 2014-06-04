@@ -50,5 +50,5 @@ axes[2].set_xticks(np.arange(200, 1100, 400))
 axes[2].set_title('(c) Intensity profile')
 
 plt.tight_layout()
-plt.savefig('fig-lesion.eps', dpi=600)
-plt.savefig('fig-lesion.png', dpi=600)
+plt.savefig('fig-lesion.eps', dpi=600, bbox_inches='tight')
+plt.savefig('fig-lesion.png', dpi=600, bbox_inches='tight')

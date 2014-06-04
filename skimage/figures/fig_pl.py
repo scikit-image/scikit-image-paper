@@ -16,5 +16,5 @@ for ax, im, ti in zip(axes, images, titles):
     ax.set_title(ti)
 
 plt.tight_layout()
-plt.savefig('fig_pl.eps', dpi=600)
-plt.savefig('fig_pl.png', dpi=600)
+plt.savefig('fig_pl.eps', dpi=600, bbox_inches='tight')
+plt.savefig('fig_pl.png', dpi=600, bbox_inches='tight')
