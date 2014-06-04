@@ -32,13 +32,13 @@ fig, axes = plt.subplots(ncols=3, nrows=1, figsize=(7, 2.5))
 
 axes[0].imshow(img, interpolation='nearest')
 axes[0].axis('off')
-axes[0].set_title('Original image')
+axes[0].set_title('(a) Original image')
 
 axes[1].imshow(1 - overlay, interpolation='nearest', cmap=cm.gray)
 prof = profile_line(im, (0, top_mode), (im.shape[1] - 1, bottom_mode),
                     linewidth=(top_width + bottom_width) / 2, mode='reflect')
 axes[1].axis('off')
-axes[1].set_title('Measured overlay')
+axes[1].set_title('(b) Measured overlay')
 
 axes[2].plot(prof, lw=2, c='k')
 axes[2].set_ylabel('Mean intensity', fontsize=8)
@@ -47,7 +47,8 @@ axes[2].set_ylim(0, 2000)
 axes[2].set_xlim(0, 1100)
 axes[2].set_yticks(np.arange(200, 2000, 400))
 axes[2].set_xticks(np.arange(200, 1100, 400))
-axes[2].set_title('Intensity profile')
+axes[2].set_title('(c) Intensity profile')
 
 plt.tight_layout()
-plt.savefig('fig-lesion.pdf', dpi=600)
+plt.savefig('fig-lesion.eps', dpi=600, bbox_inches='tight')
+plt.savefig('fig-lesion.png', dpi=600, bbox_inches='tight')

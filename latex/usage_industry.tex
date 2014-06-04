@@ -13,9 +13,9 @@
 
     \begin{figure*}[bht]
 
-      \includegraphics[width=\columnwidth]{fig_pl.pdf}
+      \includegraphics[width=\columnwidth]{fig_pl.png}
 
-      \caption{\textit{Left}: An image of an as-cut silicon wafer before it has been processed into a solar cell. \textit{Center}: A PL image of the same wafer. Wafer defects, which have a negative impact solar cell efficiency, are visible as dark regions. \textit{Right}: Image processing results. Defects in the crystal growth (dislocations) are colored blue, while red indicates the presence of impurities. \label{fig:PL}}
+      \caption{(a): An image of an as-cut silicon wafer before it has been processed into a solar cell. (b): A PL image of the same wafer. Wafer defects, which have a negative impact solar cell efficiency, are visible as dark regions. (c): Image processing results. Defects in the crystal growth (dislocations) are colored blue, while red indicates the presence of impurities. \label{fig:PL}}
     \end{figure*}
 
     scikit-image is also applied in a commercial setting for biometric security applications. AICBT Ltd uses multispectral imaging to detect when a person attempts to conceal their identity using a facial mask\footnote{\url{http://www.aicbt.com/disguise-detection}, Accessed 2014-03-30}. scikit-image performs file I/O (\texttt{io.imread}), histogram equalization (\texttt{exposure.equalize\_hist}), and aligns a visible wavelength image with a thermal image (\texttt{transform.AffineTransform}). The system determines the surface temperature of a subject's skin and detects situations where the face is being obscured.

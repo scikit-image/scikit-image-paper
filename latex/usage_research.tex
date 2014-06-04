@@ -12,7 +12,7 @@
     First, we consider the analysis of a large stack of images, each representing drying droplets containing nanoparticles (see Figure~\ref{fig:cracks}). As the drying proceeds, cracks propagate from the edge of the drop to its center. The aim is to understand crack patterns by collecting statistical information about their positions, as well as their time and order of appearance. To improve the speed at which data is processed, each experiment, constituting an image stack, is automatically analysed without human intervention. The contact line is detected by a circular Hough transform (\texttt{transform.hough\_circle}) providing the drop radius and its center. Then, a smaller concentric circle is drawn (\texttt{draw.circle\_perimeter}) and used as a mask to extract intensity values from the image. Repeating the process on each image in the stack, collected pixels can be assembled to make a space-time diagram. As a result, a complex stack of images is reduced to a single image summarizing the underlying dynamic process.
 
     \begin{figure}[bht]
-      \includegraphics[width=\columnwidth]{fig_cracks}
+      \includegraphics[width=\columnwidth]{fig_cracks.png}
 
       \caption{scikit-image is used to track the propagation of cracks (black lines) in a drying colloidal droplet. The sequence of pictures shows the temporal evolution of the system with the drop contact line, in green, detected by the Hough transform and the circle, in white, used to extract an annulus of pixel intensities.  The result shown illustrates the angular position of cracks and their time of appearance. \label{fig:cracks}}
     \end{figure}
@@ -23,7 +23,7 @@
 
     \begin{figure*}[bht]
 
-      \includegraphics[width=\columnwidth]{fig-lesion.pdf}
+      \includegraphics[width=\columnwidth]{fig-lesion.png}
 
-      \caption{The \texttt{measure.profile\_line} function being used to track recovery in spinal cord injuries. \textit{Left}: an image of fluorescently-labeled nerve cells in an injured zebrafish embryo. \textit{Middle}: the automatically determined region of interest. The SciPy library was used to determine the region extent \citep{scipy,scipylib}, and functions from the scikit-image \texttt{draw} module were used to draw it. \textit{Right}: the image intensity along the line of interest, averaged over the displayed width. \label{fig:profile}}
+      \caption{The \texttt{measure.profile\_line} function being used to track recovery in spinal cord injuries. (a): an image of fluorescently-labeled nerve cells in an injured zebrafish embryo. (b): the automatically determined region of interest. The SciPy library was used to determine the region extent \citep{scipy,scipylib}, and functions from the scikit-image \texttt{draw} module were used to draw it. (c): the image intensity along the line of interest, averaged over the displayed width. \label{fig:profile}}
     \end{figure*}

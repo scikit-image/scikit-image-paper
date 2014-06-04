@@ -17,7 +17,7 @@
       ic = io.ImageCollection('data/*')
     \end{pyverbatim}
 
-    Figure~\ref{fig:petra} shows the Petra dataset, which displays the same facade from two different angles. For this demonstration, we will estimate a projective transformation that relates the two images. Since the outer parts of these photographs do not comform well to such a model, we select only the central parts. To further speed up the demonstration, images are downscaled to 25\% of their original size.
+    Figure~\ref{fig:pano}(a) shows the Petra dataset, which displays the same facade from two different angles. For this demonstration, we will estimate a projective transformation that relates the two images. Since the outer parts of these photographs do not comform well to such a model, we select only the central parts. To further speed up the demonstration, images are downscaled to 25\% of their original size.
 
     \begin{pyverbatim}
       from skimage.color import rgb2gray
@@ -33,7 +33,7 @@
   \subsection{Feature detection and matching}
     \label{sub:feature_detection_and_matching}
 
-    ``Oriented FAST and rotated BRIEF'' (ORB) features \citep{ORB} are detected in both images. Each feature yields a binary descriptor; those are used to find the putative matches shown in Figure~\ref{fig:putativematches}.
+    ``Oriented FAST and rotated BRIEF'' (ORB) features \citep{ORB} are detected in both images. Each feature yields a binary descriptor; those are used to find the putative matches shown in Figure~\ref{fig:pano}(b).
 
     \begin{pyverbatim}
       from skimage.feature import ORB, match_descriptors
@@ -56,7 +56,7 @@
   \subsection{Transform estimation}
     \label{sub:transform_estimation}
 
-    To filter the matches, we apply RANdom SAmple Consensus (RANSAC) \citep{ransac}, a common method for outlier rejection. This iterative process estimates transformation models based on randomly chosen subsets of matches, finally selecting the model which corresponds best with the majority of matches. The new matches are shown in Figure~\ref{fig:matchesfiltered}.
+    To filter the matches, we apply RANdom SAmple Consensus (RANSAC) \citep{ransac}, a common method for outlier rejection. This iterative process estimates transformation models based on randomly chosen subsets of matches, finally selecting the model which corresponds best with the majority of matches. The new matches are shown in Figure~\ref{fig:pano}(c).
 
     \begin{pyverbatim}
       from skimage.measure import ransac
@@ -148,7 +148,7 @@
       merged /= np.maximum(alpha, 1)[..., np.newaxis]
     \end{pyverbatim}
 
-    The merged image is shown in Figure~\ref{fig:merged}. Note that, while the columns are well aligned, the color intensities at the boundaries are not well matched.
+    The merged image is shown in Figure~\ref{fig:pano}(d). Note that, while the columns are well aligned, the color intensities at the boundaries are not well matched.
 
   % Combine multiple pano sub-figures elegantly with LaTeX
   \input{pano_multifig}
@@ -156,4 +156,4 @@
   \subsection{Blending}
     \label{sub:blending}
 
-    To blend images smoothly we make use of the open source package Enblend \citep{Enblend}, which in turn employs multi-resolution splines and Laplacian pyramids \citep{burt_adelson_0,burt_adelson_1}. The final panorama is shown in Figure~\ref{fig:pano}.
+    To blend images smoothly we make use of the open source package Enblend \citep{Enblend}, which in turn employs multi-resolution splines and Laplacian pyramids \citep{burt_adelson_0,burt_adelson_1}. The final panorama is shown in Figure~\ref{fig:pano}(e).
